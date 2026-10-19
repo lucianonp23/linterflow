@@ -1,0 +1,196 @@
+{
+  "generatedAt": "2026-09-02T10-06-44-918Z",
+  "mode": "comparison",
+  "before": {
+    "directory": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/corpus",
+    "filesScanned": 60,
+    "totalLines": 19986,
+    "clonePairs": 8,
+    "duplicatedLines": 168,
+    "duplicationRate": 0.841,
+    "worstFiles": [
+      {
+        "file": "dto_high_3.ts",
+        "duplicatedLines": 32,
+        "totalLines": 644,
+        "rate": 4.969
+      },
+      {
+        "file": "repository_high_2.ts",
+        "duplicatedLines": 28,
+        "totalLines": 889,
+        "rate": 3.15
+      },
+      {
+        "file": "controller_medium_2.ts",
+        "duplicatedLines": 26,
+        "totalLines": 179,
+        "rate": 14.525
+      },
+      {
+        "file": "repository_medium_3.ts",
+        "duplicatedLines": 22,
+        "totalLines": 255,
+        "rate": 8.627
+      },
+      {
+        "file": "service_high_2.ts",
+        "duplicatedLines": 18,
+        "totalLines": 909,
+        "rate": 1.98
+      },
+      {
+        "file": "repository_medium_4.ts",
+        "duplicatedLines": 16,
+        "totalLines": 237,
+        "rate": 6.751
+      },
+      {
+        "file": "controller_high_1.ts",
+        "duplicatedLines": 16,
+        "totalLines": 675,
+        "rate": 2.37
+      },
+      {
+        "file": "dto_high_1.ts",
+        "duplicatedLines": 10,
+        "totalLines": 996,
+        "rate": 1.004
+      }
+    ],
+    "topFilePairs": [
+      {
+        "files": [
+          "repository_high_2.ts",
+          "repository_high_2.ts"
+        ],
+        "clones": 1,
+        "lines": 14
+      },
+      {
+        "files": [
+          "controller_medium_2.ts",
+          "controller_medium_2.ts"
+        ],
+        "clones": 1,
+        "lines": 13
+      },
+      {
+        "files": [
+          "repository_medium_3.ts",
+          "repository_medium_3.ts"
+        ],
+        "clones": 1,
+        "lines": 11
+      },
+      {
+        "files": [
+          "dto_high_3.ts",
+          "dto_high_3.ts"
+        ],
+        "clones": 1,
+        "lines": 11
+      },
+      {
+        "files": [
+          "dto_high_1.ts",
+          "dto_high_3.ts"
+        ],
+        "clones": 1,
+        "lines": 10
+      },
+      {
+        "files": [
+          "service_high_2.ts",
+          "service_high_2.ts"
+        ],
+        "clones": 1,
+        "lines": 9
+      },
+      {
+        "files": [
+          "repository_medium_4.ts",
+          "repository_medium_4.ts"
+        ],
+        "clones": 1,
+        "lines": 8
+      },
+      {
+        "files": [
+          "controller_high_1.ts",
+          "controller_high_1.ts"
+        ],
+        "clones": 1,
+        "lines": 8
+      }
+    ],
+    "thresholds": {
+      "minLines": 5,
+      "minTokens": 50
+    }
+  },
+  "after": {
+    "directory": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/corpus-run",
+    "filesScanned": 60,
+    "totalLines": 21544,
+    "clonePairs": 3,
+    "duplicatedLines": 60,
+    "duplicationRate": 0.278,
+    "worstFiles": [
+      {
+        "file": "service_high_1.ts",
+        "duplicatedLines": 22,
+        "totalLines": 996,
+        "rate": 2.209
+      },
+      {
+        "file": "service_high_2.ts",
+        "duplicatedLines": 18,
+        "totalLines": 947,
+        "rate": 1.901
+      },
+      {
+        "file": "dto_high_1.ts",
+        "duplicatedLines": 10,
+        "totalLines": 903,
+        "rate": 1.107
+      },
+      {
+        "file": "dto_high_3.ts",
+        "duplicatedLines": 10,
+        "totalLines": 656,
+        "rate": 1.524
+      }
+    ],
+    "topFilePairs": [
+      {
+        "files": [
+          "service_high_1.ts",
+          "service_high_1.ts"
+        ],
+        "clones": 1,
+        "lines": 11
+      },
+      {
+        "files": [
+          "dto_high_1.ts",
+          "dto_high_3.ts"
+        ],
+        "clones": 1,
+        "lines": 10
+      },
+      {
+        "files": [
+          "service_high_2.ts",
+          "service_high_2.ts"
+        ],
+        "clones": 1,
+        "lines": 9
+      }
+    ],
+    "thresholds": {
+      "minLines": 5,
+      "minTokens": 50
+    }
+  }
+}

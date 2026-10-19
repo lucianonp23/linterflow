@@ -1,0 +1,10 @@
+{
+ "subject": "repository_high_4",
+ "arm": "corpus",
+ "cases": 5000,
+ "identical": 5000,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

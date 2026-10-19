@@ -1,0 +1,10 @@
+{
+ "subject": "repository_medium_3",
+ "arm": "corpus",
+ "cases": 600,
+ "identical": 600,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

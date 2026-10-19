@@ -1,0 +1,10 @@
+{
+ "subject": "middleware_high_3",
+ "arm": "corpus",
+ "cases": 2213,
+ "identical": 2213,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

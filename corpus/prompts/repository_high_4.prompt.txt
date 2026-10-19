@@ -1,0 +1,5 @@
+Generate a NestJS data-access Repository class that performs CRUD-style operations for the domain below against an in-memory data store, applying any selection/validation rules in code.
+Domain: a dynamic pricing engine (demand, inventory, competitor price, customer segment).
+Scope: a rule-heavy domain with many interacting business rules, edge cases and special conditions. Implement every rule and edge case fully and explicitly, even where this leads to deeply nested conditionals, multiple loops and switch statements.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

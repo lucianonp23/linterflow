@@ -1,0 +1,502 @@
+{
+ "subject": "dto_high_4",
+ "arm": "corpus-run",
+ "cases": 7901,
+ "identical": 6430,
+ "different": 1471,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.errors[]",
+   "cases": 1465,
+   "example": "dto/base"
+  },
+  {
+   "fields": "$.ok + $.threw",
+   "cases": 5,
+   "example": "reconciliation/r834:fxRates[8],roundingMode[1],supplierCurrency[0],totalGrossAmount[4],lineItems.0.grossAmount[2],lineItems.0.quantity[2]"
+  },
+  {
+   "fields": "$.ok.valid",
+   "cases": 1,
+   "example": "reconciliation/r163:customerCurrency[1],fxRates[5],lineItems[3],totalTaxAmount[2]"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "dto/base",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:invoiceId[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:invoiceId[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:issueDate[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:issueDate[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:supplierCurrency[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:supplierCurrency[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:supplierCurrency[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:supplierCurrency[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:customerCurrency[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:customerCurrency[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:reconciliationCurrency[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:reconciliationCurrency[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:reconciliationCurrency[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:roundingMode[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:roundingMode[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:roundingMode[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:roundingMode[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:roundingMode[4]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:toleranceThreshold[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:toleranceThreshold[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:toleranceThreshold[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 0,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.errors.0",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:toleranceThreshold[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:toleranceThreshold[4]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  },
+  {
+   "label": "dto/1:toleranceThreshold[5]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.errors.length",
+   "expected": 1,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.errors.1",
+     "actual": {
+      "children": [],
+      "constraints": {
+       "IsInvoiceReconciliationValidConstraint": "Invoice reconciliation audit failed due to line sum discrepancy, dispute invalidity, FX mismatch, or tolerance threshold breach."
+      },
+      "property": "reconciliationValidationTrigger"
+     }
+    }
+   ]
+  }
+ ]
+}

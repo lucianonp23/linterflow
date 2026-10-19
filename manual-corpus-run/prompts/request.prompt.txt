@@ -1,0 +1,5 @@
+Build me a complete social network app.
+
+People should be able to create an account, publish short posts, follow each other, and comment on posts. Everyone gets a timeline with the posts from the people they follow.
+
+Make it a working backend API in TypeScript using NestJS.

@@ -1,0 +1,161 @@
+====================================================================
+LinterFlow — Statistical Analysis
+Report: corpus-retry/linterflow-report-2026-08-22T12-08-13-654Z.json
+Files analysed: 5
+alpha = 0.05
+====================================================================
+
+====================================================================
+ALL FILES
+====================================================================
+
+=== CC violations — functions over the threshold (lower is better) ===
+  n = 5
+  mean pre  = 3.200
+  mean post = 0.000
+  mean delta = -3.200
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = -1.000  (large)
+  Verdict    => no significant change
+
+=== Max CC per function — the gate (lower is better) ===
+  n = 5
+  mean pre  = 54.800
+  mean post = 8.600
+  mean delta = -46.200
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = -1.000  (large)
+  Verdict    => no significant change
+
+=== Total CC across the file (lower is better) ===
+  n = 5
+  mean pre  = 123.600
+  mean post = 133.400
+  mean delta = +9.800
+  Wilcoxon W = 1.000
+  p-value    = 0.12500  (not significant at alpha=0.05)
+  Cliff's d  = +0.200  (small)
+  Verdict    => no significant change
+
+=== Decision points — total CC minus the per-function floor (lower is better) ===
+  n = 5
+  mean pre  = 105.000
+  mean post = 82.400
+  mean delta = -22.600
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = -0.760  (large)
+  Verdict    => no significant change
+
+=== Maintainability Index (higher is better) ===
+  n = 5
+  mean pre  = 71.672
+  mean post = 92.067
+  mean delta = +20.396
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = +0.760  (large)
+  Verdict    => no significant change
+
+=== Duplication Rate % (lower is better) ===
+  n = 5
+  mean pre  = 0.000
+  mean post = 0.000
+  mean delta = +0.000
+  Wilcoxon: skipped (all differences are zero — no change).
+
+  NOTE: in 4 file(s) the worst function got simpler while the file's
+        TOTAL complexity did not fall — branching was relocated, not removed.
+
+  DECOMPOSITION BUDGET
+    functions          93 -> 255  (+162)
+    total CC           618 -> 667  (+49)
+    structural cost    +162  (+1 per new function, by construction)
+    branching removed  +113  (structural cost minus observed rise)
+    => the total rose by +49 while the branching behind it fell by
+       113. The rise is the price of decomposition, not new complexity.
+
+====================================================================
+TIER: HIGH  (n = 5)
+====================================================================
+
+=== CC violations — functions over the threshold (lower is better) ===
+  n = 5
+  mean pre  = 3.200
+  mean post = 0.000
+  mean delta = -3.200
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = -1.000  (large)
+  Verdict    => no significant change
+
+=== Max CC per function — the gate (lower is better) ===
+  n = 5
+  mean pre  = 54.800
+  mean post = 8.600
+  mean delta = -46.200
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = -1.000  (large)
+  Verdict    => no significant change
+
+=== Total CC across the file (lower is better) ===
+  n = 5
+  mean pre  = 123.600
+  mean post = 133.400
+  mean delta = +9.800
+  Wilcoxon W = 1.000
+  p-value    = 0.12500  (not significant at alpha=0.05)
+  Cliff's d  = +0.200  (small)
+  Verdict    => no significant change
+
+=== Decision points — total CC minus the per-function floor (lower is better) ===
+  n = 5
+  mean pre  = 105.000
+  mean post = 82.400
+  mean delta = -22.600
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = -0.760  (large)
+  Verdict    => no significant change
+
+=== Maintainability Index (higher is better) ===
+  n = 5
+  mean pre  = 71.672
+  mean post = 92.067
+  mean delta = +20.396
+  Wilcoxon W = 0.000
+  p-value    = 0.06250  (not significant at alpha=0.05)
+  Cliff's d  = +0.760  (large)
+  Verdict    => no significant change
+
+=== Duplication Rate % (lower is better) ===
+  n = 5
+  mean pre  = 0.000
+  mean post = 0.000
+  mean delta = +0.000
+  Wilcoxon: skipped (all differences are zero — no change).
+
+  NOTE: in 4 file(s) the worst function got simpler while the file's
+        TOTAL complexity did not fall — branching was relocated, not removed.
+
+  DECOMPOSITION BUDGET
+    functions          93 -> 255  (+162)
+    total CC           618 -> 667  (+49)
+    structural cost    +162  (+1 per new function, by construction)
+    branching removed  +113  (structural cost minus observed rise)
+    => the total rose by +49 while the branching behind it fell by
+       113. The rise is the price of decomposition, not new complexity.
+
+====================================================================
+READING THE TIER BLOCKS
+====================================================================
+  A tier where every difference is zero means no file breached a threshold,
+  so the pipeline never called the LLM. That is the control condition — it
+  shows the loop leaves healthy code untouched — not a failed treatment.
+  Wilcoxon discards zero differences, so the effective n of the global test
+  is the number of files that were actually treated, not the file count.
+
+Done.

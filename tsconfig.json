@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolvePackageJsonExports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2023",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    // Experiment data, not application code. These files are LLM-generated on
+    // purpose and are expected to contain type errors — that is the phenomenon
+    // under study. Compiling them would break `nest build` for reasons that
+    // have nothing to do with the application.
+    //
+    // Matched by PREFIX, not by exact name: run folders get named ad hoc
+    // (corpus-run, corpus-retry, manual-corpus-run…) and an exact list goes
+    // stale the first time someone copies a corpus somewhere new.
+    "corpus*",
+    "manual-corpus*",
+    "manual-run*",
+    "temp",
+    // Behavioural-preservation suite: own Jest config, includes corpus copies.
+    "behaviour"
+  ]
+}

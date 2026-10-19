@@ -1,0 +1,1382 @@
+{
+ "subject": "repository_high_4",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 5000,
+ "identical": 4374,
+ "different": 626,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore",
+   "cases": 443,
+   "example": "scenario-3"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore + $.ok[].ok[].delta + $.ok[].ok[].priceAfter + $.ok[].ok[].priceBefore",
+   "cases": 74,
+   "example": "scenario-20"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore + $.ok[].ok.finalPrice + $.ok[].ok.marginAchievedPercent + $.ok[].ok.totalPrice",
+   "cases": 60,
+   "example": "scenario-149"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.finalPrice + $.ok[].ok.marginAchievedPercent + $.ok[].ok.totalPrice + $.ok[].ok.unitPrice",
+   "cases": 25,
+   "example": "scenario-125"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[] + $.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.flags.isCeilingTriggered",
+   "cases": 9,
+   "example": "scenario-7"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[] + $.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore + $.ok[].ok.finalPrice + $.ok[].ok.flags.isCeilingTriggered",
+   "cases": 5,
+   "example": "scenario-1117"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[] + $.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.finalPrice + $.ok[].ok.flags.isCeilingTriggered + $.ok[].ok.marginAchievedPercent",
+   "cases": 4,
+   "example": "scenario-1075"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[] + $.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore + $.ok[].ok.flags.isCeilingTriggered",
+   "cases": 3,
+   "example": "scenario-2378"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].description + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore + $.ok[].ok.appliedAdjustments[].source + $.ok[].ok.finalPrice",
+   "cases": 1,
+   "example": "scenario-1105"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore + $.ok[].ok[].delta + $.ok[].ok[].priceAfter",
+   "cases": 1,
+   "example": "scenario-1423"
+  },
+  {
+   "fields": "$.ok[].ok.appliedAdjustments[] + $.ok[].ok.appliedAdjustments[].delta + $.ok[].ok.appliedAdjustments[].priceAfter + $.ok[].ok.appliedAdjustments[].priceBefore + $.ok[].ok.finalPrice + $.ok[].ok.flags.isFloorTriggered",
+   "cases": 1,
+   "example": "scenario-4830"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "scenario-3",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.1.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.delta",
+     "expected": -131,
+     "actual": -125
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.delta",
+     "expected": -7.800000000000011,
+     "actual": -7.5
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.priceAfter",
+     "expected": 148.2,
+     "actual": 142.5
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.2.delta",
+     "expected": -123.19999999999999,
+     "actual": -117.5
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.2.priceBefore",
+     "expected": 148.2,
+     "actual": 142.5
+    }
+   ]
+  },
+  {
+   "label": "scenario-7",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.1.ok.appliedAdjustments.length",
+   "expected": 2,
+   "actual": 1,
+   "differences": [
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1",
+     "expected": {
+      "delta": -6,
+      "description": "Price adjusted down to maximum allowed ceiling",
+      "priceAfter": 150,
+      "priceBefore": 156,
+      "source": "MARGIN_PROTECTION_CEILING"
+     }
+    },
+    {
+     "path": "$.ok.1.ok.flags.isCeilingTriggered",
+     "expected": true,
+     "actual": false
+    }
+   ]
+  },
+  {
+   "label": "scenario-12",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.2.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.delta",
+     "expected": 12.480000000000018,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceAfter",
+     "expected": 168.48000000000002,
+     "actual": 162
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.2.delta",
+     "expected": -118.48000000000002,
+     "actual": -112
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.2.priceBefore",
+     "expected": 168.48000000000002,
+     "actual": 162
+    }
+   ]
+  },
+  {
+   "label": "scenario-20",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.ok.0.delta",
+   "expected": 15,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.11.ok.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.11.ok.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.11.ok.1.delta",
+     "expected": -15.994999999999997,
+     "actual": -13.494999999999997
+    },
+    {
+     "path": "$.ok.11.ok.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.9.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.9.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.9.ok.appliedAdjustments.1.delta",
+     "expected": -15.994999999999997,
+     "actual": -13.494999999999997
+    },
+    {
+     "path": "$.ok.9.ok.appliedAdjustments.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    }
+   ]
+  },
+  {
+   "label": "scenario-33",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.4.ok.appliedAdjustments.0.delta",
+   "expected": 299.70000000000005,
+   "actual": 249.75,
+   "differences": [
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.delta",
+     "expected": 299.70000000000005,
+     "actual": 249.75
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.priceAfter",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.delta",
+     "expected": -1273.7,
+     "actual": -1223.75
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceBefore",
+     "expected": 1298.7,
+     "actual": 1248.75
+    }
+   ]
+  },
+  {
+   "label": "scenario-44",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.ok.appliedAdjustments.0.delta",
+   "expected": 5.969999999999999,
+   "actual": 4.975000000000001,
+   "differences": [
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.0.priceAfter",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.1.delta",
+     "expected": -1.2935000000000016,
+     "actual": -1.2437500000000021
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.1.priceAfter",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.1.priceBefore",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.2.delta",
+     "expected": -12.076499999999996,
+     "actual": -11.131249999999998
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.2.priceBefore",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.0.priceAfter",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.delta",
+     "expected": -1.2935000000000016,
+     "actual": -1.2437500000000021
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.priceAfter",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.priceBefore",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    }
+   ]
+  },
+  {
+   "label": "scenario-56",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.8.ok.appliedAdjustments.0.delta",
+   "expected": 299.70000000000005,
+   "actual": 249.75,
+   "differences": [
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.0.delta",
+     "expected": 299.70000000000005,
+     "actual": 249.75
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.0.priceAfter",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.delta",
+     "expected": -1214.7,
+     "actual": -1164.75
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.priceBefore",
+     "expected": 1298.7,
+     "actual": 1248.75
+    }
+   ]
+  },
+  {
+   "label": "scenario-73",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.12.ok.appliedAdjustments.0.delta",
+   "expected": 5.969999999999999,
+   "actual": 4.975000000000001,
+   "differences": [
+    {
+     "path": "$.ok.12.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    },
+    {
+     "path": "$.ok.12.ok.appliedAdjustments.0.priceAfter",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.12.ok.appliedAdjustments.1.delta",
+     "expected": -1.2935000000000016,
+     "actual": -1.2437500000000021
+    },
+    {
+     "path": "$.ok.12.ok.appliedAdjustments.1.priceAfter",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.12.ok.appliedAdjustments.1.priceBefore",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.12.ok.appliedAdjustments.2.delta",
+     "expected": -10.576499999999996,
+     "actual": -9.631249999999998
+    },
+    {
+     "path": "$.ok.12.ok.appliedAdjustments.2.priceBefore",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.0.priceAfter",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.delta",
+     "expected": -1.2935000000000016,
+     "actual": -1.2437500000000021
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.priceAfter",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.priceBefore",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    }
+   ]
+  },
+  {
+   "label": "scenario-92",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.3.ok.appliedAdjustments.0.delta",
+   "expected": 15,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.3.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.3.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.3.ok.appliedAdjustments.1.delta",
+     "expected": -40,
+     "actual": -37.5
+    },
+    {
+     "path": "$.ok.3.ok.appliedAdjustments.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    }
+   ]
+  },
+  {
+   "label": "scenario-94",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.2.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.delta",
+     "expected": -131,
+     "actual": -125
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    }
+   ]
+  },
+  {
+   "label": "scenario-99",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.13.ok.appliedAdjustments.0.delta",
+   "expected": 299.70000000000005,
+   "actual": 249.75,
+   "differences": [
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.0.delta",
+     "expected": 299.70000000000005,
+     "actual": 249.75
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.0.priceAfter",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.1.delta",
+     "expected": 103.89600000000019,
+     "actual": 99.90000000000009
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.1.priceAfter",
+     "expected": 1402.5960000000002,
+     "actual": 1348.65
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.1.priceBefore",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.2.delta",
+     "expected": -70.12980000000016,
+     "actual": -67.43250000000012
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.2.priceAfter",
+     "expected": 1332.4662,
+     "actual": 1281.2175
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.2.priceBefore",
+     "expected": 1402.5960000000002,
+     "actual": 1348.65
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.3.delta",
+     "expected": -1272.4662,
+     "actual": -1221.2175
+    },
+    {
+     "path": "$.ok.13.ok.appliedAdjustments.3.priceBefore",
+     "expected": 1332.4662,
+     "actual": 1281.2175
+    },
+    {
+     "path": "$.ok.14.ok.appliedAdjustments.0.delta",
+     "expected": 299.70000000000005,
+     "actual": 249.75
+    },
+    {
+     "path": "$.ok.14.ok.appliedAdjustments.0.priceAfter",
+     "expected": 1298.7,
+     "actual": 1248.75
+    }
+   ]
+  },
+  {
+   "label": "scenario-109",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.2.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.delta",
+     "expected": -121.35,
+     "actual": -115.35
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.delta",
+     "expected": -121.35,
+     "actual": -115.35
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    }
+   ]
+  },
+  {
+   "label": "scenario-116",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.16.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.16.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.16.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.16.ok.appliedAdjustments.1.delta",
+     "expected": -15.600000000000023,
+     "actual": -15
+    },
+    {
+     "path": "$.ok.16.ok.appliedAdjustments.1.priceAfter",
+     "expected": 140.39999999999998,
+     "actual": 135
+    },
+    {
+     "path": "$.ok.16.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.16.ok.appliedAdjustments.2.delta",
+     "expected": -80.39999999999998,
+     "actual": -75
+    },
+    {
+     "path": "$.ok.16.ok.appliedAdjustments.2.priceBefore",
+     "expected": 140.39999999999998,
+     "actual": 135
+    },
+    {
+     "path": "$.ok.6.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.6.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.6.ok.appliedAdjustments.1.delta",
+     "expected": -96,
+     "actual": -90
+    },
+    {
+     "path": "$.ok.6.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.9.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    }
+   ]
+  },
+  {
+   "label": "scenario-125",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.2.ok.appliedAdjustments.0.delta",
+   "expected": 5.969999999999999,
+   "actual": 4.975000000000001,
+   "differences": [
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.priceAfter",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.2.ok.finalPrice",
+     "expected": 25.87,
+     "actual": 24.88
+    },
+    {
+     "path": "$.ok.2.ok.marginAchievedPercent",
+     "expected": 417.40000000000003,
+     "actual": 397.6
+    },
+    {
+     "path": "$.ok.2.ok.totalPrice",
+     "expected": 77.61,
+     "actual": 74.64
+    },
+    {
+     "path": "$.ok.2.ok.unitPrice",
+     "expected": 25.87,
+     "actual": 24.88
+    }
+   ]
+  },
+  {
+   "label": "scenario-135",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.1.ok.appliedAdjustments.0.delta",
+   "expected": 299.70000000000005,
+   "actual": 249.75,
+   "differences": [
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.delta",
+     "expected": 299.70000000000005,
+     "actual": 249.75
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.priceAfter",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.delta",
+     "expected": -1273.7,
+     "actual": -1223.75
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.priceBefore",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.delta",
+     "expected": 299.70000000000005,
+     "actual": 249.75
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.priceAfter",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.delta",
+     "expected": -1273.7,
+     "actual": -1223.75
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.priceBefore",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.0.delta",
+     "expected": 299.70000000000005,
+     "actual": 249.75
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.0.priceAfter",
+     "expected": 1298.7,
+     "actual": 1248.75
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.delta",
+     "expected": -64.93500000000017,
+     "actual": -62.4375
+    },
+    {
+     "path": "$.ok.7.ok.appliedAdjustments.1.priceAfter",
+     "expected": 1233.7649999999999,
+     "actual": 1186.3125
+    }
+   ]
+  },
+  {
+   "label": "scenario-149",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.ok.appliedAdjustments.0.delta",
+   "expected": 15,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.1.delta",
+     "expected": 5.200000000000003,
+     "actual": 5
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.1.priceAfter",
+     "expected": 70.2,
+     "actual": 67.5
+    },
+    {
+     "path": "$.ok.11.ok.appliedAdjustments.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.11.ok.finalPrice",
+     "expected": 70,
+     "actual": 67
+    },
+    {
+     "path": "$.ok.11.ok.marginAchievedPercent",
+     "expected": 133.33333333333331,
+     "actual": 123.33333333333334
+    },
+    {
+     "path": "$.ok.11.ok.totalPrice",
+     "expected": 3500,
+     "actual": 3350
+    },
+    {
+     "path": "$.ok.11.ok.unitPrice",
+     "expected": 70,
+     "actual": 67
+    }
+   ]
+  },
+  {
+   "label": "scenario-168",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.4.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.delta",
+     "expected": -15.599999999999994,
+     "actual": -15
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceAfter",
+     "expected": 140.4,
+     "actual": 135
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.2.delta",
+     "expected": 11.232,
+     "actual": 10.800000000000011
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.2.priceAfter",
+     "expected": 151.632,
+     "actual": 145.8
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.2.priceBefore",
+     "expected": 140.4,
+     "actual": 135
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.3.delta",
+     "expected": -126.632,
+     "actual": -120.80000000000001
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.3.priceBefore",
+     "expected": 151.632,
+     "actual": 145.8
+    },
+    {
+     "path": "$.ok.9.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.9.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    }
+   ]
+  },
+  {
+   "label": "scenario-172",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.5.ok.appliedAdjustments.0.delta",
+   "expected": 15,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.5.ok.finalPrice",
+     "expected": 65,
+     "actual": 62
+    },
+    {
+     "path": "$.ok.5.ok.marginAchievedPercent",
+     "expected": 116.66666666666667,
+     "actual": 106.66666666666667
+    },
+    {
+     "path": "$.ok.5.ok.totalPrice",
+     "expected": 65,
+     "actual": 62
+    },
+    {
+     "path": "$.ok.5.ok.unitPrice",
+     "expected": 65,
+     "actual": 62
+    }
+   ]
+  },
+  {
+   "label": "scenario-194",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.4.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.delta",
+     "expected": 12.480000000000018,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceAfter",
+     "expected": 168.48000000000002,
+     "actual": 162
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.2.delta",
+     "expected": -108.48000000000002,
+     "actual": -102
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.2.priceBefore",
+     "expected": 168.48000000000002,
+     "actual": 162
+    }
+   ]
+  },
+  {
+   "label": "scenario-203",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.4.ok.appliedAdjustments.0.delta",
+   "expected": 15,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.delta",
+     "expected": -51,
+     "actual": -48.5
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.delta",
+     "expected": -3.25,
+     "actual": -3.125
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.priceAfter",
+     "expected": 61.75,
+     "actual": 59.375
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.2.delta",
+     "expected": -47.75,
+     "actual": -45.375
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.2.priceBefore",
+     "expected": 61.75,
+     "actual": 59.375
+    }
+   ]
+  },
+  {
+   "label": "scenario-206",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.4.ok.appliedAdjustments.0.delta",
+   "expected": 15,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.delta",
+     "expected": 6.5,
+     "actual": 6.25
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceAfter",
+     "expected": 71.5,
+     "actual": 68.75
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.2.delta",
+     "expected": -46.5,
+     "actual": -43.75
+    },
+    {
+     "path": "$.ok.4.ok.appliedAdjustments.2.priceBefore",
+     "expected": 71.5,
+     "actual": 68.75
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.delta",
+     "expected": 15,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.0.priceAfter",
+     "expected": 65,
+     "actual": 62.5
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.delta",
+     "expected": -3.25,
+     "actual": -3.125
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.priceAfter",
+     "expected": 61.75,
+     "actual": 59.375
+    },
+    {
+     "path": "$.ok.5.ok.appliedAdjustments.1.priceBefore",
+     "expected": 65,
+     "actual": 62.5
+    }
+   ]
+  },
+  {
+   "label": "scenario-218",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.1.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.delta",
+     "expected": -149,
+     "actual": -143
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.delta",
+     "expected": 15.600000000000023,
+     "actual": 15
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceAfter",
+     "expected": 171.60000000000002,
+     "actual": 165
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.2.delta",
+     "expected": -164.60000000000002,
+     "actual": -158
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.2.priceBefore",
+     "expected": 171.60000000000002,
+     "actual": 165
+    },
+    {
+     "path": "$.ok.3.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    }
+   ]
+  },
+  {
+   "label": "scenario-220",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.1.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.delta",
+     "expected": -149,
+     "actual": -143
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    }
+   ]
+  },
+  {
+   "label": "scenario-245",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.1.ok.appliedAdjustments.0.delta",
+   "expected": 5.969999999999999,
+   "actual": 4.975000000000001,
+   "differences": [
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.0.priceAfter",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.delta",
+     "expected": -1.2935000000000016,
+     "actual": -1.2437500000000021
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.priceAfter",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.1.priceBefore",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.2.delta",
+     "expected": -17.576499999999996,
+     "actual": -16.631249999999998
+    },
+    {
+     "path": "$.ok.1.ok.appliedAdjustments.2.priceBefore",
+     "expected": 24.576499999999996,
+     "actual": 23.631249999999998
+    },
+    {
+     "path": "$.ok.10.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    },
+    {
+     "path": "$.ok.10.ok.appliedAdjustments.0.priceAfter",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.10.ok.appliedAdjustments.1.delta",
+     "expected": -18.869999999999997,
+     "actual": -17.875
+    },
+    {
+     "path": "$.ok.10.ok.appliedAdjustments.1.priceBefore",
+     "expected": 25.869999999999997,
+     "actual": 24.875
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.delta",
+     "expected": 5.969999999999999,
+     "actual": 4.975000000000001
+    }
+   ]
+  },
+  {
+   "label": "scenario-256",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.2.ok.appliedAdjustments.0.delta",
+   "expected": 36,
+   "actual": 30,
+   "differences": [
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.delta",
+     "expected": 12.480000000000018,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceAfter",
+     "expected": 168.48000000000002,
+     "actual": 162
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.2.delta",
+     "expected": -126.48000000000002,
+     "actual": -120
+    },
+    {
+     "path": "$.ok.2.ok.appliedAdjustments.2.priceBefore",
+     "expected": 168.48000000000002,
+     "actual": 162
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.0.delta",
+     "expected": 36,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.0.priceAfter",
+     "expected": 156,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.delta",
+     "expected": -7.800000000000011,
+     "actual": -7.5
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.priceAfter",
+     "expected": 148.2,
+     "actual": 142.5
+    },
+    {
+     "path": "$.ok.8.ok.appliedAdjustments.1.priceBefore",
+     "expected": 156,
+     "actual": 150
+    }
+   ]
+  }
+ ]
+}

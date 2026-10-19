@@ -1,0 +1,10 @@
+{
+ "subject": "service_high_4",
+ "arm": "corpus",
+ "cases": 40000,
+ "identical": 40000,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

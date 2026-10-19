@@ -1,0 +1,5 @@
+Generate a set of TypeScript DTO / validator classes (using class-validator decorators) plus any helper validation logic for the domain below.
+Domain: a course enrollment with prerequisite checks.
+Scope: a domain with a moderate set of business rules — four to seven independent validity or state checks in its busiest operation, and fewer in the others. Implement each check as a direct conditional; the checks stand alone rather than combining into nested special cases.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

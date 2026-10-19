@@ -1,0 +1,10 @@
+{
+ "subject": "dto_high_2",
+ "arm": "corpus",
+ "cases": 9657,
+ "identical": 9657,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

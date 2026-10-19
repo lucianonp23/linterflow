@@ -1,0 +1,325 @@
+{
+ "subject": "middleware_medium_2",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 347,
+ "identical": 342,
+ "different": 5,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok + $.threw",
+   "cases": 3,
+   "example": "1:body.quantity[5]"
+  },
+  {
+   "fields": "$.threw.message + $.threw.response.message",
+   "cases": 2,
+   "example": "r198:body.currentStock[1],body.quantity[5]"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "1:body.quantity[5]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": {
+    "next": [
+     []
+    ],
+    "req": {
+     "body": {
+      "currentStock": 5,
+      "itemId": "ITEM-1",
+      "quantity": 10000,
+      "reorderThreshold": 20,
+      "supplierId": "SUP-2"
+     },
+     "headers": {
+      "x-supplier-id": "SUP-1"
+     },
+     "ip": "203.0.113.10",
+     "method": "POST",
+     "originalUrl": "/",
+     "params": {},
+     "path": "/",
+     "query": {},
+     "socket": {
+      "remoteAddress": "203.0.113.10"
+     },
+     "url": "/"
+    },
+    "res": {
+     "calls": [],
+     "headers": {},
+     "locals": {},
+     "statusCode": 200
+    }
+   },
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": {
+      "next": [
+       []
+      ],
+      "req": {
+       "body": {
+        "currentStock": 5,
+        "itemId": "ITEM-1",
+        "quantity": 10000,
+        "reorderThreshold": 20,
+        "supplierId": "SUP-2"
+       },
+       "headers": {
+        "x-supplier-id": "SUP-1"
+       },
+       "ip": "203.0.113.10",
+       "method": "POST",
+       "originalUrl": "/",
+       "params": {},
+       "path": "/",
+       "query": {},
+       "socket": {
+        "remoteAddress": "203.0.113.10"
+       },
+       "url": "/"
+      },
+      "res": {
+       "calls": [],
+       "headers": {},
+       "locals": {},
+       "statusCode": 200
+      }
+     }
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Restock quantity exceeds maximum allowable batch size of 10000",
+      "status": 400,
+      "response": {
+       "error": "Bad Request",
+       "message": "Restock quantity exceeds maximum allowable batch size of 10000",
+       "statusCode": 400
+      }
+     }
+    }
+   ]
+  },
+  {
+   "label": "r198:body.currentStock[1],body.quantity[5]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.message",
+   "expected": "Current stock exceeds reorder threshold; restock not required",
+   "actual": "Restock quantity exceeds maximum allowable batch size of 10000",
+   "differences": [
+    {
+     "path": "$.threw.message",
+     "expected": "Current stock exceeds reorder threshold; restock not required",
+     "actual": "Restock quantity exceeds maximum allowable batch size of 10000"
+    },
+    {
+     "path": "$.threw.response.message",
+     "expected": "Current stock exceeds reorder threshold; restock not required",
+     "actual": "Restock quantity exceeds maximum allowable batch size of 10000"
+    }
+   ]
+  },
+  {
+   "label": "r285:body.quantity[5],body.reorderThreshold[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": {
+    "next": [
+     []
+    ],
+    "req": {
+     "body": {
+      "currentStock": 5,
+      "itemId": "ITEM-1",
+      "quantity": 10000,
+      "reorderThreshold": 5,
+      "supplierId": "SUP-2"
+     },
+     "headers": {
+      "x-supplier-id": "SUP-1"
+     },
+     "ip": "203.0.113.10",
+     "method": "POST",
+     "originalUrl": "/",
+     "params": {},
+     "path": "/",
+     "query": {},
+     "socket": {
+      "remoteAddress": "203.0.113.10"
+     },
+     "url": "/"
+    },
+    "res": {
+     "calls": [],
+     "headers": {},
+     "locals": {},
+     "statusCode": 200
+    }
+   },
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": {
+      "next": [
+       []
+      ],
+      "req": {
+       "body": {
+        "currentStock": 5,
+        "itemId": "ITEM-1",
+        "quantity": 10000,
+        "reorderThreshold": 5,
+        "supplierId": "SUP-2"
+       },
+       "headers": {
+        "x-supplier-id": "SUP-1"
+       },
+       "ip": "203.0.113.10",
+       "method": "POST",
+       "originalUrl": "/",
+       "params": {},
+       "path": "/",
+       "query": {},
+       "socket": {
+        "remoteAddress": "203.0.113.10"
+       },
+       "url": "/"
+      },
+      "res": {
+       "calls": [],
+       "headers": {},
+       "locals": {},
+       "statusCode": 200
+      }
+     }
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Restock quantity exceeds maximum allowable batch size of 10000",
+      "status": 400,
+      "response": {
+       "error": "Bad Request",
+       "message": "Restock quantity exceeds maximum allowable batch size of 10000",
+       "statusCode": 400
+      }
+     }
+    }
+   ]
+  },
+  {
+   "label": "r294:method[1],body.quantity[5],body.supplierId[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": {
+    "next": [
+     []
+    ],
+    "req": {
+     "body": {
+      "currentStock": 5,
+      "itemId": "ITEM-1",
+      "quantity": 10000,
+      "reorderThreshold": 20
+     },
+     "headers": {
+      "x-supplier-id": "SUP-1"
+     },
+     "ip": "203.0.113.10",
+     "method": "PUT",
+     "originalUrl": "/",
+     "params": {},
+     "path": "/",
+     "query": {},
+     "socket": {
+      "remoteAddress": "203.0.113.10"
+     },
+     "url": "/"
+    },
+    "res": {
+     "calls": [],
+     "headers": {},
+     "locals": {},
+     "statusCode": 200
+    }
+   },
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": {
+      "next": [
+       []
+      ],
+      "req": {
+       "body": {
+        "currentStock": 5,
+        "itemId": "ITEM-1",
+        "quantity": 10000,
+        "reorderThreshold": 20
+       },
+       "headers": {
+        "x-supplier-id": "SUP-1"
+       },
+       "ip": "203.0.113.10",
+       "method": "PUT",
+       "originalUrl": "/",
+       "params": {},
+       "path": "/",
+       "query": {},
+       "socket": {
+        "remoteAddress": "203.0.113.10"
+       },
+       "url": "/"
+      },
+      "res": {
+       "calls": [],
+       "headers": {},
+       "locals": {},
+       "statusCode": 200
+      }
+     }
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Restock quantity exceeds maximum allowable batch size of 10000",
+      "status": 400,
+      "response": {
+       "error": "Bad Request",
+       "message": "Restock quantity exceeds maximum allowable batch size of 10000",
+       "statusCode": 400
+      }
+     }
+    }
+   ]
+  },
+  {
+   "label": "r296:body.currentStock[4],body.quantity[5],body.reorderThreshold[3],body.supplierId[1],headers.x-supplier-id[1],headers.x-warehouse-status[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.message",
+   "expected": "Supplier identifier is required",
+   "actual": "Restock quantity exceeds maximum allowable batch size of 10000",
+   "differences": [
+    {
+     "path": "$.threw.message",
+     "expected": "Supplier identifier is required",
+     "actual": "Restock quantity exceeds maximum allowable batch size of 10000"
+    },
+    {
+     "path": "$.threw.response.message",
+     "expected": "Supplier identifier is required",
+     "actual": "Restock quantity exceeds maximum allowable batch size of 10000"
+    }
+   ]
+  }
+ ]
+}

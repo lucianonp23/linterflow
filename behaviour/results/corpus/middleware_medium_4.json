@@ -1,0 +1,10 @@
+{
+ "subject": "middleware_medium_4",
+ "arm": "corpus",
+ "cases": 1025,
+ "identical": 1025,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

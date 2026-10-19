@@ -1,0 +1,947 @@
+{
+ "subject": "repository_medium_4",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 600,
+ "identical": 570,
+ "different": 30,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok[].threw.message + $.ok[].threw.response.message",
+   "cases": 17,
+   "example": "scenario-32"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].ok.balance + $.ok[].ok.dailyRedeemedAmount + $.ok[].ok.lastRedemptionDate + $.ok[].ok.newBalance + $.ok[].threw",
+   "cases": 3,
+   "example": "scenario-41"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].ok.newBalance + $.ok[].threw",
+   "cases": 2,
+   "example": "scenario-127"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].ok.balance + $.ok[].ok.dailyRedeemedAmount + $.ok[].threw",
+   "cases": 2,
+   "example": "scenario-129"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].threw",
+   "cases": 2,
+   "example": "scenario-410"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].ok.balance + $.ok[].ok.dailyRedeemedAmount + $.ok[].ok.lastRedemptionDate + $.ok[].threw",
+   "cases": 1,
+   "example": "scenario-45"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].ok.balance + $.ok[].ok.dailyRedeemedAmount + $.ok[].ok.lastActivityDate.__date__ + $.ok[].ok.lastRedemptionDate + $.ok[].threw",
+   "cases": 1,
+   "example": "scenario-67"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].ok.balance + $.ok[].ok.dailyRedeemedAmount + $.ok[].threw + $.ok[].threw.message + $.ok[].threw.response.message",
+   "cases": 1,
+   "example": "scenario-165"
+  },
+  {
+   "fields": "$.ok[].ok + $.ok[].ok.balance + $.ok[].ok.dailyRedeemedAmount + $.ok[].ok.newBalance + $.ok[].threw",
+   "cases": 1,
+   "example": "scenario-203"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "scenario-32",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.5.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.5.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.5.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-41",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.10.ok",
+   "expected": {
+    "accountId": "00000000-0000-4000-8000-000000000001",
+    "newBalance": 9800,
+    "status": "ACTIVE",
+    "tier": "SILVER",
+    "transactedPoints": 100
+   },
+   "differences": [
+    {
+     "path": "$.ok.10.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 9800,
+      "status": "ACTIVE",
+      "tier": "SILVER",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.10.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.13.ok.balance",
+     "expected": 9800,
+     "actual": 10000
+    },
+    {
+     "path": "$.ok.13.ok.dailyRedeemedAmount",
+     "expected": 200,
+     "actual": 0
+    },
+    {
+     "path": "$.ok.13.ok.lastRedemptionDate",
+     "expected": {
+      "__date__": "2026-01-15T12:00:00.000Z"
+     },
+     "actual": null
+    },
+    {
+     "path": "$.ok.8.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 4900,
+      "status": "ACTIVE",
+      "tier": "BRONZE",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.8.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.9.ok.newBalance",
+     "expected": 9900,
+     "actual": 10000
+    }
+   ]
+  },
+  {
+   "label": "scenario-45",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.15.ok",
+   "expected": {
+    "accountId": "00000000-0000-4000-8000-000000000001",
+    "newBalance": 999900,
+    "status": "ACTIVE",
+    "tier": "PLATINUM",
+    "transactedPoints": 100
+   },
+   "differences": [
+    {
+     "path": "$.ok.15.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 999900,
+      "status": "ACTIVE",
+      "tier": "PLATINUM",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.15.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.16.ok.balance",
+     "expected": 999900,
+     "actual": 1000000
+    },
+    {
+     "path": "$.ok.16.ok.dailyRedeemedAmount",
+     "expected": 100,
+     "actual": 0
+    },
+    {
+     "path": "$.ok.16.ok.lastRedemptionDate",
+     "expected": {
+      "__date__": "2026-01-15T12:00:00.000Z"
+     },
+     "actual": null
+    },
+    {
+     "path": "$.ok.18.ok.balance",
+     "expected": 999900,
+     "actual": 1000000
+    },
+    {
+     "path": "$.ok.18.ok.dailyRedeemedAmount",
+     "expected": 100,
+     "actual": 0
+    },
+    {
+     "path": "$.ok.18.ok.lastRedemptionDate",
+     "expected": {
+      "__date__": "2026-01-15T12:00:00.000Z"
+     },
+     "actual": null
+    }
+   ]
+  },
+  {
+   "label": "scenario-60",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.9.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.9.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.9.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-62",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.8.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 50.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.8.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 50.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.8.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 50.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-67",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.12.ok.balance",
+   "expected": 999900,
+   "actual": 1000000,
+   "differences": [
+    {
+     "path": "$.ok.12.ok.balance",
+     "expected": 999900,
+     "actual": 1000000
+    },
+    {
+     "path": "$.ok.12.ok.dailyRedeemedAmount",
+     "expected": 100,
+     "actual": 0
+    },
+    {
+     "path": "$.ok.12.ok.lastActivityDate.__date__",
+     "expected": "2026-01-15T13:00:00.000Z",
+     "actual": "2026-01-15T12:00:00.000Z"
+    },
+    {
+     "path": "$.ok.12.ok.lastRedemptionDate",
+     "expected": {
+      "__date__": "2026-01-15T13:00:00.000Z"
+     },
+     "actual": null
+    },
+    {
+     "path": "$.ok.16.ok.balance",
+     "expected": 999900,
+     "actual": 1000000
+    },
+    {
+     "path": "$.ok.16.ok.dailyRedeemedAmount",
+     "expected": 100,
+     "actual": 0
+    },
+    {
+     "path": "$.ok.16.ok.lastActivityDate.__date__",
+     "expected": "2026-01-15T13:00:00.000Z",
+     "actual": "2026-01-15T12:00:00.000Z"
+    },
+    {
+     "path": "$.ok.16.ok.lastRedemptionDate",
+     "expected": {
+      "__date__": "2026-01-15T13:00:00.000Z"
+     },
+     "actual": null
+    },
+    {
+     "path": "$.ok.7.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 999900,
+      "status": "ACTIVE",
+      "tier": "PLATINUM",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.7.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    }
+   ]
+  },
+  {
+   "label": "scenario-69",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.3.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.3.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.3.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-79",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.16.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 50.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.16.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 50.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.16.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 50.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-82",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.10.ok",
+   "expected": {
+    "accountId": "00000000-0000-4000-8000-000000000001",
+    "newBalance": 199900,
+    "status": "ACTIVE",
+    "tier": "PLATINUM",
+    "transactedPoints": 100
+   },
+   "differences": [
+    {
+     "path": "$.ok.10.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 199900,
+      "status": "ACTIVE",
+      "tier": "PLATINUM",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.10.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.12.ok.balance",
+     "expected": 199900,
+     "actual": 200000
+    },
+    {
+     "path": "$.ok.12.ok.dailyRedeemedAmount",
+     "expected": 100,
+     "actual": 0
+    },
+    {
+     "path": "$.ok.12.ok.lastRedemptionDate",
+     "expected": {
+      "__date__": "2026-01-17T12:00:00.000Z"
+     },
+     "actual": null
+    },
+    {
+     "path": "$.ok.13.ok.newBalance",
+     "expected": 239900,
+     "actual": 240000
+    }
+   ]
+  },
+  {
+   "label": "scenario-127",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.12.ok",
+   "expected": {
+    "accountId": "00000000-0000-4000-8000-000000000001",
+    "newBalance": 99400,
+    "status": "ACTIVE",
+    "tier": "PLATINUM",
+    "transactedPoints": 100
+   },
+   "differences": [
+    {
+     "path": "$.ok.12.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 99400,
+      "status": "ACTIVE",
+      "tier": "PLATINUM",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.12.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.15.ok.newBalance",
+     "expected": 98899,
+     "actual": 98999
+    }
+   ]
+  },
+  {
+   "label": "scenario-129",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.ok",
+   "expected": {
+    "accountId": "00000000-0000-4000-8000-000000000001",
+    "newBalance": 999499,
+    "status": "ACTIVE",
+    "tier": "PLATINUM",
+    "transactedPoints": 100
+   },
+   "differences": [
+    {
+     "path": "$.ok.11.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 999499,
+      "status": "ACTIVE",
+      "tier": "PLATINUM",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.11.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.16.ok.balance",
+     "expected": 999499,
+     "actual": 999599
+    },
+    {
+     "path": "$.ok.16.ok.dailyRedeemedAmount",
+     "expected": 500,
+     "actual": 400
+    }
+   ]
+  },
+  {
+   "label": "scenario-165",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.ok.balance",
+   "expected": 139400,
+   "actual": 139500,
+   "differences": [
+    {
+     "path": "$.ok.11.ok.balance",
+     "expected": 139400,
+     "actual": 139500
+    },
+    {
+     "path": "$.ok.11.ok.dailyRedeemedAmount",
+     "expected": 600,
+     "actual": 500
+    },
+    {
+     "path": "$.ok.12.ok.balance",
+     "expected": 139400,
+     "actual": 139500
+    },
+    {
+     "path": "$.ok.12.ok.dailyRedeemedAmount",
+     "expected": 600,
+     "actual": 500
+    },
+    {
+     "path": "$.ok.18.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.18.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.21.ok.balance",
+     "expected": 139400,
+     "actual": 139500
+    },
+    {
+     "path": "$.ok.21.ok.dailyRedeemedAmount",
+     "expected": 600,
+     "actual": 500
+    },
+    {
+     "path": "$.ok.7.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 139400,
+      "status": "ACTIVE",
+      "tier": "PLATINUM",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.7.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.9.ok.balance",
+     "expected": 139400,
+     "actual": 139500
+    },
+    {
+     "path": "$.ok.9.ok.dailyRedeemedAmount",
+     "expected": 600,
+     "actual": 500
+    }
+   ]
+  },
+  {
+   "label": "scenario-166",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.4.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.4.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.4.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-194",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.11.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.11.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-198",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.11.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.11.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-202",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.12.ok",
+   "expected": {
+    "accountId": "00000000-0000-4000-8000-000000000001",
+    "newBalance": 99500,
+    "status": "ACTIVE",
+    "tier": "PLATINUM",
+    "transactedPoints": 100
+   },
+   "differences": [
+    {
+     "path": "$.ok.12.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 99500,
+      "status": "ACTIVE",
+      "tier": "PLATINUM",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.12.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    },
+    {
+     "path": "$.ok.14.ok.balance",
+     "expected": 99500,
+     "actual": 99600
+    },
+    {
+     "path": "$.ok.14.ok.dailyRedeemedAmount",
+     "expected": 500,
+     "actual": 400
+    },
+    {
+     "path": "$.ok.21.ok.balance",
+     "expected": 99500,
+     "actual": 99600
+    },
+    {
+     "path": "$.ok.21.ok.dailyRedeemedAmount",
+     "expected": 500,
+     "actual": 400
+    }
+   ]
+  },
+  {
+   "label": "scenario-203",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.ok.newBalance",
+   "expected": 139900,
+   "actual": 140000,
+   "differences": [
+    {
+     "path": "$.ok.11.ok.newBalance",
+     "expected": 139900,
+     "actual": 140000
+    },
+    {
+     "path": "$.ok.12.ok.newBalance",
+     "expected": 139500,
+     "actual": 139600
+    },
+    {
+     "path": "$.ok.16.ok.balance",
+     "expected": 139500,
+     "actual": 139600
+    },
+    {
+     "path": "$.ok.16.ok.dailyRedeemedAmount",
+     "expected": 500,
+     "actual": 400
+    },
+    {
+     "path": "$.ok.7.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 39900,
+      "status": "ACTIVE",
+      "tier": "SILVER",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.7.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    }
+   ]
+  },
+  {
+   "label": "scenario-239",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.9.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.9.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.9.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-261",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.19.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.19.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.19.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-285",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.12.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.12.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.12.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-388",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.17.threw.message",
+   "expected": "Account inactive for over 180 days. Redemption locked.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.17.threw.message",
+     "expected": "Account inactive for over 180 days. Redemption locked.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.17.threw.response.message",
+     "expected": "Account inactive for over 180 days. Redemption locked.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-390",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.21.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.21.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.21.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-410",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.11.ok",
+   "expected": {
+    "accountId": "00000000-0000-4000-8000-000000000001",
+    "newBalance": 49900,
+    "status": "ACTIVE",
+    "tier": "GOLD",
+    "transactedPoints": 100
+   },
+   "differences": [
+    {
+     "path": "$.ok.11.ok",
+     "expected": {
+      "accountId": "00000000-0000-4000-8000-000000000001",
+      "newBalance": 49900,
+      "status": "ACTIVE",
+      "tier": "GOLD",
+      "transactedPoints": 100
+     }
+    },
+    {
+     "path": "$.ok.11.threw",
+     "actual": {
+      "__error__": "BadRequestException",
+      "message": "Minimum redemption threshold is 100 points.",
+      "response": {
+       "error": "Bad Request",
+       "message": "Minimum redemption threshold is 100 points.",
+       "statusCode": 400
+      },
+      "status": 400
+     }
+    }
+   ]
+  },
+  {
+   "label": "scenario-421",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.3.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.3.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.3.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  },
+  {
+   "label": "scenario-443",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.16.threw.message",
+   "expected": "Insufficient balance. Required: 100, Available: 0.",
+   "actual": "Minimum redemption threshold is 100 points.",
+   "differences": [
+    {
+     "path": "$.ok.16.threw.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    },
+    {
+     "path": "$.ok.16.threw.response.message",
+     "expected": "Insufficient balance. Required: 100, Available: 0.",
+     "actual": "Minimum redemption threshold is 100 points."
+    }
+   ]
+  }
+ ]
+}

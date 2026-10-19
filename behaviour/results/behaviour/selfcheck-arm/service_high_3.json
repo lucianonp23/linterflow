@@ -1,0 +1,367 @@
+{
+ "subject": "service_high_3",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 1606,
+ "identical": 1567,
+ "different": 39,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.action",
+   "cases": 39,
+   "example": "r27:accountAgeMs[2],amount[5],highRiskCountries[1],user.phoneVerified[0]"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "r27:accountAgeMs[2],amount[5],highRiskCountries[1],user.phoneVerified[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r40:accountAgeMs[3],merchantCategoryCode[0],device.isEmulated[0],user.phoneVerified[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r44:accountAgeMs[5],amount[1],highRiskCountries[1],timestamp[2],user.chargebackHistoryCount[1],user.homeCountry[1],user.transactionCount30Days[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r62:amount[9],device.isEmulated[0],user.email[3],user.phoneVerified[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r168:cardCountry[1],country[1],history[10],device.hasRootOrJailbreak[0],device.ipAddress[0],device.isKnownDevice[0],user.avgTransactionAmount30Days[6],user.phoneVerified[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r173:country[2],device.hasRootOrJailbreak[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r198:blacklistedIps[1],timestamp[2],device.isEmulated[0],user.chargebackHistoryCount[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r347:accountAgeMs[7],device.ipAddress[0],device.isEmulated[0],device.isKnownDevice[0],user.email[2],user.homeCountry[1],user.phoneVerified[0],user.transactionCount30Days[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r410:amount[7],blacklistedCards[0],history[10],timestamp[3],device.deviceId[0],device.hasRootOrJailbreak[0],device.isKnownDevice[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r441:accountAgeMs[0],cardCountry[1],merchantCategoryCode[4],device.isEmulated[0],user.transactionCount30Days[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r462:amount[10],cardBin[0],device.hasRootOrJailbreak[0],device.isKnownDevice[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r481:amount[3],timestamp[2],device.ipAddress[0],user.avgTransactionAmount30Days[3],user.chargebackHistoryCount[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r508:history[17],merchantCategoryCode[1],user.avgTransactionAmount30Days[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r659:device.connectionType[1],user.chargebackHistoryCount[1],user.phoneVerified[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r663:timestamp[3],device.connectionType[0],user.email[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r722:blacklistedDevices[1],blacklistedIps[1],cardCountry[1],highRiskCountries[1],device.isEmulated[0],user.avgTransactionAmount30Days[1],user.emailVerified[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r774:accountAgeMs[5],country[0],history[1],device.hasRootOrJailbreak[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r803:accountAgeMs[2],amount[5],cardBin[0],highRiskCountries[0],timestamp[4],device.connectionType[5],device.hasRootOrJailbreak[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r811:blacklistedIps[1],cardBin[0],cardCountry[0],device.isEmulated[0],user.avgTransactionAmount30Days[5],user.chargebackHistoryCount[1],user.transactionCount30Days[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r824:merchantCategoryCode[2],device.connectionType[3],device.deviceId[0],device.hasRootOrJailbreak[0],device.isEmulated[0],user.transactionCount30Days[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r983:amount[5],history[13],timestamp[1],device.ipAddress[0],user.emailVerified[0],user.failedLoginAttempts24h[1],user.homeCountry[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r1008:accountAgeMs[2],amount[6],blacklistedCards[0],blacklistedDevices[1],blacklistedIps[0],highRiskCountries[0],device.ipAddress[0],device.isEmulated[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r1037:history[2],timestamp[3],device.deviceId[0],device.ipAddress[0],user.chargebackHistoryCount[0],user.email[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r1038:accountAgeMs[1],history[1],user.failedLoginAttempts24h[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  },
+  {
+   "label": "r1062:cardCountry[0],device.hasRootOrJailbreak[0],device.isKnownDevice[0],user.avgTransactionAmount30Days[3],user.emailVerified[0],user.failedLoginAttempts24h[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.action",
+   "expected": "REVIEW",
+   "actual": "CHALLENGE_MFA",
+   "differences": [
+    {
+     "path": "$.ok.action",
+     "expected": "REVIEW",
+     "actual": "CHALLENGE_MFA"
+    }
+   ]
+  }
+ ]
+}

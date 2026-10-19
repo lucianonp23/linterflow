@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PulseNet - Modern Social Network</title>
+  <meta name="description" content="A complete, modern social network application built with NestJS, TypeScript, and SQLite.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand" id="brandLogo">
+        <div class="brand-icon">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">PulseNet</span>
+          <span class="brand-badge">NestJS</span>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="userSearchInput" placeholder="Search creators, topics..." autocomplete="off">
+        <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <a href="/api/docs" target="_blank" class="btn btn-secondary btn-icon-only" title="Open Swagger API Docs">
+          <i class="fa-solid fa-code-branch"></i> API Docs
+        </a>
+        <div id="authHeaderState">
+          <!-- Auth buttons injected by app.js -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Demo Accounts Bar -->
+  <div class="demo-bar">
+    <div class="demo-bar-container">
+      <span class="demo-label"><i class="fa-solid fa-user-gear"></i> Quick Switch Demo User:</span>
+      <div class="demo-users" id="demoUsersList">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Layout -->
+  <div class="main-layout">
+    <!-- Left Sidebar: Profile & Navigation -->
+    <aside class="sidebar sidebar-left">
+      <div class="glass-card user-mini-card" id="miniProfileCard">
+        <!-- Injected dynamically -->
+      </div>
+
+      <nav class="nav-menu glass-card">
+        <button class="nav-item active" id="tabTimelineBtn">
+          <i class="fa-solid fa-house-user"></i>
+          <span>My Timeline</span>
+        </button>
+        <button class="nav-item" id="tabExploreBtn">
+          <i class="fa-solid fa-compass"></i>
+          <span>Explore Feed</span>
+        </button>
+        <button class="nav-item" id="navMyProfileBtn">
+          <i class="fa-solid fa-user-astronaut"></i>
+          <span>My Profile</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Center Content Area: Feed & Create Post -->
+    <main class="content-area">
+      <!-- Create Post Card -->
+      <section class="glass-card create-post-card" id="createPostSection">
+        <div class="create-post-header">
+          <img src="" alt="Avatar" class="avatar avatar-md" id="currentUserAvatar">
+          <div class="create-post-input-wrap">
+            <textarea id="postContentInput" placeholder="What's happening? Share a thought..." maxlength="280"></textarea>
+          </div>
+        </div>
+
+        <div class="image-preview-container" id="imagePreviewContainer" style="display: none;">
+          <img src="" id="imagePreview" alt="Attached Media">
+          <button type="button" class="btn-remove-image" id="removeImageBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="create-post-footer">
+          <div class="post-tools">
+            <button type="button" class="tool-btn" id="attachImageBtn" title="Attach Image URL">
+              <i class="fa-solid fa-image"></i> Media
+            </button>
+            <button type="button" class="tool-btn" id="emojiBtn" title="Add Emoji">
+              <i class="fa-regular fa-face-smile"></i> Emoji
+            </button>
+          </div>
+
+          <div class="post-submit-group">
+            <span class="char-count" id="charCount">0 / 280</span>
+            <button type="button" class="btn btn-primary" id="publishPostBtn">
+              <span>Publish</span> <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feed Header Controls -->
+      <div class="feed-header-bar">
+        <h2 class="feed-title" id="feedTitleHeading">My Timeline</h2>
+        <span class="feed-subtitle" id="feedSubtitle">Posts from creators you follow</span>
+      </div>
+
+      <!-- Feed Posts List Container -->
+      <div class="posts-feed" id="postsFeedContainer">
+        <div class="loading-spinner">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <p>Loading timeline...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar: Suggested Creators to Follow -->
+    <aside class="sidebar sidebar-right">
+      <div class="glass-card suggestions-card">
+        <h3 class="card-heading"><i class="fa-solid fa-user-plus"></i> Suggested Creators</h3>
+        <div class="suggestions-list" id="suggestedUsersList">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+
+      <div class="glass-card info-card">
+        <div class="info-badge"><i class="fa-solid fa-server"></i> API Status</div>
+        <p class="info-text">Running NestJS REST API with TypeORM & SQLite persistence.</p>
+        <a href="/api/docs" target="_blank" class="link-api">Explore Swagger Endpoints <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Profile Modal / Overlay -->
+  <div class="modal-backdrop" id="profileModal" style="display: none;">
+    <div class="modal-content glass-card profile-modal-content">
+      <button class="modal-close" id="closeProfileModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <div id="profileModalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login / Sign Up) -->
+  <div class="modal-backdrop" id="authModal" style="display: none;">
+    <div class="modal-content glass-card auth-modal-content">
+      <button class="modal-close" id="closeAuthModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="authTabLogin">Sign In</button>
+        <button class="auth-tab" id="authTabRegister">Create Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form active">
+        <div class="form-group">
+          <label for="loginUsername">Username or Email</label>
+          <input type="text" id="loginUsername" placeholder="e.g. alex_dev" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" class="auth-form" style="display: none;">
+        <div class="form-group">
+          <label for="regUsername">Username</label>
+          <input type="text" id="regUsername" placeholder="e.g. johndoe" required minlength="3">
+        </div>
+        <div class="form-group">
+          <label for="regFullName">Full Name</label>
+          <input type="text" id="regFullName" placeholder="e.g. John Doe" required>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email Address</label>
+          <input type="email" id="regEmail" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="At least 6 characters" required minlength="6">
+        </div>
+        <div class="form-group">
+          <label for="regBio">Bio (Optional)</label>
+          <input type="text" id="regBio" placeholder="Tell us about yourself...">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

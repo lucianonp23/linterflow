@@ -1,0 +1,383 @@
+{
+ "subject": "controller_high_2",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 3836,
+ "identical": 3817,
+ "different": 19,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.apr + $.ok.tier",
+   "cases": 18,
+   "example": "evaluate/1:creditScore[10]"
+  },
+  {
+   "fields": "$.ok.evaluation.apr + $.ok.evaluation.tier",
+   "cases": 1,
+   "example": "re-evaluate/451"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "evaluate/1:creditScore[10]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r89:creditScore[10],state[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r93:collateral[4],coSigner[1],creditScore[10],industrySector[0],monthlyIncome[3],requestedAmount[2],state[5],yearsEmployed[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 8.25,
+   "actual": 11.25,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 8.25,
+     "actual": 11.25
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r171:collateral[7],creditScore[10],promotionalCode[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 6,
+   "actual": 9,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 6,
+     "actual": 9
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r285:collateral[4],coSigner[2],creditScore[5],promotionalCode[0],requestedAmount[8],state[5]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 9.5,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 9.5,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r444:collateral[6],creditScore[10],employmentType[3],industrySector[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r504:collateral[0],creditScore[10],industrySector[1],monthlyDebt[5],monthlyIncome[3],requestedAmount[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 7,
+   "actual": 10,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 7,
+     "actual": 10
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r894:creditScore[10],derogatoryMarks[13],monthlyDebt[0],promotionalCode[1],yearsEmployed[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r952:coSigner[4],creditScore[6],industrySector[0],monthlyDebt[3],monthlyIncome[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r1150:creditScore[10],industrySector[1],requestedAmount[6],state[2],yearsEmployed[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 11.75,
+   "actual": 14.75,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 11.75,
+     "actual": 14.75
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r1499:collateral[0],creditScore[10],derogatoryMarks[4],industrySector[0],monthlyDebt[1],monthlyIncome[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 7,
+   "actual": 10,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 7,
+     "actual": 10
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r1619:collateral[7],creditScore[10],industrySector[1],yearsEmployed[5]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 7,
+   "actual": 10,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 7,
+     "actual": 10
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r1756:creditScore[10],monthlyIncome[3],promotionalCode[0],requestedAmount[6]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 9.5,
+   "actual": 12.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 9.5,
+     "actual": 12.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r1788:creditScore[10],employmentType[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r1922:creditScore[10],employmentType[3],industrySector[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r2059:creditScore[10],employmentType[0],requestedAmount[4],yearsEmployed[6]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 10.5,
+   "actual": 13.5,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 10.5,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r2166:collateral[7],creditScore[10],employmentType[3],monthlyIncome[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 7,
+   "actual": 10,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 7,
+     "actual": 10
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "evaluate/r2467:collateral[3],creditScore[10],monthlyDebt[4],yearsEmployed[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.apr",
+   "expected": 7,
+   "actual": 10,
+   "differences": [
+    {
+     "path": "$.ok.apr",
+     "expected": 7,
+     "actual": 10
+    },
+    {
+     "path": "$.ok.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  },
+  {
+   "label": "re-evaluate/451",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.evaluation.apr",
+   "expected": 7,
+   "actual": 10,
+   "differences": [
+    {
+     "path": "$.ok.evaluation.apr",
+     "expected": 7,
+     "actual": 10
+    },
+    {
+     "path": "$.ok.evaluation.tier",
+     "expected": "TIER_B",
+     "actual": "TIER_C"
+    }
+   ]
+  }
+ ]
+}

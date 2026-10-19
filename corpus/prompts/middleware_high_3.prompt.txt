@@ -1,0 +1,5 @@
+Generate a NestJS middleware (implements NestMiddleware) that inspects and processes incoming requests for the domain below.
+Domain: a supply-chain reorder planner (lead times, safety stock, seasonality).
+Scope: a rule-heavy domain with many interacting business rules, edge cases and special conditions. Implement every rule and edge case fully and explicitly, even where this leads to deeply nested conditionals, multiple loops and switch statements.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

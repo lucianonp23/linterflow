@@ -1,0 +1,1337 @@
+{
+ "subject": "middleware_high_2",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 4006,
+ "identical": 3440,
+ "different": 566,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.progression.stageWeightedAverage",
+   "cases": 251,
+   "example": "payload-5"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[]",
+   "cases": 133,
+   "example": "payload-0"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage",
+   "cases": 94,
+   "example": "payload-6"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[]",
+   "cases": 28,
+   "example": "payload-57"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].auditLogs[] + $.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[]",
+   "cases": 16,
+   "example": "payload-210"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].auditLogs[] + $.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.progression.stageWeightedAverage",
+   "cases": 15,
+   "example": "payload-172"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].auditLogs[] + $.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage",
+   "cases": 10,
+   "example": "payload-536"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].creditsAwarded + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.processedModules[].resitEligibility.componentsToResit[]",
+   "cases": 6,
+   "example": "payload-455"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.processedModules[].resitEligibility.componentsToResit[] + $.ok.req.gradingContext.progression.stageWeightedAverage",
+   "cases": 3,
+   "example": "payload-567"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].auditLogs[] + $.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].isMandatoryFailed + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].creditsAwarded",
+   "cases": 2,
+   "example": "payload-157"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.progression.academicStanding + $.ok.req.gradingContext.progression.actionRequired",
+   "cases": 2,
+   "example": "payload-1904"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.progression.auditTrail[] + $.ok.req.gradingContext.progression.projectedClassification",
+   "cases": 2,
+   "example": "payload-2004"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].isMandatoryFailed + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.progression.stageWeightedAverage",
+   "cases": 1,
+   "example": "payload-1283"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].auditLogs[] + $.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].creditsAwarded + $.ok.req.gradingContext.processedModules[].finalPercentage",
+   "cases": 1,
+   "example": "payload-2721"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].auditLogs[] + $.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.processedModules[].isCompensated",
+   "cases": 1,
+   "example": "payload-2831"
+  },
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].componentResults[].finalPercentage + $.ok.req.gradingContext.processedModules[].componentResults[].penaltiesApplied.latePenalty + $.ok.req.gradingContext.processedModules[].componentResults[].warnings[] + $.ok.req.gradingContext.processedModules[].finalPercentage + $.ok.req.gradingContext.processedModules[].resitEligibility.componentsToResit[]",
+   "cases": 1,
+   "example": "payload-3472"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "payload-0",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.1.componentResults.1.penaltiesApplied.latePenalty",
+   "expected": 45,
+   "actual": 36,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.2",
+     "expected": "Resit mark capped from 75.00% to pass mark 40%.",
+     "actual": "Resit mark capped from 78.00% to pass mark 40%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    }
+   ]
+  },
+  {
+   "label": "payload-5",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 60,
+   "actual": 61,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 60,
+     "actual": 61
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.finalPercentage",
+     "expected": 45,
+     "actual": 48
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 46.5,
+     "actual": 49.3
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 46.5,
+     "actual": 49.3
+    }
+   ]
+  },
+  {
+   "label": "payload-6",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 5,
+   "actual": 6,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 5,
+     "actual": 6
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.2",
+     "expected": "Failed mandatory component threshold (5.00% < 60%).",
+     "actual": "Failed mandatory component threshold (6.00% < 60%)."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 5,
+     "actual": 6
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+     "expected": 55,
+     "actual": 56
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.finalPercentage",
+     "expected": 24,
+     "actual": 25
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.finalPercentage",
+     "expected": 24,
+     "actual": 25
+    }
+   ]
+  },
+  {
+   "label": "payload-11",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 34,
+   "actual": 35,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 34,
+     "actual": 35
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 52.9,
+     "actual": 53
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 52.9,
+     "actual": 53
+    }
+   ]
+  },
+  {
+   "label": "payload-14",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 78,
+   "actual": 79,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 78,
+     "actual": 79
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 30.8,
+     "actual": 31
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 30.8,
+     "actual": 31
+    }
+   ]
+  },
+  {
+   "label": "payload-19",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 2,
+   "actual": 4,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 2,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 1,
+     "actual": 2
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+     "expected": 85,
+     "actual": 86
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    }
+   ]
+  },
+  {
+   "label": "payload-22",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 165,
+   "actual": 166,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 165,
+     "actual": 166
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.finalPercentage",
+     "expected": 45,
+     "actual": 46
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 105,
+     "actual": 106
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.warnings.1",
+     "expected": "Resit mark capped from 64.50% to pass mark 40%.",
+     "actual": "Resit mark capped from 65.50% to pass mark 40%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 62.75,
+     "actual": 63.25
+    }
+   ]
+  },
+  {
+   "label": "payload-29",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+   "expected": 5,
+   "actual": 4,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.1",
+     "expected": "Resit mark capped from 64.50% to pass mark 40%.",
+     "actual": "Resit mark capped from 65.50% to pass mark 40%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.finalPercentage",
+     "expected": 26,
+     "actual": 28
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.finalPercentage",
+     "expected": 26,
+     "actual": 28
+    }
+   ]
+  },
+  {
+   "label": "payload-34",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 53,
+   "actual": 54,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 53,
+     "actual": 54
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 44.2,
+     "actual": 44.8
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 22.1,
+     "actual": 22.4
+    }
+   ]
+  },
+  {
+   "label": "payload-43",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 80,
+   "actual": 83,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 80,
+     "actual": 83
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 37.5,
+     "actual": 38.25
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.finalPercentage",
+     "expected": 35,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.2",
+     "expected": "Failed mandatory component threshold (35.00% < 40%).",
+     "actual": "Failed mandatory component threshold (36.00% < 40%)."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.finalPercentage",
+     "expected": 35,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 37.89,
+     "actual": 38.47
+    }
+   ]
+  },
+  {
+   "label": "payload-50",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+   "expected": 5,
+   "actual": 4,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    }
+   ]
+  },
+  {
+   "label": "payload-57",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 60,
+   "actual": 61,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 60,
+     "actual": 61
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.2.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.2.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    }
+   ]
+  },
+  {
+   "label": "payload-58",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+   "expected": 36,
+   "actual": 38,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+     "expected": 36,
+     "actual": 38
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.finalPercentage",
+     "expected": 13,
+     "actual": 13.5
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.finalPercentage",
+     "expected": 30,
+     "actual": 31
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.1",
+     "expected": "Failed mandatory component threshold (30.00% < 40%).",
+     "actual": "Failed mandatory component threshold (31.00% < 40%)."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    }
+   ]
+  },
+  {
+   "label": "payload-59",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+   "expected": 15,
+   "actual": 12,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.1",
+     "expected": "Resit mark capped from 54.50% to pass mark 40%.",
+     "actual": "Resit mark capped from 57.50% to pass mark 40%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.finalPercentage",
+     "expected": 60,
+     "actual": 61
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.finalPercentage",
+     "expected": 5,
+     "actual": 14
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.2.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.finalPercentage",
+     "expected": 32,
+     "actual": 35.9
+    }
+   ]
+  },
+  {
+   "label": "payload-64",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+   "expected": 5,
+   "actual": 4,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.1",
+     "expected": "Resit mark capped from 95.00% to pass mark 50%.",
+     "actual": "Resit mark capped from 96.00% to pass mark 50%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.finalPercentage",
+     "expected": 73,
+     "actual": 74
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 42.5,
+     "actual": 42.8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+     "expected": 26,
+     "actual": 27
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.finalPercentage",
+     "expected": 56.6,
+     "actual": 56.7
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 50.96,
+     "actual": 51.14
+    }
+   ]
+  },
+  {
+   "label": "payload-65",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 4,
+   "actual": 13,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 4,
+     "actual": 13
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 45.4,
+     "actual": 46.3
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 42.7,
+     "actual": 43.15
+    }
+   ]
+  },
+  {
+   "label": "payload-70",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+   "expected": 5,
+   "actual": 4,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.finalPercentage",
+     "expected": 26,
+     "actual": 27
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 33,
+     "actual": 33.5
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    }
+   ]
+  },
+  {
+   "label": "payload-84",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 35,
+   "actual": 36,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 35,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 21,
+     "actual": 21.6
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.componentResults.1.finalPercentage",
+     "expected": 49,
+     "actual": 51
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.componentResults.1.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.finalPercentage",
+     "expected": 54.1,
+     "actual": 55.9
+    }
+   ]
+  },
+  {
+   "label": "payload-95",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.1.finalPercentage",
+   "expected": 70,
+   "actual": 73,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.finalPercentage",
+     "expected": 70,
+     "actual": 73
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.finalPercentage",
+     "expected": 68.95,
+     "actual": 71.65
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.finalPercentage",
+     "expected": 34.99,
+     "actual": 35.99
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.finalPercentage",
+     "expected": 34.99,
+     "actual": 35.99
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.4.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.4.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 45.82,
+     "actual": 46.5
+    }
+   ]
+  },
+  {
+   "label": "payload-107",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+   "expected": 20,
+   "actual": 22,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+     "expected": 20,
+     "actual": 22
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.finalPercentage",
+     "expected": 56,
+     "actual": 57
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.finalPercentage",
+     "expected": 19,
+     "actual": 19.75
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 19,
+     "actual": 19.75
+    }
+   ]
+  },
+  {
+   "label": "payload-108",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+   "expected": 70,
+   "actual": 72,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+     "expected": 70,
+     "actual": 72
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.finalPercentage",
+     "expected": 70,
+     "actual": 72
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 100,
+     "actual": 96
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.0.warnings.0",
+     "expected": "Late submission by 24 day(s). Deducted 100%.",
+     "actual": "Late submission by 24 day(s). Deducted 96%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.4.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 45,
+     "actual": 36
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.4.componentResults.1.warnings.0",
+     "expected": "Late submission by 9 day(s). Deducted 45%.",
+     "actual": "Late submission by 9 day(s). Deducted 36%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 9.55,
+     "actual": 9.82
+    }
+   ]
+  },
+  {
+   "label": "payload-115",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+   "expected": 21,
+   "actual": 23,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.finalPercentage",
+     "expected": 21,
+     "actual": 23
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 10,
+     "actual": 8
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 2 day(s). Deducted 10%.",
+     "actual": "Late submission by 2 day(s). Deducted 8%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    }
+   ]
+  },
+  {
+   "label": "payload-120",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+   "expected": 35,
+   "actual": 28,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 35,
+     "actual": 28
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 7 day(s). Deducted 35%.",
+     "actual": "Late submission by 7 day(s). Deducted 28%."
+    }
+   ]
+  },
+  {
+   "label": "payload-124",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+   "expected": 26,
+   "actual": 27,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.finalPercentage",
+     "expected": 26,
+     "actual": 27
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.componentResults.0.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.finalPercentage",
+     "expected": 5.2,
+     "actual": 5.4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.componentResults.0.finalPercentage",
+     "expected": 47,
+     "actual": 50
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 15,
+     "actual": 12
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.componentResults.0.warnings.0",
+     "expected": "Late submission by 3 day(s). Deducted 15%.",
+     "actual": "Late submission by 3 day(s). Deducted 12%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.3.finalPercentage",
+     "expected": 77,
+     "actual": 78.8
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.stageWeightedAverage",
+     "expected": 31.24,
+     "actual": 31.51
+    }
+   ]
+  },
+  {
+   "label": "payload-139",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+   "expected": 90,
+   "actual": 72,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.penaltiesApplied.latePenalty",
+     "expected": 90,
+     "actual": 72
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.0.componentResults.0.warnings.0",
+     "expected": "Late submission by 18 day(s). Deducted 90%.",
+     "actual": "Late submission by 18 day(s). Deducted 72%."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.penaltiesApplied.latePenalty",
+     "expected": 5,
+     "actual": 4
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.2.componentResults.1.warnings.0",
+     "expected": "Late submission by 1 day(s). Deducted 5%.",
+     "actual": "Late submission by 1 day(s). Deducted 4%."
+    }
+   ]
+  }
+ ]
+}

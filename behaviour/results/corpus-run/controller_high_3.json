@@ -1,0 +1,542 @@
+{
+ "subject": "controller_high_3",
+ "arm": "corpus-run",
+ "cases": 3400,
+ "identical": 3212,
+ "different": 188,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.coupons.ok.discountedSubtotal + $.ok.coupons.ok.totalDiscount",
+   "cases": 166,
+   "example": "stateless/20"
+  },
+  {
+   "fields": "$.ok.coupons.ok.discountedSubtotal + $.ok.coupons.ok.totalDiscount + $.ok.validate.ok.pricing.discountTotal + $.ok.validate.ok.pricing.discountedSubtotal + $.ok.validate.ok.pricing.grandTotal + $.ok.validate.ok.pricing.internationalDuties",
+   "cases": 6,
+   "example": "stateless/834"
+  },
+  {
+   "fields": "$.ok[].ok.order.pricing.discountTotal + $.ok[].ok.order.pricing.discountedSubtotal + $.ok[].ok.order.pricing.grandTotal",
+   "cases": 4,
+   "example": "stateful/25"
+  },
+  {
+   "fields": "$.ok.coupons.ok.discountedSubtotal + $.ok.coupons.ok.totalDiscount + $.ok.validate.ok.pricing.discountTotal + $.ok.validate.ok.pricing.discountedSubtotal + $.ok.validate.ok.pricing.grandTotal + $.ok.validate.ok.pricing.taxDetails[].taxAmount",
+   "cases": 2,
+   "example": "stateless/704"
+  },
+  {
+   "fields": "$.ok.coupons.ok.discountedSubtotal + $.ok.coupons.ok.totalDiscount + $.ok.validate.ok.pricing.discountTotal + $.ok.validate.ok.pricing.discountedSubtotal + $.ok.validate.ok.pricing.grandTotal",
+   "cases": 2,
+   "example": "stateless/1154"
+  },
+  {
+   "fields": "$.ok[].ok.pricing.discountTotal + $.ok[].ok.pricing.discountedSubtotal + $.ok[].ok.pricing.grandTotal + $.ok[].ok.pricing.taxDetails[].taxAmount + $.ok[].ok.pricing.totalTax",
+   "cases": 2,
+   "example": "stateful/278"
+  },
+  {
+   "fields": "$.ok[].ok.order.pricing.discountTotal + $.ok[].ok.order.pricing.discountedSubtotal + $.ok[].ok.order.pricing.grandTotal + $.ok[].ok.order.pricing.internationalDuties + $.ok[].ok.order.pricing.totalShipping",
+   "cases": 2,
+   "example": "stateful/361"
+  },
+  {
+   "fields": "$.ok[].ok.order.pricing.discountTotal + $.ok[].ok.order.pricing.discountedSubtotal + $.ok[].ok.order.pricing.grandTotal + $.ok[].ok.order.pricing.internationalDuties + $.ok[].ok.order.pricing.taxDetails[].taxAmount + $.ok[].ok.order.pricing.totalShipping",
+   "cases": 1,
+   "example": "stateful/6"
+  },
+  {
+   "fields": "$.ok[].ok.order.pricing.discountTotal + $.ok[].ok.order.pricing.discountedSubtotal + $.ok[].ok.order.pricing.grandTotal + $.ok[].ok.order.pricing.taxDetails[].taxAmount + $.ok[].ok.order.pricing.totalTax",
+   "cases": 1,
+   "example": "stateful/239"
+  },
+  {
+   "fields": "$.ok[].ok.pricing.discountTotal + $.ok[].ok.pricing.discountedSubtotal + $.ok[].ok.pricing.grandTotal",
+   "cases": 1,
+   "example": "stateful/518"
+  },
+  {
+   "fields": "$.ok[].ok.pricing.discountTotal + $.ok[].ok.pricing.discountedSubtotal + $.ok[].ok.pricing.grandTotal + $.ok[].ok.pricing.internationalDuties + $.ok[].ok.pricing.taxDetails[].taxAmount + $.ok[].ok.pricing.totalShipping",
+   "cases": 1,
+   "example": "stateful/761"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "stateless/20",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 399.92,
+   "actual": 398.92,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 399.92,
+     "actual": 398.92
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/28",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 9999,
+   "actual": 9997,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 9999,
+     "actual": 9997
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "stateless/29",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 4834.94,
+   "actual": 4833.94,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 4834.94,
+     "actual": 4833.94
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 5,
+     "actual": 6
+    }
+   ]
+  },
+  {
+   "label": "stateless/42",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 6000,
+   "actual": 5999,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 6000,
+     "actual": 5999
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/55",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 6680.01,
+   "actual": 6679.01,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 6680.01,
+     "actual": 6679.01
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 20,
+     "actual": 21
+    }
+   ]
+  },
+  {
+   "label": "stateless/59",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 17000,
+   "actual": 16999,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 17000,
+     "actual": 16999
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/76",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 11494,
+   "actual": 11493,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 11494,
+     "actual": 11493
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 80,
+     "actual": 81
+    }
+   ]
+  },
+  {
+   "label": "stateless/84",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 153199.68,
+   "actual": 153198.68,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 153199.68,
+     "actual": 153198.68
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/85",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 35.01,
+   "actual": 34.01,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 35.01,
+     "actual": 34.01
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 15,
+     "actual": 16
+    }
+   ]
+  },
+  {
+   "label": "stateless/100",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 15405,
+   "actual": 15404,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 15405,
+     "actual": 15404
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 15,
+     "actual": 16
+    }
+   ]
+  },
+  {
+   "label": "stateless/108",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 11898.84,
+   "actual": 11897.84,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 11898.84,
+     "actual": 11897.84
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/122",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 1569.95,
+   "actual": 1568.95,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 1569.95,
+     "actual": 1568.95
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 5,
+     "actual": 6
+    }
+   ]
+  },
+  {
+   "label": "stateless/131",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 99.98,
+   "actual": 98.98,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 99.98,
+     "actual": 98.98
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/134",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 7500,
+   "actual": 7499,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 7500,
+     "actual": 7499
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/153",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 794.84,
+   "actual": 793.84,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 794.84,
+     "actual": 793.84
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 5,
+     "actual": 6
+    }
+   ]
+  },
+  {
+   "label": "stateless/220",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 12140,
+   "actual": 12139,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 12140,
+     "actual": 12139
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 3035,
+     "actual": 3036
+    }
+   ]
+  },
+  {
+   "label": "stateless/250",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 9349.95,
+   "actual": 9348.95,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 9349.95,
+     "actual": 9348.95
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/252",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 1200,
+   "actual": 1199,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 1200,
+     "actual": 1199
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/258",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 15049.99,
+   "actual": 15048.99,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 15049.99,
+     "actual": 15048.99
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/265",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 26400,
+   "actual": 26399,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 26400,
+     "actual": 26399
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/280",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 14910,
+   "actual": 14909,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 14910,
+     "actual": 14909
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 90,
+     "actual": 91
+    }
+   ]
+  },
+  {
+   "label": "stateless/295",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 815,
+   "actual": 814,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 815,
+     "actual": 814
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/308",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 10599,
+   "actual": 10598,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 10599,
+     "actual": 10598
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/313",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 114.99,
+   "actual": 113.99,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 114.99,
+     "actual": 113.99
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 0,
+     "actual": 1
+    }
+   ]
+  },
+  {
+   "label": "stateless/327",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.coupons.ok.discountedSubtotal",
+   "expected": 80,
+   "actual": 79,
+   "differences": [
+    {
+     "path": "$.ok.coupons.ok.discountedSubtotal",
+     "expected": 80,
+     "actual": 79
+    },
+    {
+     "path": "$.ok.coupons.ok.totalDiscount",
+     "expected": 20,
+     "actual": 21
+    }
+   ]
+  }
+ ]
+}

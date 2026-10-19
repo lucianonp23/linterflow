@@ -1,0 +1,5 @@
+Generate a NestJS data-access Repository class that performs CRUD-style operations for the domain below against an in-memory data store, applying any selection/validation rules in code.
+Domain: a support ticket queue with priority routing.
+Scope: a domain with a moderate set of business rules — four to seven independent validity or state checks in its busiest operation, and fewer in the others. Implement each check as a direct conditional; the checks stand alone rather than combining into nested special cases.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

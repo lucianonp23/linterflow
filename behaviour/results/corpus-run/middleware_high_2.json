@@ -1,0 +1,55 @@
+{
+ "subject": "middleware_high_2",
+ "arm": "corpus-run",
+ "cases": 4006,
+ "identical": 4005,
+ "different": 1,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.req.gradingContext.processedModules[].auditLogs[] + $.ok.req.gradingContext.processedModules[].creditsAwarded + $.ok.req.gradingContext.processedModules[].isCompensated + $.ok.req.gradingContext.processedModules[].status + $.ok.req.gradingContext.progression.totalCompensatedCredits + $.ok.req.gradingContext.progression.totalCreditsEarned",
+   "cases": 1,
+   "example": "payload-1465"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "payload-1465",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.gradingContext.processedModules.1.auditLogs.length",
+   "expected": 2,
+   "actual": 3,
+   "differences": [
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.auditLogs.2",
+     "actual": "Module passed via compensation (NaN%)."
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.creditsAwarded",
+     "expected": 0,
+     "actual": 15
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.isCompensated",
+     "expected": false,
+     "actual": true
+    },
+    {
+     "path": "$.ok.req.gradingContext.processedModules.1.status",
+     "expected": "FAILED_NO_RESIT",
+     "actual": "PASSED_BY_COMPENSATION"
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.totalCompensatedCredits",
+     "expected": 0,
+     "actual": 15
+    },
+    {
+     "path": "$.ok.req.gradingContext.progression.totalCreditsEarned",
+     "expected": 0,
+     "actual": 15
+    }
+   ]
+  }
+ ]
+}

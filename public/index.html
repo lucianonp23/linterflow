@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>LinterFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23212529'/%3E%3Cpath d='M4 5h8M4 8h8M4 11h5' stroke='%230d6efd' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <!-- Bootstrap 5 -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <style>
+    body { background-color: #f4f6f9; }
+
+    .navbar-brand { font-weight: 700; letter-spacing: 0.05em; font-size: 1.3rem; }
+
+    .stat-card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .stat-card .card-body { padding: 1.25rem 1.5rem; }
+    .stat-value { font-size: 2rem; font-weight: 700; line-height: 1; }
+    .stat-label { font-size: 0.78rem; color: #6c757d; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.25rem; }
+
+    .section-card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6c757d;
+    }
+
+    .table thead th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: #495057; }
+    .table tbody tr.row-improved { background-color: #d1f0d9; }
+    .table tbody tr.row-not-converged { background-color: #fff3cd; }
+    .table tbody tr.row-improved.row-not-converged { background-color: #fde8b0; }
+
+    .delta-positive { color: #198754; font-weight: 600; }
+    .delta-negative { color: #dc3545; font-weight: 600; }
+    .delta-neutral  { color: #6c757d; }
+
+    .filepath-cell { font-family: monospace; font-size: 0.8rem; max-width: 220px; word-break: break-all; }
+
+    .chart-wrapper { position: relative; height: 220px; }
+
+    .badge-converged   { background-color: #198754; }
+    .badge-diverged    { background-color: #fd7e14; }
+    .badge-improved    { background-color: #0d6efd; }
+    .badge-not-improved{ background-color: #6c757d; }
+
+    /* GitHub file tree */
+    .file-tree { max-height: 340px; overflow-y: auto; }
+    .tree-row { cursor: pointer; user-select: none; padding-top: 2px; padding-bottom: 2px; }
+    .tree-row:hover { background-color: #e9ecef; }
+    .tree-row.tree-selected { background-color: #cfe2ff; }
+  </style>
+</head>
+<body>
+
+<div id="app">
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark py-3 mb-4 shadow-sm">
+  <div class="container-fluid px-4 d-flex align-items-center gap-3">
+    <span class="navbar-brand mb-0">
+      <i class="bi bi-cpu me-2" aria-hidden="true"></i>LinterFlow
+    </span>
+    <span class="text-white-50 small d-none d-md-inline">Self-Healing SAST + LLM Pipeline</span>
+
+    <!-- Session + credit balance (always visible so users know what remains) -->
+    <div v-if="session" class="ms-auto d-flex align-items-center gap-3 flex-wrap">
+      <span class="badge text-uppercase" :class="roleBadgeClass">{{ session.user.role }}</span>
+      <span class="text-white small d-none d-sm-inline">{{ session.user.name }}</span>
+
+      <div v-if="!session.user.unlimited" class="text-end" style="min-width: 150px;">
+        <div class="text-white small mb-1">
+          <i class="bi bi-coin me-1" aria-hidden="true"></i>
+          {{ session.user.credits }} / {{ session.user.creditLimit }} credits left
+        </div>
+        <div class="progress" style="height: 5px;">
+          <div
+            class="progress-bar"
+            :class="creditBarClass"
+            role="progressbar"
+            :style="{ width: creditPercent + '%' }"
+            :aria-valuenow="session.user.credits"
+            aria-valuemin="0"
+            :aria-valuemax="session.user.creditLimit"
+          ></div>
+        </div>
+      </div>
+      <span v-else class="text-white small">
+        <i class="bi bi-infinity me-1" aria-hidden="true"></i>Unlimited credits
+      </span>
+
+      <button type="button" class="btn btn-sm btn-outline-light" @click="logout()">
+        <i class="bi bi-box-arrow-right me-1" aria-hidden="true"></i>Sign out
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="container-fluid px-4 pb-5">
+
+  <!-- ==================== AUTH SCREEN ==================== -->
+  <div v-if="!session" class="row justify-content-center">
+    <div class="col-12 col-md-7 col-lg-5 col-xl-4">
+      <div class="card section-card p-4">
+        <h5 class="fw-semibold mb-1">Welcome to LinterFlow</h5>
+        <p class="text-muted small mb-3">
+          Sign in to run the self-healing refactoring pipeline, or try it as a
+          guest with a limited credit allowance.
+        </p>
+
+        <!-- Login / Register toggle -->
+        <div class="btn-group w-100 mb-4" role="group" aria-label="Authentication mode">
+          <input type="radio" class="btn-check" name="authMode" id="authLogin" value="login" v-model="authMode" />
+          <label class="btn btn-outline-primary" for="authLogin">
+            <i class="bi bi-box-arrow-in-right me-1" aria-hidden="true"></i>Sign in
+          </label>
+          <input type="radio" class="btn-check" name="authMode" id="authRegister" value="register" v-model="authMode" />
+          <label class="btn btn-outline-primary" for="authRegister">
+            <i class="bi bi-person-plus me-1" aria-hidden="true"></i>Register
+          </label>
+        </div>
+
+        <!-- Sign in -->
+        <form v-if="authMode === 'login'" @submit.prevent="login">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label fw-medium">Email</label>
+            <input id="loginEmail" v-model="loginForm.email" type="email" class="form-control" autocomplete="email" :disabled="authLoading" required />
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label fw-medium">Password</label>
+            <input id="loginPassword" v-model="loginForm.password" type="password" class="form-control" autocomplete="current-password" :disabled="authLoading" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100" :disabled="authLoading">
+            <span v-if="authLoading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+            Sign in
+          </button>
+        </form>
+
+        <!-- Register -->
+        <form v-else @submit.prevent="registerAccount">
+          <div class="mb-3">
+            <label for="regName" class="form-label fw-medium">Name</label>
+            <input id="regName" v-model="registerForm.name" type="text" class="form-control" autocomplete="name" :disabled="authLoading" required />
+          </div>
+          <div class="mb-3">
+            <label for="regEmail" class="form-label fw-medium">Email</label>
+            <input id="regEmail" v-model="registerForm.email" type="email" class="form-control" autocomplete="email" :disabled="authLoading" required />
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label fw-medium">Password</label>
+            <input id="regPassword" v-model="registerForm.password" type="password" class="form-control" autocomplete="new-password" minlength="8" :disabled="authLoading" required />
+            <div class="form-text">At least 8 characters.</div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100" :disabled="authLoading">
+            <span v-if="authLoading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+            Create account
+          </button>
+          <div class="form-text mt-2">
+            New accounts need administrator approval before the first sign in.
+            The admin also sets your credit allowance.
+          </div>
+        </form>
+
+        <!-- Feedback -->
+        <div v-if="authNotice" role="status" class="alert alert-info mt-4 mb-0 small">
+          <i class="bi bi-info-circle me-1" aria-hidden="true"></i>{{ authNotice }}
+        </div>
+        <div v-if="authError" role="alert" class="alert alert-danger mt-4 mb-0 small">
+          <i class="bi bi-exclamation-triangle-fill me-1" aria-hidden="true"></i>{{ authError }}
+        </div>
+
+        <hr class="my-4" />
+
+        <!-- Guest try-on -->
+        <button type="button" class="btn btn-outline-secondary w-100" :disabled="authLoading" @click="tryAsGuest">
+          <i class="bi bi-person-badge me-1" aria-hidden="true"></i>
+          Try as guest — limited credits, no account needed
+        </button>
+        <div class="form-text text-center mt-2">
+          Guest sessions get a small credit allowance (set by the administrator)
+          so you can try the product. Your remaining credits stay visible in the
+          top bar.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <template v-else>
+
+  <!-- TAB NAVIGATION -->
+  <ul class="nav nav-tabs mb-4" id="mainTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        type="button"
+        class="nav-link"
+        :class="{ active: activeTab === 'submit' }"
+        id="tab-submit"
+        role="tab"
+        aria-controls="panel-submit"
+        :aria-selected="activeTab === 'submit' ? 'true' : 'false'"
+        @click="activeTab = 'submit'"
+      >
+        <i class="bi bi-play-circle me-1" aria-hidden="true"></i>Start Pipeline
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        type="button"
+        class="nav-link"
+        :class="{ active: activeTab === 'report' }"
+        id="tab-report"
+        role="tab"
+        aria-controls="panel-report"
+        :aria-selected="activeTab === 'report' ? 'true' : 'false'"
+        @click="activeTab = 'report'"
+      >
+        <i class="bi bi-bar-chart-line me-1" aria-hidden="true"></i>Report Dashboard
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        type="button"
+        class="nav-link"
+        :class="{ active: activeTab === 'duplication' }"
+        id="tab-duplication"
+        role="tab"
+        aria-controls="panel-duplication"
+        :aria-selected="activeTab === 'duplication' ? 'true' : 'false'"
+        @click="activeTab = 'duplication'"
+      >
+        <i class="bi bi-files me-1" aria-hidden="true"></i>Duplication
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        type="button"
+        class="nav-link"
+        :class="{ active: activeTab === 'history' }"
+        id="tab-history"
+        role="tab"
+        aria-controls="panel-history"
+        :aria-selected="activeTab === 'history' ? 'true' : 'false'"
+        @click="activeTab = 'history'"
+      >
+        <i class="bi bi-clock-history me-1" aria-hidden="true"></i>My History
+      </button>
+    </li>
+    <li v-if="isAdmin" class="nav-item" role="presentation">
+      <button
+        type="button"
+        class="nav-link"
+        :class="{ active: activeTab === 'admin' }"
+        id="tab-admin"
+        role="tab"
+        aria-controls="panel-admin"
+        :aria-selected="activeTab === 'admin' ? 'true' : 'false'"
+        @click="activeTab = 'admin'"
+      >
+        <i class="bi bi-shield-lock me-1" aria-hidden="true"></i>Admin Panel
+      </button>
+    </li>
+  </ul>
+
+  <!-- ==================== PANEL 1: SUBMIT JOB ==================== -->
+  <div v-show="activeTab === 'submit'" id="panel-submit" role="tabpanel" aria-labelledby="tab-submit">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card section-card p-4">
+          <h5 class="fw-semibold mb-1">Start Refactoring Pipeline</h5>
+          <p v-if="localPathEnabled" class="text-muted small mb-3">Analyse and refactor TypeScript files from a local directory or a public GitHub repository.</p>
+          <p v-else class="text-muted small mb-3">Analyse and refactor TypeScript files from a public GitHub repository.</p>
+
+          <!-- In production the server refuses local paths, so the option is not
+               offered: the pipeline rewrites the files it is pointed at, which
+               cannot be exposed. The GitHub route stays available because it is
+               sandboxed to temp/{uuid}. -->
+          <div v-if="!localPathEnabled" class="alert alert-secondary small" role="note">
+            <i class="bi bi-shield-lock me-1" aria-hidden="true"></i>
+            This deployment runs in <strong>production</strong> mode. Analysis by local path is
+            disabled; import a public GitHub repository instead.
+          </div>
+
+          <!-- Source selector: local path vs GitHub URL -->
+          <div v-if="localPathEnabled" class="btn-group w-100 mb-4" role="group" aria-label="Code source">
+            <input type="radio" class="btn-check" name="sourceMode" id="srcLocal" value="local" v-model="sourceMode" />
+            <label class="btn btn-outline-primary" for="srcLocal">
+              <i class="bi bi-folder2 me-1" aria-hidden="true"></i>Local Path
+            </label>
+            <input type="radio" class="btn-check" name="sourceMode" id="srcGithub" value="github" v-model="sourceMode" />
+            <label class="btn btn-outline-primary" for="srcGithub">
+              <i class="bi bi-github me-1" aria-hidden="true"></i>GitHub URL
+            </label>
+          </div>
+
+          <form v-if="sourceMode === 'local'" @submit.prevent="submitJob">
+            <div class="mb-3">
+              <label for="targetDir" class="form-label fw-medium">Target Directory</label>
+              <input
+                id="targetDir"
+                v-model="targetDirectory"
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="./mock-code"
+                :disabled="submitLoading"
+                required
+              />
+              <div class="form-text">Relative or absolute path on the server where the pipeline runs.</div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg w-100"
+              :disabled="submitLoading || !targetDirectory.trim()"
+            >
+              <span v-if="submitLoading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+              <i v-else class="bi bi-play-fill me-2" aria-hidden="true"></i>
+              {{ submitLoading ? 'Sending…' : 'Run Pipeline' }}
+            </button>
+          </form>
+
+          <!-- GitHub source -->
+          <div v-else>
+            <form @submit.prevent="importRepo">
+              <div class="mb-3">
+                <label for="repoUrl" class="form-label fw-medium">GitHub Repository URL</label>
+                <input
+                  id="repoUrl"
+                  v-model="repoUrl"
+                  type="url"
+                  class="form-control form-control-lg"
+                  placeholder="https://github.com/owner/repo"
+                  :disabled="importLoading"
+                  required
+                />
+                <div class="form-text">Public repository. It is downloaded and extracted on the server so you can pick what to analyse.</div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100"
+                :disabled="importLoading || !repoUrl.trim()"
+              >
+                <span v-if="importLoading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                <i v-else class="bi bi-cloud-download me-2" aria-hidden="true"></i>
+                {{ importLoading ? 'Importing…' : 'Import Repository' }}
+              </button>
+            </form>
+
+            <!-- Import error state -->
+            <div v-if="importError" role="alert" class="alert alert-danger mt-4 mb-0 d-flex align-items-start gap-2">
+              <i class="bi bi-exclamation-triangle-fill fs-5 mt-1 flex-shrink-0" aria-hidden="true"></i>
+              <div>
+                <div class="fw-semibold">Import failed</div>
+                <div class="small mt-1">{{ importError }}</div>
+              </div>
+            </div>
+
+            <!-- File tree of the imported repository -->
+            <div v-if="githubImport" class="mt-4">
+              <div class="section-title mb-2">
+                Repository Files — {{ githubImport.owner }}/{{ githubImport.repo }}
+              </div>
+              <div class="border rounded p-2 file-tree">
+                <ul class="mb-0 ps-0">
+                  <file-tree-item
+                    :node="githubImport.tree"
+                    :selected-path="selectedNode ? selectedNode.path : null"
+                    @select="onTreeSelect"
+                  />
+                </ul>
+              </div>
+              <div class="form-text mt-2">
+                Click a folder to expand or collapse it. Click a file — or the
+                <i class="bi bi-crosshair" aria-hidden="true"></i> icon on a folder — to select it for analysis.
+              </div>
+
+              <div v-if="selectedNode" class="d-flex align-items-center gap-2 mt-3 flex-wrap">
+                <span class="small text-muted">Selected:</span>
+                <code class="small">{{ selectedNode.path }}</code>
+                <span v-if="!canAnalyze" class="small text-danger">Only .ts files or folders can be analysed.</span>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-lg w-100 mt-3"
+                :disabled="!canAnalyze || analyzeLoading"
+                @click="analyzeSelection"
+              >
+                <span v-if="analyzeLoading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                <i v-else class="bi bi-play-fill me-2" aria-hidden="true"></i>
+                {{ analyzeLoading ? 'Sending…' : 'Analyze Selection' }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Success state -->
+          <div v-if="submitSuccess" role="status" class="alert alert-success mt-4 mb-0 d-flex align-items-start gap-2">
+            <i class="bi bi-check-circle-fill fs-5 mt-1 flex-shrink-0" aria-hidden="true"></i>
+            <div class="flex-grow-1">
+              <div class="fw-semibold">Pipeline started successfully</div>
+              <div class="small mt-1">
+                Directory: <code>{{ submitSuccess.targetDirectory }}</code><br />
+                Timestamp: {{ formatDate(submitSuccess.timestamp) }}<br />
+                Status: <span class="badge bg-success">{{ submitSuccess.status }}</span>
+              </div>
+              <div v-if="submitSuccess.creditsCharged !== undefined" class="small mt-2">
+                <i class="bi bi-coin me-1" aria-hidden="true"></i>
+                {{ submitSuccess.filesFound }} file(s) —
+                <strong>{{ submitSuccess.creditsCharged }} credit(s) charged</strong><span v-if="submitSuccess.creditsRemaining !== null">,
+                {{ submitSuccess.creditsRemaining }} remaining</span><span v-else> (admin: unlimited)</span>.
+              </div>
+              <div class="small text-muted mt-2">
+                Refactoring runs in the background and may take several minutes,
+                depending on the number of files. The report updates as files finish.
+              </div>
+              <button type="button" class="btn btn-sm btn-outline-success mt-2" @click="viewReport">
+                <i class="bi bi-bar-chart-line me-1" aria-hidden="true"></i>View report dashboard
+              </button>
+            </div>
+          </div>
+
+          <!-- Error state -->
+          <div v-if="submitError" role="alert" class="alert alert-danger mt-4 mb-0 d-flex align-items-start gap-2">
+            <i class="bi bi-exclamation-triangle-fill fs-5 mt-1 flex-shrink-0" aria-hidden="true"></i>
+            <div>
+              <div class="fw-semibold">Request failed</div>
+              <div class="small mt-1">{{ submitError }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PANEL 2: REPORT DASHBOARD ==================== -->
+  <div v-show="activeTab === 'report'" id="panel-report" role="tabpanel" aria-labelledby="tab-report">
+
+    <!-- Toolbar -->
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <h5 class="fw-semibold mb-0">Mitigation Report</h5>
+      <div class="d-flex align-items-center gap-3">
+        <div class="form-check form-switch mb-0">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="autoRefresh"
+            v-model="autoRefresh"
+          />
+          <label class="form-check-label small" for="autoRefresh">Auto-refresh (5s)</label>
+        </div>
+        <button class="btn btn-outline-primary" @click="fetchReport" :disabled="reportLoading">
+          <span v-if="reportLoading" class="spinner-border spinner-border-sm me-1" aria-hidden="true"></span>
+          <i v-else class="bi bi-arrow-clockwise me-1" aria-hidden="true"></i>
+          Refresh Report
+        </button>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div v-if="reportError" role="alert" class="alert alert-danger d-flex align-items-start gap-2">
+      <i class="bi bi-exclamation-triangle-fill fs-5 mt-1 flex-shrink-0" aria-hidden="true"></i>
+      <div>
+        <div class="fw-semibold">Failed to load report</div>
+        <div class="small">{{ reportError }}</div>
+      </div>
+    </div>
+
+    <!-- First-load state -->
+    <div v-else-if="reportLoading && !report" class="text-center py-5" role="status">
+      <div class="spinner-border text-primary" aria-hidden="true"></div>
+      <p class="text-muted mt-3 mb-0">Loading report…</p>
+    </div>
+
+    <!-- Empty state -->
+    <div v-else-if="report && report.files.length === 0" class="text-center py-5">
+      <i class="bi bi-inbox fs-1 text-muted" aria-hidden="true"></i>
+      <p class="text-muted mt-2 mb-3">No report data yet. Run the pipeline first.</p>
+      <button type="button" class="btn btn-outline-primary btn-sm" @click="activeTab = 'submit'">
+        <i class="bi bi-play-circle me-1" aria-hidden="true"></i>Go to Start Pipeline
+      </button>
+    </div>
+
+    <!-- Report content -->
+    <template v-else-if="report">
+
+      <!-- Generated at -->
+      <p class="text-muted small mb-3">
+        <i class="bi bi-clock me-1"></i>Generated at {{ formatDate(report.generatedAt) }}
+      </p>
+
+      <!-- Global Stats cards -->
+      <div class="row g-3 mb-4 justify-content-center">
+        <div class="col-6 col-sm-4 col-xl-2">
+          <div class="card stat-card h-100">
+            <div class="card-body">
+              <div class="stat-value text-dark">{{ report.globalStats.totalFiles }}</div>
+              <div class="stat-label">Total Files</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-2">
+          <div class="card stat-card h-100">
+            <div class="card-body">
+              <div class="stat-value text-success">{{ report.globalStats.filesConverged }}</div>
+              <div class="stat-label">Converged</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-2">
+          <div class="card stat-card h-100">
+            <div class="card-body">
+              <div class="stat-value text-warning-emphasis">{{ report.globalStats.filesNotConverged }}</div>
+              <div class="stat-label">Not Converged</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-2">
+          <div class="card stat-card h-100">
+            <div class="card-body">
+              <div class="stat-value text-primary">{{ report.globalStats.filesImproved }}</div>
+              <div class="stat-label">Improved</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-2">
+          <div class="card stat-card h-100">
+            <div class="card-body">
+              <div class="stat-value text-info-emphasis">{{ report.globalStats.avgIterations.toFixed(1) }}</div>
+              <div class="stat-label">Avg Iterations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benchmark chart + legend -->
+      <div class="row g-3 mb-4">
+        <div class="col-12 col-lg-7">
+          <div class="card section-card p-3 h-100">
+            <div class="section-title mb-3">Avg Delta — Benchmark Overview</div>
+            <div class="chart-wrapper">
+              <canvas
+                id="benchmarkChart"
+                role="img"
+                aria-label="Bar chart of the average delta per metric: cyclomatic complexity, maintainability index and duplication rate. The same values are listed in the Delta Averages table."
+              ></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="card section-card p-3 h-100">
+            <div class="section-title mb-3">Delta Averages</div>
+            <table class="table table-sm mb-0">
+              <tbody>
+                <tr>
+                  <td class="text-muted small">Avg Delta Cyclomatic Complexity</td>
+                  <td class="text-end fw-semibold" :class="deltaClass(report.globalStats.avgDeltaCyclomaticComplexity, 'cc')">
+                    {{ formatDelta(report.globalStats.avgDeltaCyclomaticComplexity) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-muted small">Avg Delta Maintainability Index</td>
+                  <td class="text-end fw-semibold" :class="deltaClass(report.globalStats.avgDeltaMaintainabilityIndex, 'mi')">
+                    {{ formatDelta(report.globalStats.avgDeltaMaintainabilityIndex) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-muted small">Avg Delta Duplication Rate (%)</td>
+                  <td class="text-end fw-semibold" :class="deltaClass(report.globalStats.avgDeltaDuplicationRate, 'dup')">
+                    {{ formatDelta(report.globalStats.avgDeltaDuplicationRate) }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="mt-3 small text-muted">
+              <p class="mb-1"><span class="text-success fw-semibold">Green</span> = improvement (CC/Dup down, MI up)</p>
+              <p class="mb-0"><span class="text-danger fw-semibold">Red</span> = regression (CC/Dup up, MI down)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Per-file table -->
+      <div class="card section-card p-3">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="section-title">Per-File Results</div>
+          <div class="small">
+            <span class="badge bg-success me-1">Improved</span>
+            <span class="badge bg-warning text-dark me-1">Not Converged</span>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>File</th>
+                <th class="text-center">CC pre&rarr;post (Delta)</th>
+                <th class="text-center">MI pre&rarr;post (Delta)</th>
+                <th class="text-center">Dup% pre&rarr;post (Delta)</th>
+                <th class="text-center">Iterations</th>
+                <th class="text-center">Converged</th>
+                <th class="text-center">Improved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="file in report.files"
+                :key="file.filePath"
+                :class="{
+                  'row-improved': file.improved,
+                  'row-not-converged': !file.converged
+                }"
+              >
+                <td class="filepath-cell" :title="file.filePath">{{ basename(file.filePath) }}</td>
+
+                <!-- CC -->
+                <td class="text-center">
+                  <span class="text-muted small">{{ file.initial.cyclomaticComplexity }} &rarr; {{ file.final.cyclomaticComplexity }}</span>
+                  <br />
+                  <span :class="deltaClass(file.delta.cyclomaticComplexity, 'cc')" class="small fw-semibold">
+                    {{ formatDelta(file.delta.cyclomaticComplexity) }}
+                  </span>
+                </td>
+
+                <!-- MI -->
+                <td class="text-center">
+                  <span class="text-muted small">{{ file.initial.maintainabilityIndex.toFixed(1) }} &rarr; {{ file.final.maintainabilityIndex.toFixed(1) }}</span>
+                  <br />
+                  <span :class="deltaClass(file.delta.maintainabilityIndex, 'mi')" class="small fw-semibold">
+                    {{ formatDelta(file.delta.maintainabilityIndex) }}
+                  </span>
+                </td>
+
+                <!-- Dup -->
+                <td class="text-center">
+                  <span class="text-muted small">{{ file.initial.duplicationRate.toFixed(1) }}% &rarr; {{ file.final.duplicationRate.toFixed(1) }}%</span>
+                  <br />
+                  <span :class="deltaClass(file.delta.duplicationRate, 'dup')" class="small fw-semibold">
+                    {{ formatDelta(file.delta.duplicationRate) }}%
+                  </span>
+                </td>
+
+                <td class="text-center">{{ file.iterations }}</td>
+
+                <td class="text-center">
+                  <span v-if="file.converged" class="badge badge-converged">Yes</span>
+                  <span v-else class="badge badge-diverged">No</span>
+                </td>
+
+                <td class="text-center">
+                  <span v-if="file.improved" class="badge badge-improved">Yes</span>
+                  <span v-else class="badge badge-not-improved">No</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </template>
+
+    <!-- Initial prompt — no fetch attempted yet -->
+    <div v-else-if="!reportLoading && !report && !reportError" class="text-center py-5">
+      <i class="bi bi-bar-chart fs-1 text-muted"></i>
+      <p class="text-muted mt-2">Click "Refresh Report" to load the latest pipeline results.</p>
+    </div>
+
+  </div><!-- /panel 2 -->
+
+  <!-- ==================== PANEL 3: DUPLICATION ==================== -->
+  <div v-show="activeTab === 'duplication'" id="panel-duplication" role="tabpanel" aria-labelledby="tab-duplication">
+
+    <div class="alert alert-secondary small" role="note">
+      <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+      The pipeline measures duplication <strong>inside</strong> each file — it compares a file
+      only against itself. This scans every file against every other, which is the only way
+      repetition <strong>between</strong> modules becomes visible. The two rates are different
+      measurements; don't report them side by side as the same number.
+      Free: no model calls, no credits.
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <form @submit.prevent="measureDuplication">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="dupTarget" class="form-label fw-semibold">Folder to measure</label>
+              <input
+                id="dupTarget"
+                v-model="dupTarget"
+                type="text"
+                class="form-control"
+                placeholder="./manual-corpus-run"
+                required
+              />
+              <div class="form-text">The refactored copy, if you are comparing.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="dupCompare" class="form-label fw-semibold">
+                Compare with <span class="text-muted fw-normal">(optional)</span>
+              </label>
+              <input
+                id="dupCompare"
+                v-model="dupCompare"
+                type="text"
+                class="form-control"
+                placeholder="./manual-corpus"
+              />
+              <div class="form-text">The untouched copy — this becomes the "before".</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3" :disabled="dupLoading || !dupTarget.trim()">
+            <span v-if="dupLoading" class="spinner-border spinner-border-sm me-1" aria-hidden="true"></span>
+            <i v-else class="bi bi-search me-1" aria-hidden="true"></i>
+            Measure
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div v-if="dupError" class="alert alert-danger" role="alert">
+      <i class="bi bi-exclamation-triangle me-1" aria-hidden="true"></i>{{ dupError }}
+    </div>
+
+    <!-- Before/after deltas -->
+    <div v-if="dupResult && dupResult.mode === 'comparison'" class="card mb-4">
+      <div class="card-header fw-semibold">Before &rarr; After</div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead>
+            <tr><th>Metric</th><th class="text-end">Before</th><th class="text-end">After</th><th class="text-end">&Delta;</th></tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in dupComparisonRows" :key="row.label">
+              <td>{{ row.label }}</td>
+              <td class="text-end">{{ row.before }}</td>
+              <td class="text-end">{{ row.after }}</td>
+              <td class="text-end" :class="row.delta < 0 ? 'text-success fw-semibold' : (row.delta > 0 ? 'text-danger' : 'text-muted')">
+                {{ row.delta > 0 ? '+' : '' }}{{ row.delta }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer small text-muted">
+        The pipeline does not target duplication between files — it cannot see it, so movement
+        there is a side effect of the CC/MI refactoring. Clones inside a single file are the
+        exception: those the per-file gate does see and does act on.
+      </div>
+    </div>
+
+    <!-- Each measured folder -->
+    <div v-for="block in dupBlocks" :key="block.heading" class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span class="fw-semibold">{{ block.heading }}</span>
+        <span class="badge fs-6" :class="block.data.duplicationRate > 3 ? 'bg-danger' : 'bg-success'">
+          {{ block.data.duplicationRate }}%
+          <span class="fw-normal">{{ block.data.duplicationRate > 3 ? '· over the 3% threshold' : '· within threshold' }}</span>
+        </span>
+      </div>
+      <div class="card-body">
+        <div class="row text-center g-3 mb-3">
+          <div class="col-6 col-md-3">
+            <div class="fs-4 fw-semibold">{{ block.data.filesScanned }}</div>
+            <div class="small text-muted">files scanned</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fs-4 fw-semibold">{{ block.data.totalLines }}</div>
+            <div class="small text-muted">total lines</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fs-4 fw-semibold">{{ block.data.clonePairs }}</div>
+            <div class="small text-muted">clone pairs</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fs-4 fw-semibold">{{ block.data.duplicatedLines }}</div>
+            <div class="small text-muted">duplicated lines</div>
+          </div>
+        </div>
+
+        <p v-if="!block.data.clonePairs" class="text-muted small mb-0">
+          No clones of 5+ lines and 50+ tokens found.
+        </p>
+
+        <div v-if="block.data.topFilePairs.length" class="mb-3">
+          <h6 class="small text-uppercase text-muted">Most duplicated file pairs</h6>
+          <div class="table-responsive">
+            <table class="table table-sm mb-0">
+              <thead><tr><th>Files</th><th class="text-end">Clones</th><th class="text-end">Lines</th></tr></thead>
+              <tbody>
+                <tr v-for="pair in block.data.topFilePairs" :key="pair.files.join('|') + pair.lines">
+                  <td>
+                    <code class="small">{{ pair.files[0] }}</code>
+                    <span v-if="pair.files[0] === pair.files[1]" class="badge bg-warning text-dark ms-1">within one file</span>
+                    <template v-else>
+                      <i class="bi bi-arrow-left-right mx-1 text-muted" aria-hidden="true"></i>
+                      <code class="small">{{ pair.files[1] }}</code>
+                    </template>
+                  </td>
+                  <td class="text-end">{{ pair.clones }}</td>
+                  <td class="text-end">{{ pair.lines }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div v-if="block.data.worstFiles.length">
+          <h6 class="small text-uppercase text-muted">Files with the most duplicated lines</h6>
+          <div class="table-responsive">
+            <table class="table table-sm mb-0">
+              <thead><tr><th>File</th><th class="text-end">Duplicated</th><th class="text-end">Total</th><th class="text-end">Rate</th></tr></thead>
+              <tbody>
+                <tr v-for="file in block.data.worstFiles" :key="file.file">
+                  <td><code class="small">{{ file.file }}</code></td>
+                  <td class="text-end">{{ file.duplicatedLines }}</td>
+                  <td class="text-end">{{ file.totalLines }}</td>
+                  <td class="text-end" :class="file.rate > 3 ? 'text-danger fw-semibold' : ''">{{ file.rate }}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /panel 3 -->
+
+  <!-- ==================== PANEL 4: MY HISTORY ==================== -->
+  <div v-show="activeTab === 'history'" id="panel-history" role="tabpanel" aria-labelledby="tab-history">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <h5 class="fw-semibold mb-0">My Run History</h5>
+      <button class="btn btn-outline-primary" @click="fetchMyRuns" :disabled="historyLoading">
+        <span v-if="historyLoading" class="spinner-border spinner-border-sm me-1" aria-hidden="true"></span>
+        <i v-else class="bi bi-arrow-clockwise me-1" aria-hidden="true"></i>
+        Refresh
+      </button>
+    </div>
+
+    <div v-if="historyError" role="alert" class="alert alert-danger">{{ historyError }}</div>
+
+    <div v-else-if="!historyLoading && myRuns.length === 0" class="text-center py-5">
+      <i class="bi bi-clock-history fs-1 text-muted" aria-hidden="true"></i>
+      <p class="text-muted mt-2 mb-0">No pipeline runs yet. Start one in the Start Pipeline tab.</p>
+    </div>
+
+    <div v-else class="card section-card p-3">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Started</th>
+              <th>Source</th>
+              <th>Target</th>
+              <th class="text-center">Files</th>
+              <th class="text-center">Credits</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Report Validation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="run in myRuns" :key="run.id">
+              <td class="small">{{ formatDate(run.startedAt) }}</td>
+              <td><span class="badge bg-light text-dark border">{{ run.source }}</span></td>
+              <td class="filepath-cell" :title="run.target">{{ run.target }}</td>
+              <td class="text-center">{{ run.files.length }}</td>
+              <td class="text-center">{{ run.creditsCharged }}</td>
+              <td class="text-center">
+                <span v-if="run.finishedAt" class="badge bg-success">Finished</span>
+                <span v-else class="badge bg-info text-dark">Running</span>
+              </td>
+              <td class="text-center">
+                <span class="badge" :class="validationBadgeClass(run.validation.status)">
+                  {{ run.validation.status }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- /panel 3 -->
+
+  <!-- ==================== PANEL 4: ADMIN ==================== -->
+  <div v-if="isAdmin" v-show="activeTab === 'admin'" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <h5 class="fw-semibold mb-0">Admin Panel</h5>
+      <button class="btn btn-outline-primary" @click="fetchAdminData" :disabled="adminLoading">
+        <span v-if="adminLoading" class="spinner-border spinner-border-sm me-1" aria-hidden="true"></span>
+        <i v-else class="bi bi-arrow-clockwise me-1" aria-hidden="true"></i>
+        Refresh
+      </button>
+    </div>
+
+    <div v-if="adminError" role="alert" class="alert alert-danger">{{ adminError }}</div>
+    <div v-if="adminNotice" role="status" class="alert alert-success py-2 small">{{ adminNotice }}</div>
+
+    <div class="row g-3">
+      <!-- Guest credit limit -->
+      <div class="col-12 col-lg-4">
+        <div class="card section-card p-3 h-100">
+          <div class="section-title mb-2">Guest Try-On Limit</div>
+          <p class="small text-muted">
+            Credits granted to each new guest session. 1 credit = one
+            refactoring of a medium file (≤ 300 LOC); long files cost more.
+          </p>
+          <form class="d-flex gap-2" @submit.prevent="saveGuestLimit">
+            <input
+              type="number"
+              min="0"
+              step="1"
+              class="form-control"
+              style="max-width: 120px;"
+              v-model.number="guestLimitInput"
+              aria-label="Guest credit limit"
+            />
+            <button type="submit" class="btn btn-primary" :disabled="adminLoading">Save</button>
+          </form>
+          <div v-if="adminSettings" class="form-text mt-2">
+            Current limit: {{ adminSettings.guestCreditLimit }} credit(s) per guest session.
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending approvals -->
+      <div class="col-12 col-lg-8">
+        <div class="card section-card p-3 h-100">
+          <div class="section-title mb-2">Pending Registrations</div>
+          <p v-if="pendingUsers.length === 0" class="small text-muted mb-0">No registrations awaiting approval.</p>
+          <div v-else class="table-responsive">
+            <table class="table table-sm align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Registered</th>
+                  <th style="width: 110px;">Credits</th>
+                  <th class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="user in pendingUsers" :key="user.id">
+                  <td>{{ user.name }}</td>
+                  <td class="small">{{ user.email }}</td>
+                  <td class="small">{{ formatDate(user.createdAt) }}</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="1"
+                      class="form-control form-control-sm"
+                      v-model.number="creditInputs[user.id]"
+                      :aria-label="'Initial credits for ' + user.email"
+                    />
+                  </td>
+                  <td class="text-end text-nowrap">
+                    <button class="btn btn-sm btn-success me-1" @click="approveUser(user)" :disabled="adminLoading">
+                      <i class="bi bi-check-lg" aria-hidden="true"></i> Approve
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" @click="rejectUser(user)" :disabled="adminLoading">
+                      <i class="bi bi-x-lg" aria-hidden="true"></i> Reject
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- All users -->
+      <div class="col-12">
+        <div class="card section-card p-3">
+          <div class="section-title mb-2">Users &amp; Credits</div>
+          <div class="table-responsive">
+            <table class="table table-sm align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th style="width: 170px;">Remaining Credits</th>
+                  <th class="text-end">History</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="user in adminUsers" :key="user.id">
+                  <td>{{ user.name }}</td>
+                  <td class="small">{{ user.email }}</td>
+                  <td><span class="badge text-uppercase" :class="user.role === 'admin' ? 'bg-danger' : 'bg-primary'">{{ user.role }}</span></td>
+                  <td>
+                    <span class="badge" :class="{
+                      'bg-success': user.status === 'approved',
+                      'bg-warning text-dark': user.status === 'pending',
+                      'bg-secondary': user.status === 'rejected',
+                    }">{{ user.status }}</span>
+                  </td>
+                  <td>
+                    <span v-if="user.role === 'admin'" class="small text-muted">
+                      <i class="bi bi-infinity me-1" aria-hidden="true"></i>Unlimited
+                    </span>
+                    <form v-else class="d-flex gap-1" @submit.prevent="saveUserCredits(user)">
+                      <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        class="form-control form-control-sm"
+                        style="max-width: 90px;"
+                        v-model.number="creditInputs[user.id]"
+                        :aria-label="'Credits for ' + user.email"
+                      />
+                      <button type="submit" class="btn btn-sm btn-outline-primary" :disabled="adminLoading">Set</button>
+                    </form>
+                  </td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary" @click="viewUserHistory(user)" :disabled="userHistoryLoading">
+                      <i class="bi bi-clock-history me-1" aria-hidden="true"></i>View
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Per-user history drill-down -->
+          <div v-if="historyUser" class="border rounded p-3 mt-3 bg-light">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="section-title mb-0">History — {{ historyUser.name }} ({{ historyUser.email }})</div>
+              <button class="btn btn-sm btn-outline-secondary" @click="historyUser = null">Close</button>
+            </div>
+            <p v-if="userHistoryRuns.length === 0" class="small text-muted mb-0">This user has no pipeline runs yet.</p>
+            <div v-else class="table-responsive">
+              <table class="table table-sm mb-0">
+                <thead>
+                  <tr><th>Started</th><th>Source</th><th>Target</th><th class="text-center">Files</th><th class="text-center">Credits</th><th class="text-center">Validation</th></tr>
+                </thead>
+                <tbody>
+                  <tr v-for="run in userHistoryRuns" :key="run.id">
+                    <td class="small">{{ formatDate(run.startedAt) }}</td>
+                    <td class="small">{{ run.source }}</td>
+                    <td class="filepath-cell" :title="run.target">{{ run.target }}</td>
+                    <td class="text-center">{{ run.files.length }}</td>
+                    <td class="text-center">{{ run.creditsCharged }}</td>
+                    <td class="text-center">
+                      <span class="badge" :class="validationBadgeClass(run.validation.status)">{{ run.validation.status }}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Report validation queue -->
+      <div class="col-12">
+        <div class="card section-card p-3">
+          <div class="section-title mb-2">Generated Reports — Validation</div>
+          <p v-if="adminRuns.length === 0" class="small text-muted mb-0">No pipeline runs recorded yet.</p>
+          <div v-else class="table-responsive">
+            <table class="table table-sm align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Started</th>
+                  <th>User</th>
+                  <th>Target</th>
+                  <th class="text-center">Files</th>
+                  <th class="text-center">Credits</th>
+                  <th class="text-center">Converged</th>
+                  <th class="text-center">Validation</th>
+                  <th class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="run in adminRuns" :key="run.id">
+                  <td class="small">{{ formatDate(run.startedAt) }}</td>
+                  <td class="small">
+                    {{ run.ownerLabel }}
+                    <span class="badge bg-light text-dark border text-uppercase">{{ run.ownerRole }}</span>
+                  </td>
+                  <td class="filepath-cell" :title="run.target">{{ run.target }}</td>
+                  <td class="text-center">{{ run.files.length }}</td>
+                  <td class="text-center">{{ run.creditsCharged }}</td>
+                  <td class="text-center small">
+                    <template v-if="run.report">
+                      {{ run.report.globalStats.filesConverged }}/{{ run.report.globalStats.totalFiles }}
+                    </template>
+                    <span v-else class="text-muted">running…</span>
+                  </td>
+                  <td class="text-center">
+                    <span class="badge" :class="validationBadgeClass(run.validation.status)">{{ run.validation.status }}</span>
+                  </td>
+                  <td class="text-end text-nowrap">
+                    <button
+                      class="btn btn-sm btn-success me-1"
+                      :disabled="adminLoading || !run.report || run.validation.status === 'validated'"
+                      @click="validateRun(run, 'validated')"
+                    >
+                      <i class="bi bi-patch-check me-1" aria-hidden="true"></i>Validate
+                    </button>
+                    <button
+                      class="btn btn-sm btn-outline-danger"
+                      :disabled="adminLoading || !run.report || run.validation.status === 'rejected'"
+                      @click="validateRun(run, 'rejected')"
+                    >
+                      Reject
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /panel 4 -->
+
+  </template><!-- /authenticated -->
+
+</main>
+</div><!-- /app -->
+
+<!-- Vue 3 CDN (production build) -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+
+<script>
+const { createApp, ref, reactive, computed, watch, nextTick, onBeforeUnmount } = Vue;
+
+/**
+ * Recursive file-tree node (CDN equivalent of a FileTreeItem.vue SFC).
+ *
+ * Node contract — mirrors FileTreeNode in src/github/github.service.ts:
+ *   { name: string, type: 'file' | 'directory', path: string, children?: Node[] }
+ *
+ * Behaviour:
+ *  - clicking a directory row toggles expand/collapse of its children;
+ *  - clicking a file row emits 'select' with the node (its path is what the
+ *    parent sends to POST /api/github/analyze);
+ *  - the crosshair button selects a directory without toggling it.
+ */
+const FileTreeItem = {
+  name: 'FileTreeItem',
+  props: {
+    node: { type: Object, required: true },
+    selectedPath: { type: String, default: null },
+    depth: { type: Number, default: 0 },
+  },
+  emits: ['select'],
+  setup(props, { emit }) {
+    const expanded = ref(props.depth === 0);
+
+    function onRowClick() {
+      if (props.node.type === 'directory') {
+        expanded.value = !expanded.value;
+      } else {
+        emit('select', props.node);
+      }
+    }
+
+    function selectDirectory(event) {
+      event.stopPropagation();
+      emit('select', props.node);
+    }
+
+    return { expanded, onRowClick, selectDirectory };
+  },
+  template: `
+    <li class="list-unstyled">
+      <div
+        class="tree-row d-flex align-items-center gap-2 rounded px-2"
+        :class="{ 'tree-selected': selectedPath === node.path }"
+        :style="{ marginLeft: (depth * 14) + 'px' }"
+        role="button"
+        @click="onRowClick"
+      >
+        <i
+          v-if="node.type === 'directory'"
+          :class="expanded ? 'bi bi-folder2-open text-warning' : 'bi bi-folder-fill text-warning'"
+          aria-hidden="true"
+        ></i>
+        <i v-else class="bi bi-file-earmark-code text-secondary" aria-hidden="true"></i>
+        <span class="small text-truncate flex-grow-1">{{ node.name }}</span>
+        <button
+          v-if="node.type === 'directory'"
+          type="button"
+          class="btn btn-sm btn-link p-0 text-primary"
+          title="Select this folder for analysis"
+          @click="selectDirectory"
+        >
+          <i class="bi bi-crosshair" aria-hidden="true"></i>
+        </button>
+      </div>
+      <ul v-if="node.type === 'directory' && expanded && node.children" class="mb-0 ps-0">
+        <file-tree-item
+          v-for="child in node.children"
+          :key="child.path"
+          :node="child"
+          :depth="depth + 1"
+          :selected-path="selectedPath"
+          @select="$emit('select', $event)"
+        />
+      </ul>
+    </li>
+  `,
+};
+
+/**
+ * Parses a fetch Response as JSON, tolerating non-JSON bodies (e.g. an HTML
+ * error page from a proxy) so the user sees "HTTP 502" instead of a JSON
+ * parse exception.
+ */
+async function parseJsonSafe(res) {
+  try {
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+const app = createApp({
+  setup() {
+    /* ---------- shared state ---------- */
+    const activeTab = ref('submit');
+
+    /* ---------- authentication ---------- */
+    const TOKEN_KEY = 'linterflow_token';
+
+    // session = { token, user: { id, role, name, email?, credits, creditLimit, unlimited } }
+    const session      = ref(null);
+    const authMode     = ref('login'); // 'login' | 'register'
+    const authLoading  = ref(false);
+    const authError    = ref(null);
+    const authNotice   = ref(null);
+    const loginForm    = reactive({ email: '', password: '' });
+    const registerForm = reactive({ name: '', email: '', password: '' });
+
+    const isAdmin = computed(() => session.value?.user.role === 'admin');
+
+    const creditPercent = computed(() => {
+      const user = session.value?.user;
+      if (!user || user.unlimited || !user.creditLimit) return 0;
+      return Math.max(0, Math.min(100, (user.credits / user.creditLimit) * 100));
+    });
+    const creditBarClass = computed(() =>
+      creditPercent.value > 50 ? 'bg-success' : creditPercent.value > 20 ? 'bg-warning' : 'bg-danger'
+    );
+    const roleBadgeClass = computed(() => ({
+      admin: 'bg-danger',
+      user:  'bg-primary',
+      guest: 'bg-secondary',
+    }[session.value?.user.role] ?? 'bg-secondary'));
+
+    /** fetch() wrapper: attaches the Bearer token and signs out on 401. */
+    async function apiFetch(url, options = {}) {
+      const headers = { ...(options.headers ?? {}) };
+      if (session.value) headers.Authorization = `Bearer ${session.value.token}`;
+      const res = await fetch(url, { ...options, headers });
+      if (res.status === 401 && session.value) {
+        logout('Your session expired. Please sign in again.');
+      }
+      return res;
+    }
+
+    function setSession(data) {
+      session.value = data;
+      localStorage.setItem(TOKEN_KEY, data.token);
+      authError.value  = null;
+      authNotice.value = null;
+    }
+
+    function logout(notice = null) {
+      session.value = null;
+      localStorage.removeItem(TOKEN_KEY);
+      authNotice.value = notice;
+      authError.value  = null;
+      // Clear per-account state so the next sign-in starts fresh.
+      activeTab.value     = 'submit';
+      submitSuccess.value = null;
+      submitError.value   = null;
+      githubImport.value  = null;
+      selectedNode.value  = null;
+      report.value        = null;
+      myRuns.value        = [];
+      historyUser.value   = null;
+    }
+
+    async function login() {
+      authLoading.value = true;
+      authError.value   = null;
+      authNotice.value  = null;
+      try {
+        const res  = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: loginForm.email.trim(), password: loginForm.password }),
+        });
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) {
+          const msg = Array.isArray(data?.message) ? data.message.join(' ') : data?.message;
+          throw new Error(msg ?? `HTTP ${res.status}`);
+        }
+        loginForm.password = '';
+        setSession(data);
+      } catch (err) {
+        authError.value = err.message ?? 'Unknown error';
+      } finally {
+        authLoading.value = false;
+      }
+    }
+
+    async function registerAccount() {
+      authLoading.value = true;
+      authError.value   = null;
+      authNotice.value  = null;
+      try {
+        const res  = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: registerForm.name.trim(),
+            email: registerForm.email.trim(),
+            password: registerForm.password,
+          }),
+        });
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) {
+          const msg = Array.isArray(data?.message) ? data.message.join(' ') : data?.message;
+          throw new Error(msg ?? `HTTP ${res.status}`);
+        }
+        registerForm.password = '';
+        authMode.value   = 'login';
+        authNotice.value = data.message;
+      } catch (err) {
+        authError.value = err.message ?? 'Unknown error';
+      } finally {
+        authLoading.value = false;
+      }
+    }
+
+    async function tryAsGuest() {
+      authLoading.value = true;
+      authError.value   = null;
+      try {
+        const res  = await fetch('/api/auth/guest', { method: 'POST' });
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) throw new Error(data?.message ?? `HTTP ${res.status}`);
+        setSession(data);
+      } catch (err) {
+        authError.value = err.message ?? 'Unknown error';
+      } finally {
+        authLoading.value = false;
+      }
+    }
+
+    /** Re-validates a stored token on page load and restores the session. */
+    async function restoreSession() {
+      const token = localStorage.getItem(TOKEN_KEY);
+      if (!token) return;
+      try {
+        const res = await fetch('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } });
+        if (!res.ok) throw new Error();
+        session.value = { token, user: await res.json() };
+      } catch {
+        localStorage.removeItem(TOKEN_KEY);
+      }
+    }
+
+    /** Applies the post-charge balance returned by start/analyze responses. */
+    function applyCharge(data) {
+      if (!session.value || session.value.user.unlimited) return;
+      if (typeof data?.creditsRemaining === 'number') {
+        session.value.user.credits = data.creditsRemaining;
+      }
+    }
+
+    /* ---------- Panel 1: Submit ---------- */
+    const targetDirectory = ref('./mock-code');
+    const submitLoading   = ref(false);
+    const submitSuccess   = ref(null);
+    const submitError     = ref(null);
+
+    async function submitJob() {
+      submitLoading.value = true;
+      submitSuccess.value = null;
+      submitError.value   = null;
+      try {
+        const res = await apiFetch('/api/orchestrator/start', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ targetDirectory: targetDirectory.value.trim() }),
+        });
+        const data = await parseJsonSafe(res);
+        if (!res.ok) {
+          throw new Error(data?.message ?? `HTTP ${res.status}`);
+        }
+        submitSuccess.value = data;
+        applyCharge(data);
+      } catch (err) {
+        submitError.value = err.message ?? 'Unknown error';
+      } finally {
+        submitLoading.value = false;
+      }
+    }
+
+    /* ---------- Panel 1: GitHub import ---------- */
+    const sourceMode     = ref('local'); // 'local' | 'github'
+
+    /* Deployment capabilities. Defaults to the restrictive value so that a
+       failed or slow /api/config never briefly offers an option the server
+       would refuse — the same fail-safe direction as APP_ENV itself. */
+    const localPathEnabled = ref(false);
+    const appEnvironment   = ref('production');
+
+    async function loadAppConfig() {
+      try {
+        const res = await fetch('/api/config');
+        if (!res.ok) return;
+        const cfg = await res.json();
+        appEnvironment.value   = cfg.environment;
+        localPathEnabled.value = !!cfg.localPathAnalysisEnabled;
+        if (!localPathEnabled.value) sourceMode.value = 'github';
+      } catch {
+        /* Keep the restrictive default. */
+      }
+    }
+    const repoUrl        = ref('');
+    const importLoading  = ref(false);
+    const importError    = ref(null);
+    const githubImport   = ref(null);    // { importId, owner, repo, tree }
+    const selectedNode   = ref(null);    // node emitted by the file tree
+    const analyzeLoading = ref(false);
+
+    // The pipeline only understands folders and .ts source files.
+    const canAnalyze = computed(() =>
+      !!selectedNode.value &&
+      (selectedNode.value.type === 'directory' || selectedNode.value.path.endsWith('.ts'))
+    );
+
+    async function importRepo() {
+      importLoading.value = true;
+      importError.value   = null;
+      githubImport.value  = null;
+      selectedNode.value  = null;
+      submitSuccess.value = null;
+      submitError.value   = null;
+      try {
+        const res = await apiFetch('/api/github/import', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ repoUrl: repoUrl.value.trim() }),
+        });
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) {
+          const msg = Array.isArray(data?.message) ? data.message.join(' ') : data?.message;
+          throw new Error(msg ?? `HTTP ${res.status}`);
+        }
+        githubImport.value = data;
+      } catch (err) {
+        importError.value = err.message ?? 'Unknown error';
+      } finally {
+        importLoading.value = false;
+      }
+    }
+
+    function onTreeSelect(node) {
+      selectedNode.value = node;
+    }
+
+    async function analyzeSelection() {
+      if (!canAnalyze.value) return;
+      analyzeLoading.value = true;
+      submitSuccess.value  = null;
+      submitError.value    = null;
+      try {
+        const res = await apiFetch('/api/github/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            importId: githubImport.value.importId,
+            path: selectedNode.value.path,
+          }),
+        });
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) {
+          const msg = Array.isArray(data?.message) ? data.message.join(' ') : data?.message;
+          throw new Error(msg ?? `HTTP ${res.status}`);
+        }
+        submitSuccess.value = data;
+        applyCharge(data);
+      } catch (err) {
+        submitError.value = err.message ?? 'Unknown error';
+      } finally {
+        analyzeLoading.value = false;
+      }
+    }
+
+    // Switching source clears result alerts so stale feedback never lingers.
+    watch(sourceMode, () => {
+      submitSuccess.value = null;
+      submitError.value   = null;
+      importError.value   = null;
+    });
+
+    /* ---------- Panel 3: Duplication ----------
+       Project-level, unlike the per-file rate in the mitigation report: this
+       compares every file against every other. Synchronous — no model calls,
+       so there is no run to poll and nothing to bill. */
+    const dupTarget  = ref('./manual-corpus-run');
+    const dupCompare = ref('');
+    const dupLoading = ref(false);
+    const dupError   = ref(null);
+    const dupResult  = ref(null);
+
+    async function measureDuplication() {
+      dupLoading.value = true;
+      dupError.value = null;
+      dupResult.value = null;
+      try {
+        const body = { targetDirectory: dupTarget.value.trim() };
+        if (dupCompare.value.trim()) body.compareWith = dupCompare.value.trim();
+
+        const res = await apiFetch('/api/duplication/measure', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || 'Measurement failed.');
+        dupResult.value = data;
+      } catch (err) {
+        dupError.value = err.message;
+      } finally {
+        dupLoading.value = false;
+      }
+    }
+
+    // One block per measured folder, so the template renders single and
+    // comparison results through the same markup.
+    const dupBlocks = computed(() => {
+      const r = dupResult.value;
+      if (!r) return [];
+      if (r.mode === 'comparison') {
+        return [
+          { heading: 'Before — ' + r.before.directory, data: r.before },
+          { heading: 'After — '  + r.after.directory,  data: r.after  },
+        ];
+      }
+      return [{ heading: r.result.directory, data: r.result }];
+    });
+
+    const dupComparisonRows = computed(() => {
+      const r = dupResult.value;
+      if (!r || r.mode !== 'comparison') return [];
+      const rows = [
+        ['Files scanned',     'filesScanned'],
+        ['Total lines',       'totalLines'],
+        ['Clone pairs',       'clonePairs'],
+        ['Duplicated lines',  'duplicatedLines'],
+        ['Duplication rate %','duplicationRate'],
+      ];
+      return rows.map(([label, key]) => ({
+        label,
+        before: r.before[key],
+        after:  r.after[key],
+        delta:  r.delta[key],
+      }));
+    });
+
+    /* ---------- Panel 2: Report ---------- */
+    const report        = ref(null);
+    const reportLoading = ref(false);
+    const reportError   = ref(null);
+    let chartInstance   = null;
+
+    async function fetchReport() {
+      reportLoading.value = true;
+      reportError.value   = null;
+      try {
+        const res  = await apiFetch('/api/orchestrator/report');
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) {
+          throw new Error(data?.message ?? `HTTP ${res.status}`);
+        }
+        report.value = data;
+        await nextTick();
+        renderChart(data.globalStats);
+      } catch (err) {
+        reportError.value = err.message ?? 'Unknown error';
+      } finally {
+        reportLoading.value = false;
+      }
+    }
+
+    function renderChart(stats) {
+      const canvas = document.getElementById('benchmarkChart');
+      if (!canvas) return;
+
+      if (chartInstance) {
+        chartInstance.destroy();
+        chartInstance = null;
+      }
+
+      // Cyclomatic Complexity: lower post = better → negative delta is good
+      // Maintainability Index: higher post = better → positive delta is good
+      // Duplication Rate:      lower post = better → negative delta is good
+      const labels  = ['Avg Δ CC', 'Avg Δ MI', 'Avg Δ Dup%'];
+      const values  = [
+        stats.avgDeltaCyclomaticComplexity,
+        stats.avgDeltaMaintainabilityIndex,
+        stats.avgDeltaDuplicationRate,
+      ];
+
+      // Determine bar colour per metric based on whether the direction is an improvement
+      // CC/Dup: improvement = negative delta; MI: improvement = positive delta
+      const isGood  = [
+        values[0] <= 0,  // CC: down is good
+        values[1] >= 0,  // MI: up is good
+        values[2] <= 0,  // Dup: down is good
+      ];
+      const colors  = isGood.map(g => g ? 'rgba(25, 135, 84, 0.75)' : 'rgba(220, 53, 69, 0.75)');
+      const borders = isGood.map(g => g ? 'rgba(25, 135, 84, 1)'    : 'rgba(220, 53, 69, 1)');
+
+      chartInstance = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Average Delta',
+            data: values,
+            backgroundColor: colors,
+            borderColor: borders,
+            borderWidth: 2,
+            borderRadius: 6,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => {
+                  const v = ctx.parsed.y;
+                  const sign = v > 0 ? '+' : '';
+                  return ` ${sign}${v.toFixed(3)}`;
+                },
+              },
+            },
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(0,0,0,0.05)' },
+              ticks: {
+                callback: v => {
+                  const sign = v > 0 ? '+' : '';
+                  return `${sign}${v.toFixed(2)}`;
+                },
+              },
+            },
+            x: {
+              grid: { display: false },
+            },
+          },
+        },
+      });
+    }
+
+    /* ---------- Panel 3: My history ---------- */
+    const myRuns         = ref([]);
+    const historyLoading = ref(false);
+    const historyError   = ref(null);
+
+    async function fetchMyRuns() {
+      historyLoading.value = true;
+      historyError.value   = null;
+      try {
+        const res  = await apiFetch('/api/runs/mine');
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) throw new Error(data?.message ?? `HTTP ${res.status}`);
+        myRuns.value = data;
+      } catch (err) {
+        historyError.value = err.message ?? 'Unknown error';
+      } finally {
+        historyLoading.value = false;
+      }
+    }
+
+    /* ---------- Panel 4: Admin ---------- */
+    const adminUsers     = ref([]);
+    const adminRuns      = ref([]);
+    const adminSettings  = ref(null);
+    const guestLimitInput = ref(3);
+    const adminLoading   = ref(false);
+    const adminError     = ref(null);
+    const adminNotice    = ref(null);
+    // Per-user credit inputs, keyed by user id (approve + set balance forms).
+    const creditInputs   = reactive({});
+
+    const pendingUsers = computed(() =>
+      adminUsers.value.filter((u) => u.status === 'pending')
+    );
+
+    async function adminRequest(url, options, successMessage) {
+      adminLoading.value = true;
+      adminError.value   = null;
+      adminNotice.value  = null;
+      try {
+        const res  = await apiFetch(url, options);
+        const data = await parseJsonSafe(res);
+        if (!res.ok) {
+          const msg = Array.isArray(data?.message) ? data.message.join(' ') : data?.message;
+          throw new Error(msg ?? `HTTP ${res.status}`);
+        }
+        if (successMessage) adminNotice.value = successMessage;
+        return data;
+      } catch (err) {
+        adminError.value = err.message ?? 'Unknown error';
+        return null;
+      } finally {
+        adminLoading.value = false;
+      }
+    }
+
+    async function fetchAdminData() {
+      adminLoading.value = true;
+      adminError.value   = null;
+      try {
+        const [usersRes, runsRes, settingsRes] = await Promise.all([
+          apiFetch('/api/admin/users'),
+          apiFetch('/api/admin/runs'),
+          apiFetch('/api/admin/settings'),
+        ]);
+        if (!usersRes.ok || !runsRes.ok || !settingsRes.ok) {
+          throw new Error('Failed to load admin data.');
+        }
+        adminUsers.value    = await usersRes.json();
+        adminRuns.value     = await runsRes.json();
+        adminSettings.value = await settingsRes.json();
+        guestLimitInput.value = adminSettings.value.guestCreditLimit;
+        for (const user of adminUsers.value) {
+          if (creditInputs[user.id] === undefined) {
+            // Pending users default to the guest limit as a starting allowance.
+            creditInputs[user.id] = user.status === 'pending'
+              ? adminSettings.value.guestCreditLimit
+              : user.credits;
+          }
+        }
+      } catch (err) {
+        adminError.value = err.message ?? 'Unknown error';
+      } finally {
+        adminLoading.value = false;
+      }
+    }
+
+    async function approveUser(user) {
+      const credits = Number(creditInputs[user.id] ?? 0);
+      const result = await adminRequest(
+        `/api/admin/users/${user.id}/approve`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ credits }),
+        },
+        `${user.email} approved with ${credits} credit(s).`,
+      );
+      if (result) fetchAdminData();
+    }
+
+    async function rejectUser(user) {
+      const result = await adminRequest(
+        `/api/admin/users/${user.id}/reject`,
+        { method: 'POST' },
+        `${user.email} rejected.`,
+      );
+      if (result) fetchAdminData();
+    }
+
+    async function saveUserCredits(user) {
+      const credits = Number(creditInputs[user.id] ?? 0);
+      const result = await adminRequest(
+        `/api/admin/users/${user.id}/credits`,
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ credits }),
+        },
+        `Balance of ${user.email} set to ${credits} credit(s).`,
+      );
+      if (result) fetchAdminData();
+    }
+
+    async function saveGuestLimit() {
+      const result = await adminRequest(
+        '/api/admin/settings',
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ guestCreditLimit: Number(guestLimitInput.value ?? 0) }),
+        },
+        'Guest credit limit updated. Applies to every new guest session.',
+      );
+      if (result) adminSettings.value = result;
+    }
+
+    async function validateRun(run, decision) {
+      const result = await adminRequest(
+        `/api/admin/runs/${run.id}/validate`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ decision }),
+        },
+        `Report ${decision === 'validated' ? 'validated' : 'rejected'}.`,
+      );
+      if (result) fetchAdminData();
+    }
+
+    /* ---------- Admin: per-user history drill-down ---------- */
+    const historyUser        = ref(null);
+    const userHistoryRuns    = ref([]);
+    const userHistoryLoading = ref(false);
+
+    async function viewUserHistory(user) {
+      userHistoryLoading.value = true;
+      try {
+        const res  = await apiFetch(`/api/admin/users/${user.id}/history`);
+        const data = await parseJsonSafe(res);
+        if (!res.ok || !data) throw new Error(data?.message ?? `HTTP ${res.status}`);
+        historyUser.value     = user;
+        userHistoryRuns.value = data;
+      } catch (err) {
+        adminError.value = err.message ?? 'Unknown error';
+      } finally {
+        userHistoryLoading.value = false;
+      }
+    }
+
+    function validationBadgeClass(status) {
+      return {
+        pending:   'bg-warning text-dark',
+        validated: 'bg-success',
+        rejected:  'bg-danger',
+      }[status] ?? 'bg-secondary';
+    }
+
+    /* ---------- helpers ---------- */
+    function formatDate(iso) {
+      if (!iso) return '';
+      return new Date(iso).toLocaleString();
+    }
+
+    function basename(filePath) {
+      return filePath.split(/[\\/]/).pop() || filePath;
+    }
+
+    function formatDelta(value) {
+      if (value === undefined || value === null) return '—';
+      const sign = value > 0 ? '+' : '';
+      return `${sign}${value.toFixed(2)}`;
+    }
+
+    /**
+     * Returns a CSS class for a delta value.
+     * metric: 'cc' | 'mi' | 'dup'
+     * For CC and Dup: negative delta = improvement (green)
+     * For MI: positive delta = improvement (green)
+     */
+    function deltaClass(value, metric) {
+      if (value === 0) return 'delta-neutral';
+      const goodDirection = metric === 'mi' ? value > 0 : value < 0;
+      return goodDirection ? 'delta-positive' : 'delta-negative';
+    }
+
+    /* ---------- jump from success alert to the report ---------- */
+    function viewReport() {
+      activeTab.value = 'report';
+      if (!reportLoading.value) fetchReport();
+    }
+
+    /* ---------- opt-in polling while the pipeline runs in the background ---------- */
+    const autoRefresh = ref(false);
+    let autoRefreshTimer = null;
+
+    function stopAutoRefresh() {
+      if (autoRefreshTimer) {
+        clearInterval(autoRefreshTimer);
+        autoRefreshTimer = null;
+      }
+    }
+
+    watch(autoRefresh, (enabled) => {
+      stopAutoRefresh();
+      if (enabled) {
+        autoRefreshTimer = setInterval(() => {
+          if (!reportLoading.value) fetchReport();
+        }, 5000);
+      }
+    });
+
+    onBeforeUnmount(stopAutoRefresh);
+
+    /* ---------- auto-fetch when switching tabs ---------- */
+    watch(activeTab, (tab) => {
+      if (tab === 'report' && !report.value && !reportLoading.value) {
+        fetchReport();
+      }
+      if (tab !== 'report' && autoRefresh.value) {
+        autoRefresh.value = false; // also stops the timer via the watcher above
+      }
+      if (tab === 'history' && !historyLoading.value) {
+        fetchMyRuns();
+      }
+      if (tab === 'admin' && !adminLoading.value) {
+        fetchAdminData();
+      }
+    });
+
+    /* ---------- boot: restore a previous session from localStorage ---------- */
+    restoreSession();
+    // Unauthenticated, so it can run alongside the session restore rather than
+    // after it — the login screen already needs to know what this deployment offers.
+    loadAppConfig();
+
+    return {
+      activeTab,
+      localPathEnabled,
+      appEnvironment,
+      // auth / session
+      session,
+      authMode,
+      authLoading,
+      authError,
+      authNotice,
+      loginForm,
+      registerForm,
+      login,
+      registerAccount,
+      tryAsGuest,
+      logout,
+      isAdmin,
+      creditPercent,
+      creditBarClass,
+      roleBadgeClass,
+      // history
+      myRuns,
+      historyLoading,
+      historyError,
+      fetchMyRuns,
+      // admin
+      adminUsers,
+      adminRuns,
+      adminSettings,
+      guestLimitInput,
+      adminLoading,
+      adminError,
+      adminNotice,
+      creditInputs,
+      pendingUsers,
+      fetchAdminData,
+      approveUser,
+      rejectUser,
+      saveUserCredits,
+      saveGuestLimit,
+      validateRun,
+      historyUser,
+      userHistoryRuns,
+      userHistoryLoading,
+      viewUserHistory,
+      validationBadgeClass,
+      targetDirectory,
+      dupTarget,
+      dupCompare,
+      dupLoading,
+      dupError,
+      dupResult,
+      dupBlocks,
+      dupComparisonRows,
+      measureDuplication,
+      submitLoading,
+      submitSuccess,
+      submitError,
+      submitJob,
+      sourceMode,
+      repoUrl,
+      importLoading,
+      importError,
+      githubImport,
+      selectedNode,
+      analyzeLoading,
+      canAnalyze,
+      importRepo,
+      onTreeSelect,
+      analyzeSelection,
+      report,
+      reportLoading,
+      reportError,
+      fetchReport,
+      viewReport,
+      autoRefresh,
+      formatDate,
+      basename,
+      formatDelta,
+      deltaClass,
+    };
+  },
+});
+
+app.component('file-tree-item', FileTreeItem);
+app.mount('#app');
+</script>
+</body>
+</html>

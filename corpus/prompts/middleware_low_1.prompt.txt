@@ -1,0 +1,5 @@
+Generate a NestJS middleware (implements NestMiddleware) that inspects and processes incoming requests for the domain below.
+Domain: a favourite-quotes collection.
+Scope: a simple domain with very few rules. Implement the operations with mostly straight-line logic and minimal conditional branching.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

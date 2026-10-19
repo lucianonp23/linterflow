@@ -1,0 +1,296 @@
+{
+  "request": "Build me a complete social network app.\n\nPeople should be able to create an account, publish short posts, follow each other, and comment on posts. Everyone gets a timeline with the posts from the people they follow.\n\nMake it a working backend API in TypeScript using NestJS.",
+  "clarificationPolicy": "You decide, whatever you think is best. I don't know the technical details.",
+  "generatedWith": "Antigravity (Google) — Gemini",
+  "generatedAt": "2026-09-02",
+  "notes": [
+    "The agent built a complete runnable NestJS project, not a set of files: package.json, nest-cli.json, tsconfig, a TypeORM/sqlite persistence layer and a seed service. Only the .ts sources are the experimental artefact; node_modules, dist and social_app.sqlite are gitignored.",
+    "The request asked for a backend API, but the agent also produced a browser frontend under public/ (index.html, app.js, styles.css). Those are not TypeScript and are not analysed, but they are part of what a lay request produced and are kept in the repository.",
+    "test/api-e2e.ts (103 lines) is included in the 31 analysed files. The agent wrote it unprompted; excluding it after the fact would be post-hoc selection.",
+    "The generated code does not compile cleanly: src/seed/seed.service.ts has TypeORM type errors. Left untouched — compilation errors in LLM-generated code are the phenomenon under study, not noise to be cleaned before measurement.",
+    "Clarifying questions from the agent, if any, were answered with the fixed reply in PROMPTS.md. No feature requests, bug reports or change requests were made after the initial request."
+  ],
+  "fileCount": 31,
+  "totalLines": 1535,
+  "files": [
+    {
+      "file": "src/app.module.ts",
+      "lines": 40,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/auth.controller.ts",
+      "lines": 34,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/auth.module.ts",
+      "lines": 24,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/auth.service.ts",
+      "lines": 86,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/current-user.decorator.ts",
+      "lines": 9,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/dto/login.dto.ts",
+      "lines": 14,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/dto/register.dto.ts",
+      "lines": 36,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/jwt-auth.guard.ts",
+      "lines": 13,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/auth/jwt.strategy.ts",
+      "lines": 32,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/comments/comments.controller.ts",
+      "lines": 46,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/comments/comments.module.ts",
+      "lines": 16,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/comments/comments.service.ts",
+      "lines": 98,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/comments/dto/create-comment.dto.ts",
+      "lines": 11,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/entities/comment.entity.ts",
+      "lines": 25,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/entities/follow.entity.ts",
+      "lines": 20,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/entities/like.entity.ts",
+      "lines": 20,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/entities/post.entity.ts",
+      "lines": 30,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/entities/user.entity.ts",
+      "lines": 34,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/feed/feed.controller.ts",
+      "lines": 39,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/feed/feed.module.ts",
+      "lines": 18,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/feed/feed.service.ts",
+      "lines": 71,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/main.ts",
+      "lines": 41,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/posts/dto/create-post.dto.ts",
+      "lines": 16,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/posts/posts.controller.ts",
+      "lines": 77,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/posts/posts.module.ts",
+      "lines": 16,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/posts/posts.service.ts",
+      "lines": 139,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/seed/seed.service.ts",
+      "lines": 194,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/users/users.controller.ts",
+      "lines": 75,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/users/users.module.ts",
+      "lines": 16,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "src/users/users.service.ts",
+      "lines": 142,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    },
+    {
+      "file": "test/api-e2e.ts",
+      "lines": 103,
+      "measuredCC": null,
+      "measuredMI": null,
+      "measuredViolations": null,
+      "measuredTotalCC": null,
+      "measuredFunctions": null
+    }
+  ]
+}

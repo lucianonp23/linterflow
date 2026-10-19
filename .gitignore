@@ -1,0 +1,113 @@
+# compiled output
+/dist
+/node_modules
+/build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# temp directory
+.temp
+.tmp
+src/evaluator/temp-test-dir/
+mock-code/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# jscpd reports
+#Validate if really need to ignore
+jscpd-report.json
+report/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+#AI files
+GEMINI.md
+PROJECT_ANALYSIS.md
+codegen_instructions.md
+
+# Python
+__pycache__/
+*.pyc
+temp/
+
+# Runtime account/credit store (file-backed persistence)
+data/
+
+# Claude Code — worktrees live inside the repo; local settings are per-machine
+.claude/worktrees/
+.claude/settings.local.json
+
+# Working copy of the corpus — the Producer overwrites what it refactors.
+# Regenerate with: cp -r corpus/ corpus-run/
+#corpus-run/
+#corpus-retry/
+
+# Second corpus (mini social network). The agent generated a whole runnable
+# project, so these folders carry a toolchain as well as the code under study.
+# Version the SOURCE — it is the experimental artefact — and never the rest:
+# node_modules alone is 232 MB per copy, and the database is run state, not code.
+manual-corpus*/node_modules/
+manual-corpus*/dist/
+manual-corpus*/*.sqlite
+manual-run*/node_modules/
+manual-run*/dist/
+manual-run*/*.sqlite
+.DS_Store
+logs/
+
+# Local working notes (kept out of the public repository)
+CLAUDE.md
+GEMINI.md
+.claude/
+STATE_OF_PROJECT.md
+PROJECT_ANALYSIS.md
+PLANO-FINALIZACAO.md
+docs/11-capitulo-experimento.md
+docs/12-experimentos-futuros.md
+corpus/ANALISE-CUSTO-CORPUS.md
+docs/LinterFlow-Apresentacao.pptx

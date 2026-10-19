@@ -1,0 +1,36 @@
+{
+ "subject": "repository_high_1",
+ "arm": "corpus-run",
+ "cases": 4500,
+ "identical": 4499,
+ "different": 1,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok[].threw.message + $.ok[].threw.response.message",
+   "cases": 1,
+   "example": "scenario-1556"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "scenario-1556",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.0.threw.message",
+   "expected": "Priority collision (2) for call type VOICE_LOCAL",
+   "actual": "Priority collision (7) for call type VOICE_PREMIUM",
+   "differences": [
+    {
+     "path": "$.ok.0.threw.message",
+     "expected": "Priority collision (2) for call type VOICE_LOCAL",
+     "actual": "Priority collision (7) for call type VOICE_PREMIUM"
+    },
+    {
+     "path": "$.ok.0.threw.response.message",
+     "expected": "Priority collision (2) for call type VOICE_LOCAL",
+     "actual": "Priority collision (7) for call type VOICE_PREMIUM"
+    }
+   ]
+  }
+ ]
+}

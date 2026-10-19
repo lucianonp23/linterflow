@@ -1,0 +1,42 @@
+[
+ {
+  "subject": "middleware_medium_2",
+  "from": "body.quantity > 10000",
+  "to": "body.quantity >= 10000"
+ },
+ {
+  "subject": "service_high_3",
+  "from": "finalScore >= 65",
+  "to": "finalScore > 65"
+ },
+ {
+  "subject": "controller_high_4",
+  "from": "calculatedOTHours * baseHourlyRate * 1.5",
+  "to": "calculatedOTHours * baseHourlyRate * 1.25"
+ },
+ {
+  "subject": "repository_medium_4",
+  "from": "if (points < 100)",
+  "to": "if (points <= 100)"
+ },
+ {
+  "subject": "controller_high_2",
+  "from": "effectiveCreditScore >= 740",
+  "to": "effectiveCreditScore > 740"
+ },
+ {
+  "subject": "middleware_high_2",
+  "from": "lateDays * 5",
+  "to": "lateDays * 4"
+ },
+ {
+  "subject": "repository_high_4",
+  "from": "priceAfter = currentPrice * 1.3;",
+  "to": "priceAfter = currentPrice * 1.25;"
+ },
+ {
+  "subject": "service_high_4",
+  "from": "vitals.glasgowComaScale <= 8",
+  "to": "vitals.glasgowComaScale < 8"
+ }
+]

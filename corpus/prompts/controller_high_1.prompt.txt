@@ -1,0 +1,5 @@
+Generate a NestJS REST Controller (use @Controller and HTTP method decorators such as @Get/@Post/@Put/@Delete) that exposes endpoints for the domain below and applies the domain rules inline in the handlers.
+Domain: an insurance claims workflow (claim type, customer tier, coverage limits, fraud flags).
+Scope: a rule-heavy domain with many interacting business rules, edge cases and special conditions. Implement every rule and edge case fully and explicitly, even where this leads to deeply nested conditionals, multiple loops and switch statements.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

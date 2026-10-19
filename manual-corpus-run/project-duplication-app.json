@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-09-04T18-12-02-274Z",
+  "mode": "comparison",
+  "before": {
+    "directory": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/manual-corpus",
+    "filesScanned": 31,
+    "totalLines": 1535,
+    "clonePairs": 2,
+    "duplicatedLines": 63,
+    "duplicationRate": 4.104,
+    "worstFiles": [
+      {
+        "file": "src/feed/feed.service.ts",
+        "duplicatedLines": 41,
+        "totalLines": 71,
+        "rate": 57.746
+      },
+      {
+        "file": "src/posts/posts.service.ts",
+        "duplicatedLines": 22,
+        "totalLines": 139,
+        "rate": 15.827
+      }
+    ],
+    "topFilePairs": [
+      {
+        "files": [
+          "src/feed/feed.service.ts",
+          "src/feed/feed.service.ts"
+        ],
+        "clones": 1,
+        "lines": 20
+      },
+      {
+        "files": [
+          "src/posts/posts.service.ts",
+          "src/posts/posts.service.ts"
+        ],
+        "clones": 1,
+        "lines": 11
+      }
+    ],
+    "thresholds": {
+      "minLines": 5,
+      "minTokens": 50
+    }
+  },
+  "after": {
+    "directory": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/manual-corpus-run",
+    "filesScanned": 31,
+    "totalLines": 1523,
+    "clonePairs": 0,
+    "duplicatedLines": 0,
+    "duplicationRate": 0,
+    "worstFiles": [],
+    "topFilePairs": [],
+    "thresholds": {
+      "minLines": 5,
+      "minTokens": 50
+    }
+  },
+  "delta": {
+    "filesScanned": 0,
+    "totalLines": -12,
+    "clonePairs": -2,
+    "duplicatedLines": -63,
+    "duplicationRate": -4.104
+  }
+}

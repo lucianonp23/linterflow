@@ -1,0 +1,467 @@
+{
+ "subject": "dto_high_2",
+ "arm": "corpus-run",
+ "cases": 9657,
+ "identical": 7880,
+ "different": 1777,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok + $.threw",
+   "cases": 1777,
+   "example": "engine/8"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "engine/8",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":80,\"totalAmount\":0.8,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: …",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":80,\"totalAmount\":0.8,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: …"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/12",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":1092.5,\"totalAmount\":109.25,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"REBATE\",\"description\":\"Rebate: Low income\",\"qua…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":1092.5,\"totalAmount\":109.25,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"REBATE\",\"description\":\"Rebate: Low income\",\"qua…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/15",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":80,\"totalAmount\":8,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":8,\"totalAmount\":0.4,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\",\"quantity\":1,\"totalAmount\":1,\"unitPrice\":1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quan…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":80,\"totalAmount\":8,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":8,\"totalAmount\":0.4,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\",\"quantity\":1,\"totalAmount\":1,\"unitPrice\":1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quan…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/17",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":400,\"totalAmount\":80,\"unitPrice\":0.2},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 3 (500 - ∞ kWh)\",\"quantity\":730,\"totalAmount\":219.00000000000003,\"unitPrice\":0.30000000000000004},{\"category\":\"SUR…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":400,\"totalAmount\":80,\"unitPrice\":0.2},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 3 (500 - ∞ kWh)\",\"quantity\":730,\"totalAmount\":219.00000000000003,\"unitPrice\":0.30000000000000004},{\"category\":\"SUR…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/25",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Peak (PEAK)\",\"quantity\":420,\"totalAmount\":84,\"unitPrice\":0.2},{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Off (OFF_PEAK)\",\"quantity\":2260,\"totalAmount\":180.8,\"unitPrice\":0.08},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":2680,\"totalAmount\":26.8,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\"…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Peak (PEAK)\",\"quantity\":420,\"totalAmount\":84,\"unitPrice\":0.2},{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Off (OFF_PEAK)\",\"quantity\":2260,\"totalAmount\":180.8,\"unitPrice\":0.08},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":2680,\"totalAmount\":26.8,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\"…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/37",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 400 kWh)\",\"quantity\":210,\"totalAmount\":42,\"unitPrice\":0.2},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surch…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 400 kWh)\",\"quantity\":210,\"totalAmount\":42,\"unitPrice\":0.2},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surch…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/40",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":650,\"totalAmount\":65,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":650,\"totalAmount\":6.5,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"TAX\",\"description\":\"Tax (23%)\",\"quantity\":71.…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":650,\"totalAmount\":65,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":650,\"totalAmount\":6.5,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"TAX\",\"description\":\"Tax (23%)\",\"quantity\":71.…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/46",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Night (PEAK)\",\"quantity\":162.5,\"totalAmount\":32.5,\"unitPrice\":0.2},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"REBATE\",\"description\":\"Rebate: EV\",\"q…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Night (PEAK)\",\"quantity\":162.5,\"totalAmount\":32.5,\"unitPrice\":0.2},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"REBATE\",\"description\":\"Rebate: EV\",\"q…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/52",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 400 kWh)\",\"quantity\":300,\"totalAmount\":60,\"unitPrice\":0.2},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 5 kW)\",\"quantity\":20,\"totalAmount\":160,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surch…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 400 kWh)\",\"quantity\":300,\"totalAmount\":60,\"unitPrice\":0.2},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 5 kW)\",\"quantity\":20,\"totalAmount\":160,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surch…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/57",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Green\",\"quantity\":1150,\"totalAmount\":4.6000000000000005,\"unitPrice\":0.004},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Resi only\",\"quantity\":1,\"totalAmount\":3,\"unitPrice\":3},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"TAX\",\"description\":\"Tax (6%)\",\"quantity\"…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Green\",\"quantity\":1150,\"totalAmount\":4.6000000000000005,\"unitPrice\":0.004},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Resi only\",\"quantity\":1,\"totalAmount\":3,\"unitPrice\":3},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"TAX\",\"description\":\"Tax (6%)\",\"quantity\"…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/58",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":12.5,\"totalAmount\":1.25,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":1.25,\"totalAmount\":0.0625,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Re…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":12.5,\"totalAmount\":1.25,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":1.25,\"totalAmount\":0.0625,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Re…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/63",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: WeekendAll (OFF_PEAK)\",\"quantity\":150,\"totalAmount\":7.5,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":150,\"totalAmount\":1.5,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Peak demand\",\"quantity\":9,\"totalAmount\":18,\"unitPrice\":2},{\"category\":\"SURCHARGE\",\"description\":\"…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: WeekendAll (OFF_PEAK)\",\"quantity\":150,\"totalAmount\":7.5,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":150,\"totalAmount\":1.5,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Peak demand\",\"quantity\":9,\"totalAmount\":18,\"unitPrice\":2},{\"category\":\"SURCHARGE\",\"description\":\"…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/66",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":0,\"totalAmount\":0,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Peak demand\",\"quantity\":140,\"totalAmount\":280,\"unitPrice\":2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unkn…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":0,\"totalAmount\":0,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Peak demand\",\"quantity\":140,\"totalAmount\":280,\"unitPrice\":2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unkn…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/67",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":130,\"totalAmount\":26,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":230,\"totalAmount\":2.3000000000000003,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"descr…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":130,\"totalAmount\":26,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":230,\"totalAmount\":2.3000000000000003,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"descr…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/69",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":400,\"totalAmount\":80,\"unitPrice\":0.2},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 3 (500 - ∞ kWh)\",\"quantity\":220,\"totalAmount\":66.00000000000001,\"unitPrice\":0.30000000000000004},{\"category\":\"DEMA…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":400,\"totalAmount\":80,\"unitPrice\":0.2},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 3 (500 - ∞ kWh)\",\"quantity\":220,\"totalAmount\":66.00000000000001,\"unitPrice\":0.30000000000000004},{\"category\":\"DEMA…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/73",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":1000,\"totalAmount\":100,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":1000,\"totalAmount\":10,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":100,\"totalAmount\":5,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Un…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":1000,\"totalAmount\":100,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":1000,\"totalAmount\":10,\"unitPrice\":0.01},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":100,\"totalAmount\":5,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Un…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/82",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 5 kW)\",\"quantity\":135,\"totalAmount\":1080,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Green\",\"quantity\":800,\"totalAmount\":3.2,\"unitPrice\":0.004},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\",\"quantity\":1,\"totalAmount\":1,\"unitPrice\":1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Un…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 5 kW)\",\"quantity\":135,\"totalAmount\":1080,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Green\",\"quantity\":800,\"totalAmount\":3.2,\"unitPrice\":0.004},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\",\"quantity\":1,\"totalAmount\":1,\"unitPrice\":1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Un…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/87",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":0,\"totalAmount\":0,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\",\"quantity\":1,\"totalAmount\":1,\"unitPrice\":1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":0,\"totalAmount\":0,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\",\"quantity\":1,\"totalAmount\":1,\"unitPrice\":1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/88",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Peak (PEAK)\",\"quantity\":932.5,\"totalAmount\":186.5,\"unitPrice\":0.2},{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Overlap (PEAK)\",\"quantity\":80,\"totalAmount\":16,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Resi only\",\"quantity\":1,\"totalAmount\":3,\"unitPrice\":3},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: …",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Peak (PEAK)\",\"quantity\":932.5,\"totalAmount\":186.5,\"unitPrice\":0.2},{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Overlap (PEAK)\",\"quantity\":80,\"totalAmount\":16,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Resi only\",\"quantity\":1,\"totalAmount\":3,\"unitPrice\":3},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: …"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/89",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Summer (CRITICAL_PEAK)\",\"quantity\":932.5,\"totalAmount\":373,\"unitPrice\":0.4},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":932.5,\"totalAmount\":9.325000000000001,\"unitPrice\":0.01},{\"category\":\"…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Summer (CRITICAL_PEAK)\",\"quantity\":932.5,\"totalAmount\":373,\"unitPrice\":0.4},{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 500 kW)\",\"quantity\":2,\"totalAmount\":16,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Per kWh levy\",\"quantity\":932.5,\"totalAmount\":9.325000000000001,\"unitPrice\":0.01},{\"category\":\"…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/96",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 5 kW)\",\"quantity\":20,\"totalAmount\":160,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":0,\"totalAmount\":0,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"REBATE\",\"description\":\"Rebate: Solar capped\",\"qua…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"DEMAND\",\"description\":\"Peak Demand Charge (Above 5 kW)\",\"quantity\":20,\"totalAmount\":160,\"unitPrice\":8},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":0,\"totalAmount\":0,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Unknown\",\"quantity\":1,\"totalAmount\":0,\"unitPrice\":9},{\"category\":\"REBATE\",\"description\":\"Rebate: Solar capped\",\"qua…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/97",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":420,\"totalAmount\":42,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":42,\"totalAmount\":2.1,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\"…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - ∞ kWh)\",\"quantity\":420,\"totalAmount\":42,\"unitPrice\":0.1},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Grid fee\",\"quantity\":1,\"totalAmount\":12,\"unitPrice\":12},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":42,\"totalAmount\":2.1,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Empty types\"…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/101",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":400,\"totalAmount\":80,\"unitPrice\":0.2},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 3 (500 - ∞ kWh)\",\"quantity\":902.5,\"totalAmount\":270.75000000000006,\"unitPrice\":0.30000000000000004},{\"category\":\"S…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":400,\"totalAmount\":80,\"unitPrice\":0.2},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 3 (500 - ∞ kWh)\",\"quantity\":902.5,\"totalAmount\":270.75000000000006,\"unitPrice\":0.30000000000000004},{\"category\":\"S…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/102",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":332.5,\"totalAmount\":66.5,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Green\",\"quantity\":432.5,\"totalAmount\":1.73,\"unitPrice\":0.004},{\"category\":\"SURCHARGE\",\"description\":\"Surch…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 1 (0 - 100 kWh)\",\"quantity\":100,\"totalAmount\":10,\"unitPrice\":0.1},{\"category\":\"ENERGY_TIER\",\"description\":\"Tier 2 (100 - 500 kWh)\",\"quantity\":332.5,\"totalAmount\":66.5,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: Green\",\"quantity\":432.5,\"totalAmount\":1.73,\"unitPrice\":0.004},{\"category\":\"SURCHARGE\",\"description\":\"Surch…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  },
+  {
+   "label": "engine/105",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Two (PEAK)\",\"quantity\":1420,\"totalAmount\":284,\"unitPrice\":0.2},{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Rest (PEAK)\",\"quantity\":12.5,\"totalAmount\":2.5,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":286.5,\"totalAmount\":14.325000000000001,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"descript…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"lineItems\":[{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Two (PEAK)\",\"quantity\":1420,\"totalAmount\":284,\"unitPrice\":0.2},{\"category\":\"ENERGY_TOU\",\"description\":\"TOU Rate: Rest (PEAK)\",\"quantity\":12.5,\"totalAmount\":2.5,\"unitPrice\":0.2},{\"category\":\"SURCHARGE\",\"description\":\"Surcharge: City %\",\"quantity\":286.5,\"totalAmount\":14.325000000000001,\"unitPrice\":0.05},{\"category\":\"SURCHARGE\",\"descript…"
+    },
+    {
+     "path": "$.threw",
+     "actual": {
+      "__error__": "TypeError"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,563 @@
+{
+ "subject": "service_high_1",
+ "arm": "corpus-run",
+ "cases": 24000,
+ "identical": 6481,
+ "different": 17519,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.nonRefundableCredits.aotcRefundable",
+   "cases": 16437,
+   "example": "return-0"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.ordinaryIncomeTax + $.ok.ordinaryTaxableIncome + $.ok.taxableIncome",
+   "cases": 520,
+   "example": "return-99"
+  },
+  {
+   "fields": "$.ok.alternativeMinimumTax + $.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.ordinaryIncomeTax + $.ok.ordinaryTaxableIncome",
+   "cases": 179,
+   "example": "return-18"
+  },
+  {
+   "fields": "$.ok.alternativeMinimumTax + $.ok.nonRefundableCredits.aotcRefundable + $.ok.preferentialIncomeTax",
+   "cases": 65,
+   "example": "return-36"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable",
+   "cases": 53,
+   "example": "return-352"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.deductionTypeUsed + $.ok.nonRefundableCredits.aotcRefundable + $.ok.ordinaryIncomeTax + $.ok.ordinaryTaxableIncome",
+   "cases": 47,
+   "example": "return-258"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.ordinaryIncomeTax + $.ok.ordinaryTaxableIncome + $.ok.preferentialIncomeTax",
+   "cases": 25,
+   "example": "return-1056"
+  },
+  {
+   "fields": "$.ok.alternativeMinimumTax + $.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.deductionTypeUsed + $.ok.nonRefundableCredits.aotcRefundable + $.ok.ordinaryIncomeTax",
+   "cases": 18,
+   "example": "return-106"
+  },
+  {
+   "fields": "$.ok.alternativeMinimumTax + $.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.preferentialIncomeTax + $.ok.preferentialTaxableIncome",
+   "cases": 15,
+   "example": "return-1928"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.deductionTypeUsed + $.ok.nonRefundableCredits.aotcRefundable",
+   "cases": 13,
+   "example": "return-1282"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax + $.ok.ordinaryTaxableIncome",
+   "cases": 12,
+   "example": "return-2155"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.preferentialTaxableIncome + $.ok.taxableIncome",
+   "cases": 10,
+   "example": "return-2896"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.nonRefundableCredits.aotcRefundable + $.ok.preferentialIncomeTax + $.ok.totalFinalTaxLiability + $.ok.totalTaxBeforeCredits",
+   "cases": 9,
+   "example": "return-273"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.creditForOtherDependents + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 8,
+   "example": "return-923"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.energyEfficientHomeCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 7,
+   "example": "return-3350"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.creditForOtherDependents + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax + $.ok.ordinaryTaxableIncome",
+   "cases": 7,
+   "example": "return-6930"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.childTaxCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax + $.ok.ordinaryTaxableIncome",
+   "cases": 4,
+   "example": "return-517"
+  },
+  {
+   "fields": "$.ok.alternativeMinimumTax + $.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.deductionTypeUsed + $.ok.nonRefundableCredits.aotcRefundable + $.ok.preferentialIncomeTax",
+   "cases": 4,
+   "example": "return-1011"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.childTaxCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 4,
+   "example": "return-1922"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.lifetimeLearningCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 4,
+   "example": "return-1924"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 4,
+   "example": "return-1961"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.lifetimeLearningCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 4,
+   "example": "return-4499"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.energyEfficientHomeCredit + $.ok.nonRefundableCredits.lifetimeLearningCredit + $.ok.nonRefundableCredits.total",
+   "cases": 4,
+   "example": "return-6222"
+  },
+  {
+   "fields": "$.ok.alternativeMinimumTax + $.ok.balanceDueOrRefund + $.ok.nonRefundableCredits.aotcRefundable + $.ok.preferentialIncomeTax + $.ok.totalFinalTaxLiability + $.ok.totalTaxBeforeCredits",
+   "cases": 3,
+   "example": "return-534"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 3,
+   "example": "return-737"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.energyEfficientHomeCredit + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.total",
+   "cases": 3,
+   "example": "return-2313"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.childAndDependentCareCredit + $.ok.nonRefundableCredits.childTaxCredit + $.ok.nonRefundableCredits.creditForOtherDependents",
+   "cases": 3,
+   "example": "return-10642"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.energyEfficientHomeCredit + $.ok.nonRefundableCredits.lifetimeLearningCredit",
+   "cases": 2,
+   "example": "return-218"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.creditForOtherDependents + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.lifetimeLearningCredit",
+   "cases": 2,
+   "example": "return-1755"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 2,
+   "example": "return-1855"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.deductionTypeUsed + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 2,
+   "example": "return-1941"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.deductionTypeUsed + $.ok.nonRefundableCredits.aotcRefundable + $.ok.preferentialTaxableIncome + $.ok.taxableIncome",
+   "cases": 2,
+   "example": "return-2443"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.lifetimeLearningCredit",
+   "cases": 2,
+   "example": "return-2571"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.creditForOtherDependents + $.ok.nonRefundableCredits.energyEfficientHomeCredit",
+   "cases": 2,
+   "example": "return-7308"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.lifetimeLearningCredit + $.ok.nonRefundableCredits.saversCredit",
+   "cases": 2,
+   "example": "return-8883"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.lifetimeLearningCredit + $.ok.nonRefundableCredits.total",
+   "cases": 2,
+   "example": "return-11425"
+  },
+  {
+   "fields": "$.ok.balanceDueOrRefund + $.ok.deductionAmount + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.lifetimeLearningCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 2,
+   "example": "return-14683"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.deductionTypeUsed + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.foreignTaxCredit + $.ok.nonRefundableCredits.total + $.ok.ordinaryIncomeTax",
+   "cases": 1,
+   "example": "return-34"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.childTaxCredit + $.ok.nonRefundableCredits.creditForOtherDependents + $.ok.nonRefundableCredits.total",
+   "cases": 1,
+   "example": "return-1299"
+  },
+  {
+   "fields": "$.ok.deductionAmount + $.ok.nonRefundableCredits.aotcNonRefundable + $.ok.nonRefundableCredits.aotcRefundable + $.ok.nonRefundableCredits.creditForOtherDependents + $.ok.nonRefundableCredits.lifetimeLearningCredit + $.ok.nonRefundableCredits.total",
+   "cases": 1,
+   "example": "return-1442"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "return-0",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-1",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-2",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-3",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-4",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 600,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 600
+    }
+   ]
+  },
+  {
+   "label": "return-5",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-7",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-8",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-9",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-10",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-11",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 1000,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 1000
+    }
+   ]
+  },
+  {
+   "label": "return-13",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-14",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-15",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-16",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-18",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.alternativeMinimumTax",
+   "expected": 65945.462175125,
+   "actual": 68233.462175125,
+   "differences": [
+    {
+     "path": "$.ok.alternativeMinimumTax",
+     "expected": 65945.462175125,
+     "actual": 68233.462175125
+    },
+    {
+     "path": "$.ok.balanceDueOrRefund",
+     "expected": 277080.14623732504,
+     "actual": 271672.14623732504
+    },
+    {
+     "path": "$.ok.deductionAmount",
+     "expected": 0,
+     "actual": 20800
+    },
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.ordinaryIncomeTax",
+     "expected": 43969.380088,
+     "actual": 37313.380088
+    },
+    {
+     "path": "$.ok.ordinaryTaxableIncome",
+     "expected": 208573.062775,
+     "actual": 187773.062775
+    },
+    {
+     "path": "$.ok.preferentialIncomeTax",
+     "expected": 124313.65313875,
+     "actual": 123273.65313875
+    },
+    {
+     "path": "$.ok.taxableIncome",
+     "expected": 901073.062775,
+     "actual": 880273.062775
+    },
+    {
+     "path": "$.ok.totalFinalTaxLiability",
+     "expected": 279380.14623732504,
+     "actual": 273972.14623732504
+    },
+    {
+     "path": "$.ok.totalTaxBeforeCredits",
+     "expected": 279380.14623732504,
+     "actual": 273972.14623732504
+    },
+    {
+     "path": "$.ok.underpaymentPenaltyEstimated",
+     "expected": 22166.411698986005,
+     "actual": 21733.771698986002
+    }
+   ]
+  },
+  {
+   "label": "return-19",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-21",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-22",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 600,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 600
+    }
+   ]
+  },
+  {
+   "label": "return-23",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-25",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-26",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-27",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-28",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "return-29",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.nonRefundableCredits.aotcRefundable",
+   "actual": 0,
+   "differences": [
+    {
+     "path": "$.ok.nonRefundableCredits.aotcRefundable",
+     "actual": 0
+    }
+   ]
+  }
+ ]
+}

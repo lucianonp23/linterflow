@@ -1,0 +1,841 @@
+{
+ "subject": "service_high_4",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 40000,
+ "identical": 38079,
+ "different": 1921,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.primaryReason + $.ok.recommendedInterventions[] + $.ok.triageLevel",
+   "cases": 1127,
+   "example": "patient-37"
+  },
+  {
+   "fields": "$.ok.primaryReason",
+   "cases": 682,
+   "example": "patient-70"
+  },
+  {
+   "fields": "$.ok.primaryReason + $.ok.recommendedInterventions[] + $.ok.secondaryFactors[] + $.ok.triageLevel",
+   "cases": 112,
+   "example": "patient-109"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "patient-37",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Hypertensive emergency with acute end-organ dysfunction signs",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Hypertensive emergency with acute end-organ dysfunction signs"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-45",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Neonatal hemodynamically abnormal heart rate (62 bpm)",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Neonatal hemodynamically abnormal heart rate (62 bpm)"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-70",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Exsanguinating hemorrhage with cardiovascular collapse",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Exsanguinating hemorrhage with cardiovascular collapse"
+    }
+   ]
+  },
+  {
+   "label": "patient-87",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Extreme respiratory rate dysfunction (5/min) indicating impending arrest",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Extreme respiratory rate dysfunction (5/min) indicating impending arrest"
+    }
+   ]
+  },
+  {
+   "label": "patient-92",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "High-risk acute coronary syndrome (ACS) / suspected STEMI",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "High-risk acute coronary syndrome (ACS) / suspected STEMI"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)",
+     "actual": "Sepsis Six Bundle initiation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.4",
+     "expected": "Immediate 12-lead ECG within 10 minutes",
+     "actual": "Draw blood cultures prior to broad-spectrum antibiotic administration"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.5",
+     "expected": "Activate Cardiac Catheterization Laboratory",
+     "actual": "Measure serum lactate level"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.6",
+     "expected": "Intramuscular Epinephrine (1:1000) 0.3-0.5mg immediately",
+     "actual": "Administer 30mL/kg crystalloid bolus for hypotension/lactate >= 4"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.7",
+     "expected": "IV Fluid Bolus 20mL/kg",
+     "actual": "Stat 12-lead ECG execution"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.8",
+     "actual": "Aspirin 300mg chewable administration if not contraindicated"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-99",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Extreme respiratory rate dysfunction (5/min) indicating impending arrest",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Extreme respiratory rate dysfunction (5/min) indicating impending arrest"
+    }
+   ]
+  },
+  {
+   "label": "patient-109",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Severe acute physical pain rating (7/10)",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Severe acute physical pain rating (7/10)"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Placement in urgent treatment area"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Target physician evaluation within 30-60 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Targeted laboratory and diagnostic imaging investigations"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)",
+     "actual": "Re-assess vital signs every 30 minutes"
+    },
+    {
+     "path": "$.ok.secondaryFactors.0",
+     "actual": "Asymptomatic or minimally symptomatic severe hypertension"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 3
+    }
+   ]
+  },
+  {
+   "label": "patient-116",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Profound hypotension (Systolic BP 69 mmHg) indicative of severe shock",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Profound hypotension (Systolic BP 69 mmHg) indicative of severe shock"
+    }
+   ]
+  },
+  {
+   "label": "patient-128",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Elevated NEWS2 Aggregate Risk Score (12) requiring urgent medical evaluation",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Elevated NEWS2 Aggregate Risk Score (12) requiring urgent medical evaluation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Placement in urgent treatment area"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Target physician evaluation within 30-60 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Targeted laboratory and diagnostic imaging investigations"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)",
+     "actual": "Re-assess vital signs every 30 minutes"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 3
+    }
+   ]
+  },
+  {
+   "label": "patient-174",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Critical arterial hypoxia (SpO2 78%) below minimum safety threshold",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Critical arterial hypoxia (SpO2 78%) below minimum safety threshold"
+    }
+   ]
+  },
+  {
+   "label": "patient-192",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Extreme hemodynamically unstable heart rate (181 bpm)",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Extreme hemodynamically unstable heart rate (181 bpm)"
+    }
+   ]
+  },
+  {
+   "label": "patient-197",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Extreme respiratory rate dysfunction (6/min) indicating impending arrest",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Extreme respiratory rate dysfunction (6/min) indicating impending arrest"
+    }
+   ]
+  },
+  {
+   "label": "patient-210",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Extreme respiratory rate dysfunction (5/min) indicating impending arrest",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Extreme respiratory rate dysfunction (5/min) indicating impending arrest"
+    }
+   ]
+  },
+  {
+   "label": "patient-215",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Anaphylactic shock with severe respiratory or cardiovascular collapse",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Anaphylactic shock with severe respiratory or cardiovascular collapse"
+    }
+   ]
+  },
+  {
+   "label": "patient-230",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Neonatal fever/hypothermia (35.1°C) requiring sepsis rule-out",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Neonatal fever/hypothermia (35.1°C) requiring sepsis rule-out"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)",
+     "actual": "Sepsis Six Bundle initiation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.4",
+     "actual": "Draw blood cultures prior to broad-spectrum antibiotic administration"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.5",
+     "actual": "Measure serum lactate level"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.6",
+     "actual": "Administer 30mL/kg crystalloid bolus for hypotension/lactate >= 4"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-270",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Acute anaphylactic reaction involving systemic multi-organ manifestations",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Acute anaphylactic reaction involving systemic multi-organ manifestations"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.4",
+     "expected": "Intramuscular Epinephrine (1:1000) 0.3-0.5mg immediately"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.5",
+     "expected": "IV Fluid Bolus 20mL/kg"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-327",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Hypertensive emergency with acute end-organ dysfunction signs",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Hypertensive emergency with acute end-organ dysfunction signs"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-350",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Severe arterial hypoxia (SpO2 86%)",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Severe arterial hypoxia (SpO2 86%)"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-355",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Neonatal hemodynamically abnormal heart rate (62 bpm)",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Neonatal hemodynamically abnormal heart rate (62 bpm)"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-378",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Simple single-system mild symptom presentation",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Simple single-system mild symptom presentation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Standard nursing assessment"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Symptomatic control"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Routine physician evaluation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 4
+    }
+   ]
+  },
+  {
+   "label": "patient-385",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Neonatal fever/hypothermia (35.1°C) requiring sepsis rule-out",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Neonatal fever/hypothermia (35.1°C) requiring sepsis rule-out"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)",
+     "actual": "Sepsis Six Bundle initiation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.4",
+     "actual": "Draw blood cultures prior to broad-spectrum antibiotic administration"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.5",
+     "actual": "Measure serum lactate level"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.6",
+     "actual": "Administer 30mL/kg crystalloid bolus for hypotension/lactate >= 4"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-402",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Severe arterial hypoxia (SpO2 87%)",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Severe arterial hypoxia (SpO2 87%)"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.secondaryFactors.0",
+     "actual": "Asymptomatic or minimally symptomatic severe hypertension"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-407",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Sudden onset thunderclap headache (Suspected Subarachnoid Hemorrhage)",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Sudden onset thunderclap headache (Suspected Subarachnoid Hemorrhage)"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  },
+  {
+   "label": "patient-478",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Simple single-system mild symptom presentation",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Simple single-system mild symptom presentation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Standard nursing assessment"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Symptomatic control"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Routine physician evaluation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 4
+    }
+   ]
+  },
+  {
+   "label": "patient-486",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.primaryReason",
+   "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+   "actual": "Acute neurological deficit within hyperacute stroke intervention window",
+   "differences": [
+    {
+     "path": "$.ok.primaryReason",
+     "expected": "Severe neurological compromise (GCS <= 8) requiring immediate airway protection",
+     "actual": "Acute neurological deficit within hyperacute stroke intervention window"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.0",
+     "expected": "Immediate Resuscitation Room allocation",
+     "actual": "Priority bed placement within 10 minutes"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.1",
+     "expected": "Continuous cardiac, pulse oximetry, and non-invasive BP monitoring",
+     "actual": "Continuous vital sign monitoring"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.2",
+     "expected": "Establish immediate Dual Large-Bore Peripheral IV access (16G/14G)",
+     "actual": "Intravenous catheter placement and baseline laboratory draw"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.3",
+     "expected": "High-flow supplementary Oxygen therapy / Prepare for Rapid Sequence Intubation (RSI)",
+     "actual": "Acute Stroke Team consultation"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.4",
+     "expected": "Code Stroke activation",
+     "actual": "Stat Neuroimaging"
+    },
+    {
+     "path": "$.ok.recommendedInterventions.5",
+     "expected": "Immediate unenhanced Head CT scan request",
+     "actual": "Point-of-care glucose check"
+    },
+    {
+     "path": "$.ok.triageLevel",
+     "expected": 1,
+     "actual": 2
+    }
+   ]
+  }
+ ]
+}

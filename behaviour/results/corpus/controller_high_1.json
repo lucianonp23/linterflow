@@ -1,0 +1,10 @@
+{
+ "subject": "controller_high_1",
+ "arm": "corpus",
+ "cases": 7077,
+ "identical": 7077,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

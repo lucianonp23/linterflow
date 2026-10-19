@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  // NOTE: `exclude` REPLACES the base tsconfig's list, it does not merge with
+  // it. Every experiment folder excluded there has to be repeated here or
+  // `nest build` compiles LLM-generated corpus code — which is expected to
+  // contain type errors, because that is the phenomenon under study.
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist",
+    "scripts",
+    "corpus*",
+    "manual-corpus*",
+    "manual-run*",
+    "temp",
+    "mock-code",
+    // Behavioural-preservation suite: has its own Jest config and contains copies of
+    // corpus files (behaviour/selfcheck-arm) that do not type-check, by design.
+    "behaviour",
+    "**/*spec.ts"
+  ]
+}

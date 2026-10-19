@@ -1,0 +1,10 @@
+{
+ "subject": "controller_medium_2",
+ "arm": "corpus",
+ "cases": 400,
+ "identical": 400,
+ "different": 0,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [],
+ "mismatches": []
+}

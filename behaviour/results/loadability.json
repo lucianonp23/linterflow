@@ -1,0 +1,520 @@
+[
+ {
+  "subject": "controller_high_1",
+  "corpus:exports": [
+   "InsuranceClaimsController"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "InsuranceClaimsController"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "controller_high_2",
+  "corpus:exports": [
+   "LoanApprovalController"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "LoanApprovalController"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "controller_high_3",
+  "corpus:exports": [
+   "CheckoutController"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "CheckoutController"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "controller_high_4",
+  "corpus:exports": [
+   "EmploymentType",
+   "FilingStatus",
+   "GarnishmentType",
+   "PayFrequency",
+   "PayrollController",
+   "USState"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "EmploymentType",
+   "FilingStatus",
+   "GarnishmentType",
+   "PayFrequency",
+   "PayrollController",
+   "USState"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "controller_medium_2",
+  "corpus:exports": [
+   "CreateReservationDto",
+   "ReservationsController",
+   "UpdateReservationDto"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "CreateReservationDto",
+   "ReservationsController",
+   "UpdateReservationDto"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "dto_high_1",
+  "corpus:exports": [
+   "BuyXGetYConfigDto",
+   "CartDto",
+   "CartItemDto",
+   "CustomerProfileDto",
+   "CustomerPurchaseHistoryDto",
+   "CustomerSegmentDto",
+   "CustomerSegmentType",
+   "DiscountType",
+   "EngineErrorCode",
+   "EngineEvaluationResponseDto",
+   "EvaluatePromotionRequestDto",
+   "ExclusionRuleDto",
+   "ExclusionType",
+   "IsAfterDate",
+   "IsAfterDateConstraint",
+   "IsUniqueArray",
+   "PromotionEligibilityEngine",
+   "PromotionEvaluationResultDto",
+   "PromotionRuleDto",
+   "PurchaseHistoryItemDto",
+   "RuleOperator",
+   "SegmentConditionDto",
+   "StackingMode",
+   "UniqueArrayConstraint"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "BuyXGetYConfigDto",
+   "CartDto",
+   "CartItemDto",
+   "CustomerProfileDto",
+   "CustomerPurchaseHistoryDto",
+   "CustomerSegmentDto",
+   "CustomerSegmentType",
+   "DiscountType",
+   "EngineErrorCode",
+   "EngineEvaluationResponseDto",
+   "EvaluatePromotionRequestDto",
+   "ExclusionRuleDto",
+   "ExclusionType",
+   "IsAfterDate",
+   "IsAfterDateConstraint",
+   "IsUniqueArray",
+   "PromotionEligibilityEngine",
+   "PromotionEvaluationResultDto",
+   "PromotionRuleDto",
+   "PurchaseHistoryItemDto",
+   "RuleOperator",
+   "SegmentConditionDto",
+   "StackingMode",
+   "UniqueArrayConstraint"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "dto_high_2",
+  "corpus:exports": [
+   "ConsumptionTierDto",
+   "CustomerProfileDto",
+   "CustomerType",
+   "DayType",
+   "DemandChargeConfigDto",
+   "EnergyTariffEngine",
+   "IntervalReadingDto",
+   "IsContinuousTiers",
+   "IsContinuousTiersConstraint",
+   "IsNonOverlappingTouWindows",
+   "IsNonOverlappingTouWindowsConstraint",
+   "IsValidTariffEffectiveDatesConstraint",
+   "MeterType",
+   "RebateConfigDto",
+   "RebateType",
+   "Season",
+   "SurchargeConfigDto",
+   "SurchargeType",
+   "TariffCalculationRequestDto",
+   "TimeWindowDto",
+   "TouRateDto",
+   "TouRateType",
+   "VoltageLevel"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "ConsumptionTierDto",
+   "CustomerProfileDto",
+   "CustomerType",
+   "DayType",
+   "DemandChargeConfigDto",
+   "EnergyTariffEngine",
+   "IntervalReadingDto",
+   "IsContinuousTiers",
+   "IsContinuousTiersConstraint",
+   "IsNonOverlappingTouWindows",
+   "IsNonOverlappingTouWindowsConstraint",
+   "IsValidTariffEffectiveDatesConstraint",
+   "MeterType",
+   "RebateConfigDto",
+   "RebateType",
+   "Season",
+   "SurchargeConfigDto",
+   "SurchargeType",
+   "TariffCalculationRequestDto",
+   "TimeWindowDto",
+   "TouRateDto",
+   "TouRateType",
+   "VoltageLevel"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "dto_high_3",
+  "corpus": "throws TypeError: (0 , class_validator_1.RegisterDecorator) is not a function",
+  "corpus-run": "throws TypeError: (0 , class_validator_1.RegisterDecorator) is not a function",
+  "sameExports": true
+ },
+ {
+  "subject": "dto_high_4",
+  "corpus:exports": [
+   "CurrencyCode",
+   "DisputeReason",
+   "DisputeStatus",
+   "FXRateDto",
+   "InvoiceDisputeDto",
+   "InvoiceLineItemDto",
+   "InvoiceReconciliationRequestDto",
+   "IsFXRateMapValidConstraint",
+   "IsInvoiceReconciliationValidConstraint",
+   "IsLineItemMathValidConstraint",
+   "PaymentAllocationDto",
+   "PaymentMethod",
+   "RoundingMode",
+   "TaxDetailDto",
+   "TaxType"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "CurrencyCode",
+   "DisputeReason",
+   "DisputeStatus",
+   "FXRateDto",
+   "InvoiceDisputeDto",
+   "InvoiceLineItemDto",
+   "InvoiceReconciliationRequestDto",
+   "IsFXRateMapValidConstraint",
+   "IsInvoiceReconciliationValidConstraint",
+   "IsLineItemMathValidConstraint",
+   "PaymentAllocationDto",
+   "PaymentMethod",
+   "RoundingMode",
+   "TaxDetailDto",
+   "TaxType"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_high_1",
+  "corpus:exports": [
+   "CountryRiskTier",
+   "DocumentType",
+   "KycAmlComplianceMiddleware",
+   "OccupationRisk",
+   "PepTier"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "CountryRiskTier",
+   "DocumentType",
+   "KycAmlComplianceMiddleware",
+   "OccupationRisk",
+   "PepTier"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_high_2",
+  "corpus:exports": [
+   "StudentGradingAndProgressionMiddleware"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "StudentGradingAndProgressionMiddleware"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_high_3",
+  "corpus:exports": [
+   "ReorderPlannerMiddleware"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "ReorderPlannerMiddleware"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_high_4",
+  "corpus:exports": [
+   "AccessControlPolicyMiddleware",
+   "ActionType",
+   "SecurityClassification"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "AccessControlPolicyMiddleware",
+   "ActionType",
+   "SecurityClassification"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_medium_1",
+  "corpus:exports": [
+   "FareEstimationSurgeMiddleware"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "FareEstimationSurgeMiddleware"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_medium_2",
+  "corpus:exports": [
+   "InventoryRestockMiddleware"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "InventoryRestockMiddleware"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_medium_3",
+  "corpus:exports": [
+   "AppointmentValidationMiddleware"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "AppointmentValidationMiddleware"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "middleware_medium_4",
+  "corpus:exports": [
+   "TieredSpreadExchangeMiddleware"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "TieredSpreadExchangeMiddleware"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "repository_high_1",
+  "corpus:exports": [
+   "TelecomBillingRepository"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "TelecomBillingRepository"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "repository_high_2",
+  "corpus:exports": [
+   "BankruptcyType",
+   "EligibilityStatus",
+   "EmploymentStatus",
+   "LoanType",
+   "MortgageEligibilityRepository",
+   "OccupancyType",
+   "PropertyType"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "BankruptcyType",
+   "EligibilityStatus",
+   "EmploymentStatus",
+   "LoanType",
+   "MortgageEligibilityRepository",
+   "OccupancyType",
+   "PropertyType"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "repository_high_3",
+  "corpus:exports": [
+   "CargoType",
+   "JobPriority",
+   "JobStatus",
+   "LogisticsDispatchRepository",
+   "VehicleStatus"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "CargoType",
+   "JobPriority",
+   "JobStatus",
+   "LogisticsDispatchRepository",
+   "VehicleStatus"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "repository_high_4",
+  "corpus:exports": [
+   "CustomerSegment",
+   "DemandTrend",
+   "DynamicPricingRepository",
+   "RoundingMode",
+   "RuleAction"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "CustomerSegment",
+   "DemandTrend",
+   "DynamicPricingRepository",
+   "RoundingMode",
+   "RuleAction"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "repository_medium_3",
+  "corpus:exports": [
+   "SupportTicketRepository",
+   "TicketCategory",
+   "TicketPriority",
+   "TicketStatus"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "SupportTicketRepository",
+   "TicketCategory",
+   "TicketPriority",
+   "TicketStatus"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "repository_medium_4",
+  "corpus:exports": [
+   "AccountStatus",
+   "LoyaltyRepository",
+   "LoyaltyTier"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "AccountStatus",
+   "LoyaltyRepository",
+   "LoyaltyTier"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "service_high_1",
+  "corpus:exports": [
+   "FilingStatus",
+   "TaxAssessmentService"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "FilingStatus",
+   "TaxAssessmentService"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "service_high_2",
+  "corpus:exports": [
+   "ItemCategory",
+   "OrderFulfilmentRoutingService",
+   "PackageType",
+   "SLATier"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "ItemCategory",
+   "OrderFulfilmentRoutingService",
+   "PackageType",
+   "SLATier"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "service_high_3",
+  "corpus:exports": [
+   "ConnectionType",
+   "FraudAction",
+   "FraudDetectionEngineService"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "ConnectionType",
+   "FraudAction",
+   "FraudDetectionEngineService"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ },
+ {
+  "subject": "service_high_4",
+  "corpus:exports": [
+   "Gender",
+   "MedicalTriageService",
+   "PainSeverity",
+   "TriageLevel"
+  ],
+  "corpus": "loads",
+  "corpus-run:exports": [
+   "Gender",
+   "MedicalTriageService",
+   "PainSeverity",
+   "TriageLevel"
+  ],
+  "corpus-run": "loads",
+  "sameExports": true
+ }
+]

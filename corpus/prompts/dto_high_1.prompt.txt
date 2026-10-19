@@ -1,0 +1,5 @@
+Generate a set of TypeScript DTO / validator classes (using class-validator decorators) plus any helper validation logic for the domain below.
+Domain: a promotion eligibility engine (segments, purchase history, stacking, exclusions).
+Scope: a rule-heavy domain with many interacting business rules, edge cases and special conditions. Implement every rule and edge case fully and explicitly, even where this leads to deeply nested conditionals, multiple loops and switch statements.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

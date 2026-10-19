@@ -1,0 +1,168 @@
+{
+  "generatedAt": "2026-08-22T12:08:13.653Z",
+  "globalStats": {
+    "totalFiles": 5,
+    "filesConverged": 5,
+    "filesNotConverged": 0,
+    "filesImproved": 5,
+    "avgIterations": 1.4,
+    "avgDeltaCyclomaticComplexity": -46.2,
+    "avgDeltaMaintainabilityIndex": 20.3958,
+    "avgDeltaDuplicationRate": 0,
+    "avgDeltaCyclomaticViolations": -3.2,
+    "avgDeltaTotalCyclomaticComplexity": 9.8,
+    "filesComplexityRedistributed": 4
+  },
+  "files": [
+    {
+      "filePath": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/corpus-retry/dto_high_2.ts",
+      "initial": {
+        "cyclomaticComplexity": 46,
+        "maintainabilityIndex": 84.788,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 3,
+        "totalCyclomaticComplexity": 104,
+        "functionCount": 25
+      },
+      "final": {
+        "cyclomaticComplexity": 7,
+        "maintainabilityIndex": 96.715,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 0,
+        "totalCyclomaticComplexity": 119,
+        "functionCount": 56
+      },
+      "delta": {
+        "cyclomaticComplexity": -39,
+        "maintainabilityIndex": 11.927000000000007,
+        "duplicationRate": 0,
+        "cyclomaticViolations": -3,
+        "totalCyclomaticComplexity": 15,
+        "functionCount": 31
+      },
+      "iterations": 1,
+      "converged": true,
+      "improved": true
+    },
+    {
+      "filePath": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/corpus-retry/dto_high_1.ts",
+      "initial": {
+        "cyclomaticComplexity": 21,
+        "maintainabilityIndex": 88.759,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 6,
+        "totalCyclomaticComplexity": 151,
+        "functionCount": 43
+      },
+      "final": {
+        "cyclomaticComplexity": 7,
+        "maintainabilityIndex": 105.262,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 0,
+        "totalCyclomaticComplexity": 173,
+        "functionCount": 101
+      },
+      "delta": {
+        "cyclomaticComplexity": -14,
+        "maintainabilityIndex": 16.503,
+        "duplicationRate": 0,
+        "cyclomaticViolations": -6,
+        "totalCyclomaticComplexity": 22,
+        "functionCount": 58
+      },
+      "iterations": 1,
+      "converged": true,
+      "improved": true
+    },
+    {
+      "filePath": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/corpus-retry/controller_high_4.ts",
+      "initial": {
+        "cyclomaticComplexity": 101,
+        "maintainabilityIndex": 52.458,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 1,
+        "totalCyclomaticComplexity": 123,
+        "functionCount": 6
+      },
+      "final": {
+        "cyclomaticComplexity": 10,
+        "maintainabilityIndex": 77.185,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 0,
+        "totalCyclomaticComplexity": 121,
+        "functionCount": 25
+      },
+      "delta": {
+        "cyclomaticComplexity": -91,
+        "maintainabilityIndex": 24.727000000000004,
+        "duplicationRate": 0,
+        "cyclomaticViolations": -1,
+        "totalCyclomaticComplexity": -2,
+        "functionCount": 19
+      },
+      "iterations": 2,
+      "converged": true,
+      "improved": true
+    },
+    {
+      "filePath": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/corpus-retry/controller_high_3.ts",
+      "initial": {
+        "cyclomaticComplexity": 31,
+        "maintainabilityIndex": 70.967,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 5,
+        "totalCyclomaticComplexity": 129,
+        "functionCount": 14
+      },
+      "final": {
+        "cyclomaticComplexity": 9,
+        "maintainabilityIndex": 93.992,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 0,
+        "totalCyclomaticComplexity": 140,
+        "functionCount": 50
+      },
+      "delta": {
+        "cyclomaticComplexity": -22,
+        "maintainabilityIndex": 23.025000000000006,
+        "duplicationRate": 0,
+        "cyclomaticViolations": -5,
+        "totalCyclomaticComplexity": 11,
+        "functionCount": 36
+      },
+      "iterations": 2,
+      "converged": true,
+      "improved": true
+    },
+    {
+      "filePath": "/Users/lucianopena/Documents/LinterFlowApp/linterflow-app/corpus-retry/controller_high_2.ts",
+      "initial": {
+        "cyclomaticComplexity": 75,
+        "maintainabilityIndex": 61.386,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 1,
+        "totalCyclomaticComplexity": 111,
+        "functionCount": 5
+      },
+      "final": {
+        "cyclomaticComplexity": 10,
+        "maintainabilityIndex": 87.183,
+        "duplicationRate": 0,
+        "cyclomaticViolations": 0,
+        "totalCyclomaticComplexity": 114,
+        "functionCount": 23
+      },
+      "delta": {
+        "cyclomaticComplexity": -65,
+        "maintainabilityIndex": 25.797000000000004,
+        "duplicationRate": 0,
+        "cyclomaticViolations": -1,
+        "totalCyclomaticComplexity": 3,
+        "functionCount": 18
+      },
+      "iterations": 1,
+      "converged": true,
+      "improved": true
+    }
+  ]
+}

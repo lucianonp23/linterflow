@@ -1,0 +1,1622 @@
+{
+ "subject": "controller_high_4",
+ "arm": "behaviour/selfcheck-arm",
+ "cases": 10263,
+ "identical": 8804,
+ "different": 1459,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.socialSecurityMatch + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay",
+   "cases": 907,
+   "example": "calculate/1:dailyShifts[2]"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.medicareMatch + $.ok[].ok.results[].employerContributions.socialSecurityMatch + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound + $.ok[].ok.results[].netPay",
+   "cases": 143,
+   "example": "stateful/3"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.matching401k + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.socialSecurityMatch + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound",
+   "cases": 108,
+   "example": "calculate/r52:age[3],dentalInsurancePremium[1],employmentType[0],nightShiftHours[0],overtimeHours[0],percent401k[5],state[3],visionInsurancePremium[1]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay + $.ok.taxes.federalIncomeTax",
+   "cases": 94,
+   "example": "calculate/r96:filingStatus[1],healthInsurancePremium[0],isUnionMember[0],overtimeHours[1],visionInsurancePremium[0],ytdGrossPay[9]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay",
+   "cases": 87,
+   "example": "calculate/r109:garnishmentAmount[0],hasOtherDependentsForGarnishment[0],hasRelocationBonus[0],healthInsurancePremium[2],hsaContribution[2],overtimeHours[1],state[4],ytd401kContribution[2]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.matching401k + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay + $.ok.preTaxDeductions.k401",
+   "cases": 37,
+   "example": "calculate/r376:garnishmentAmount[1],overtimeHours[1],percent401k[6]"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.matching401k + $.ok[].ok.results[].employerContributions.medicareMatch + $.ok[].ok.results[].employerContributions.socialSecurityMatch + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound",
+   "cases": 14,
+   "example": "stateful/1"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.socialSecurityMatch + $.ok.employerContributions.sutaTax + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound",
+   "cases": 13,
+   "example": "calculate/r1021:dailyShifts[10],dentalInsurancePremium[1],fsaContribution[2],garnishmentType[0],gymStipend[0],hasRelocationBonus[0],onCallHours[0],ytdGrossPay[3]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.futaTax + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.socialSecurityMatch + $.ok.employerContributions.sutaTax + $.ok.employerContributions.totalEmployerCost",
+   "cases": 10,
+   "example": "calculate/r62:annualSalary[4],dependentsCount[0],filingStatus[0],gymStipend[0],hourlyRate[3],isUnionMember[0],overtimeHours[0],ytdGrossPay[0]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.matching401k + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay",
+   "cases": 9,
+   "example": "calculate/r2132:age[4],annualSalary[9],cellPhoneStipend[0],doubleTimeHours[0],hourlyRate[4],overtimeHours[1],payFrequency[0],percent401k[6],ytd401kContribution[1]"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.medicareMatch + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound + $.ok[].ok.results[].netPay + $.ok[].ok.results[].taxes.federalIncomeTax",
+   "cases": 8,
+   "example": "stateful/23"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound + $.ok[].ok.results[].netPay + $.ok[].ok.summary.totalBatchEmployerCost + $.ok[].ok.summary.totalBatchGross",
+   "cases": 6,
+   "example": "stateful/115"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay + $.ok.preTaxDeductions.k401",
+   "cases": 4,
+   "example": "calculate/r1636:garnishmentAmount[0],hasRelocationBonus[0],isUnionMember[0],overtimeHours[0],percent401k[0],relocationBonusAmount[2],state[3]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.socialSecurityMatch + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.postTaxDeductions.garnishments",
+   "cases": 2,
+   "example": "calculate/r1438:age[2],dailyShifts[9],dentalInsurancePremium[0],garnishmentAmount[3],garnishmentType[2],payFrequency[0],percent401k[6],state[2],ytd401kContribution[3]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.sutaTax + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay",
+   "cases": 2,
+   "example": "calculate/r3101:hsaContribution[2],isUnionMember[0],overtimeHours[0],ytdGrossPay[1]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.futaTax + $.ok.employerContributions.matching401k + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.socialSecurityMatch + $.ok.employerContributions.sutaTax",
+   "cases": 2,
+   "example": "calculate/r3586:age[2],dependentsCount[1],healthInsurancePremium[0],overtimeHours[1],percent401k[0],regularHours[0],relocationBonusAmount[0],ytdGrossPay[1],ytdHsaContribution[1]"
+  },
+  {
+   "fields": "$.ok + $.threw",
+   "cases": 2,
+   "example": "calculate/r4641:doubleTimeHours[0],flatRoth401k[1],gymStipend[0],hsaContribution[2],overtimeHours[1],state[2]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.medicareMatch + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay + $.ok.taxes.medicareTax",
+   "cases": 2,
+   "example": "calculate/r5476:age[4],dentalInsurancePremium[1],flatRoth401k[1],overtimeHours[0],payFrequency[2],regularHours[0],ytd401kContribution[3],ytdGrossPay[13]"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.futaTax + $.ok[].ok.results[].employerContributions.medicareMatch + $.ok[].ok.results[].employerContributions.socialSecurityMatch + $.ok[].ok.results[].employerContributions.sutaTax + $.ok[].ok.results[].employerContributions.totalEmployerCost",
+   "cases": 2,
+   "example": "stateful/729"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.matching401k + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay + $.ok.postTaxDeductions.roth401k",
+   "cases": 1,
+   "example": "calculate/r654:doubleTimeHours[0],flatRoth401k[2],hsaContribution[2],isUnionMember[0],overtimeHours[0],percent401k[2],visionInsurancePremium[0],ytd401kContribution[0]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay + $.ok.preTaxDeductions.k401 + $.ok.preTaxDeductions.total",
+   "cases": 1,
+   "example": "calculate/r5487:annualSalary[4],dentalInsurancePremium[0],doubleTimeHours[0],employmentType[0],healthInsurancePremium[1],holidayHours[0],overtimeHours[1],payFrequency[3],percent401k[6]"
+  },
+  {
+   "fields": "$.ok.breakdown.overtimePay + $.ok.employerContributions.totalEmployerCost + $.ok.grossPayRound + $.ok.netPay + $.ok.postTaxDeductions.garnishments + $.ok.postTaxDeductions.total",
+   "cases": 1,
+   "example": "calculate/r6543:cellPhoneStipend[0],dailyShifts[9],garnishmentAmount[3],garnishmentType[0],hsaContribution[2],onCallHours[0],regularHours[4]"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.matching401k + $.ok[].ok.results[].employerContributions.medicareMatch + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound + $.ok[].ok.results[].netPay",
+   "cases": 1,
+   "example": "stateful/169"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound + $.ok[].ok.results[].netPay + $.ok[].ok.summary.totalBatchEmployerCost + $.ok[].ok.summary.totalBatchNet",
+   "cases": 1,
+   "example": "stateful/300"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.medicareMatch + $.ok[].ok.results[].employerContributions.socialSecurityMatch + $.ok[].ok.results[].employerContributions.sutaTax + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound",
+   "cases": 1,
+   "example": "stateful/402"
+  },
+  {
+   "fields": "$.ok[].ok.results[].breakdown.overtimePay + $.ok[].ok.results[].employerContributions.matching401k + $.ok[].ok.results[].employerContributions.totalEmployerCost + $.ok[].ok.results[].grossPayRound + $.ok[].ok.results[].netPay + $.ok[].ok.results[].preTaxDeductions.k401",
+   "cases": 1,
+   "example": "stateful/413"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "calculate/1:dailyShifts[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1020,
+   "actual": 850,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1020,
+     "actual": 850
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 35.96,
+     "actual": 33.5
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 153.76,
+     "actual": 143.22
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3289.72,
+     "actual": 3106.71
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2620,
+     "actual": 2450
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2182.34,
+     "actual": 2062.75
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 247.94,
+     "actual": 210.54
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 35.96,
+     "actual": 33.5
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 153.76,
+     "actual": 143.22
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 437.66,
+     "actual": 387.25
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:dailyShifts[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 840,
+   "actual": 700,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 840,
+     "actual": 700
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 33.35,
+     "actual": 31.32
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 142.6,
+     "actual": 133.92
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3095.95,
+     "actual": 2945.24
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2440,
+     "actual": 2300
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2055.71,
+     "actual": 1947.94
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 208.34,
+     "actual": 186.82
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 33.35,
+     "actual": 31.32
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 142.6,
+     "actual": 133.92
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 384.29,
+     "actual": 352.06
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:dailyShifts[4]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 450,
+   "actual": 375,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 450,
+     "actual": 375
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 27.7,
+     "actual": 26.61
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 118.42,
+     "actual": 113.77
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 2676.12,
+     "actual": 2595.38
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2050,
+     "actual": 1975
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 1747.07,
+     "actual": 1686.81
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 156.82,
+     "actual": 147.82
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 27.7,
+     "actual": 26.61
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 118.42,
+     "actual": 113.77
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 302.93,
+     "actual": 288.19
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:dailyShifts[5]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 900,
+   "actual": 750,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 900,
+     "actual": 750
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 34.22,
+     "actual": 32.05
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 146.32,
+     "actual": 137.02
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3160.54,
+     "actual": 2999.07
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2500,
+     "actual": 2350
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2097.92,
+     "actual": 1988.12
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 221.54,
+     "actual": 192.82
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 34.22,
+     "actual": 32.05
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 146.32,
+     "actual": 137.02
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 402.08,
+     "actual": 361.88
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:dailyShifts[6]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1920,
+   "actual": 1600,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1920,
+     "actual": 1600
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 49.01,
+     "actual": 44.37
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 209.56,
+     "actual": 189.72
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 4258.57,
+     "actual": 3914.09
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 3520,
+     "actual": 3200
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2815.49,
+     "actual": 2590.37
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 445.94,
+     "actual": 375.54
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 49.01,
+     "actual": 44.37
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 209.56,
+     "actual": 189.72
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 704.51,
+     "actual": 609.63
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:dailyShifts[8]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 60,
+   "actual": 50,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 60,
+     "actual": 50
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 33.52,
+     "actual": 33.38
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 143.34,
+     "actual": 142.72
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3108.87,
+     "actual": 3098.1
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2452,
+     "actual": 2442
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2064.16,
+     "actual": 2057.12
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 210.98,
+     "actual": 208.78
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 33.52,
+     "actual": 33.38
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 143.34,
+     "actual": 142.72
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 387.84,
+     "actual": 384.88
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:dailyShifts[9]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 180,
+   "actual": 150,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 180,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 23.78,
+     "actual": 23.35
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 101.68,
+     "actual": 99.82
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 2385.46,
+     "actual": 2353.17
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 1780,
+     "actual": 1750
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 1530.12,
+     "actual": 1506.02
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 124.42,
+     "actual": 120.82
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 23.78,
+     "actual": 23.35
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 101.68,
+     "actual": 99.82
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 249.88,
+     "actual": 243.98
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:dailyShifts[10]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 60,
+   "actual": 50,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 60,
+     "actual": 50
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 21.46,
+     "actual": 21.32
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 91.76,
+     "actual": 91.14
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 2213.22,
+     "actual": 2202.46
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 1620,
+     "actual": 1610
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 1401.56,
+     "actual": 1393.53
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 105.22,
+     "actual": 104.02
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 21.46,
+     "actual": 21.32
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 91.76,
+     "actual": 91.14
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 218.44,
+     "actual": 216.47
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:overtimeHours[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 300,
+   "actual": 250,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 300,
+     "actual": 250
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 48.72,
+     "actual": 48
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 208.32,
+     "actual": 205.22
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 4237.04,
+     "actual": 4183.22
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 3500,
+     "actual": 3450
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2801.42,
+     "actual": 2766.25
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 441.54,
+     "actual": 430.54
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 48.72,
+     "actual": 48
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 208.32,
+     "actual": 205.22
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 698.58,
+     "actual": 683.75
+    }
+   ]
+  },
+  {
+   "label": "calculate/1:overtimeHours[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1800,
+   "actual": 1500,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1800,
+     "actual": 1500
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 70.47,
+     "actual": 66.12
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 301.32,
+     "actual": 282.72
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 5851.79,
+     "actual": 5528.84
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 5000,
+     "actual": 4700
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 3843.49,
+     "actual": 3638.44
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 784.72,
+     "actual": 712.72
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 70.47,
+     "actual": 66.12
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 301.32,
+     "actual": 282.72
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 1156.51,
+     "actual": 1061.56
+    }
+   ]
+  },
+  {
+   "label": "calculate/r6:cellPhoneStipend[0],gymStipend[0],overtimeHours[1],payFrequency[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1800,
+   "actual": 1500,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1800,
+     "actual": 1500
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 71.2,
+     "actual": 66.85
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 304.42,
+     "actual": 285.82
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 5980.62,
+     "actual": 5657.67
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 5050,
+     "actual": 4750
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 4314.12,
+     "actual": 4075.97
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 435.26,
+     "actual": 396.37
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 71.2,
+     "actual": 66.85
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 304.42,
+     "actual": 285.82
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 810.88,
+     "actual": 749.03
+    }
+   ]
+  },
+  {
+   "label": "calculate/r27:age[1],filingStatus[2],garnishmentType[0],gymStipend[0],hasRelocationBonus[0],overtimeHours[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1800,
+   "actual": 1500,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1800,
+     "actual": 1500
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 71.2,
+     "actual": 66.85
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 304.42,
+     "actual": 285.82
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 5905.62,
+     "actual": 5582.67
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 5050,
+     "actual": 4750
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 3941.82,
+     "actual": 3736.77
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 732.56,
+     "actual": 660.56
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 71.2,
+     "actual": 66.85
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 304.42,
+     "actual": 285.82
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 1108.18,
+     "actual": 1013.23
+    }
+   ]
+  },
+  {
+   "label": "calculate/r52:age[3],dentalInsurancePremium[1],employmentType[0],nightShiftHours[0],overtimeHours[0],percent401k[5],state[3],visionInsurancePremium[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 300,
+   "actual": 250,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 300,
+     "actual": 250
+    },
+    {
+     "path": "$.ok.employerContributions.matching401k",
+     "expected": 143.84,
+     "actual": 141.84
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 40.61,
+     "actual": 39.99
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 173.62,
+     "actual": 170.99
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 4179.07,
+     "actual": 4123.82
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 3596,
+     "actual": 3546
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 3063.36,
+     "actual": 3025.96
+    },
+    {
+     "path": "$.ok.preTaxDeductions.k401",
+     "expected": 539.4,
+     "actual": 531.9
+    },
+    {
+     "path": "$.ok.preTaxDeductions.total",
+     "expected": 795.65,
+     "actual": 788.15
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 318.41,
+     "actual": 309.06
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 40.61,
+     "actual": 39.99
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 173.62,
+     "actual": 170.99
+    }
+   ]
+  },
+  {
+   "label": "calculate/r54:cellPhoneStipend[0],overtimeHours[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1800,
+   "actual": 1500,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1800,
+     "actual": 1500
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 70.47,
+     "actual": 66.12
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 301.32,
+     "actual": 282.72
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 5926.79,
+     "actual": 5603.84
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 5000,
+     "actual": 4700
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 3918.49,
+     "actual": 3713.44
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 784.72,
+     "actual": 712.72
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 70.47,
+     "actual": 66.12
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 301.32,
+     "actual": 282.72
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 1156.51,
+     "actual": 1061.56
+    }
+   ]
+  },
+  {
+   "label": "calculate/r55:annualSalary[3],dependentsCount[0],fsaContribution[2],holidayHours[0],hourlyRate[5],overtimeHours[1],ytd401kContribution[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 4240.38,
+   "actual": 3533.65,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 4240.38,
+     "actual": 3533.65
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 128.8,
+     "actual": 118.56
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 550.75,
+     "actual": 506.93
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 10299.94,
+     "actual": 9539.14
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 9140.38,
+     "actual": 8433.65
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 6627.47,
+     "actual": 6200.95
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 1833.36,
+     "actual": 1607.21
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 128.8,
+     "actual": 118.56
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 550.75,
+     "actual": 506.93
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 2512.92,
+     "actual": 2232.7
+    }
+   ]
+  },
+  {
+   "label": "calculate/r59:dependentsCount[0],hourlyRate[4],isUnionMember[0],onCallHours[0],overtimeHours[1],relocationBonusAmount[0],visionInsurancePremium[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 18000,
+   "actual": 15000,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 18000,
+     "actual": 15000
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 792.64,
+     "actual": 749.14
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 3389.23,
+     "actual": 3203.23
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 59461.87,
+     "actual": 56232.37
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 54800,
+     "actual": 51800
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 31663.32,
+     "actual": 30002.82
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 18474.81,
+     "actual": 17364.81
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 792.64,
+     "actual": 749.14
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 3389.23,
+     "actual": 3203.23
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 22656.68,
+     "actual": 21317.18
+    }
+   ]
+  },
+  {
+   "label": "calculate/r62:annualSalary[4],dependentsCount[0],filingStatus[0],gymStipend[0],hourlyRate[3],isUnionMember[0],overtimeHours[0],ytdGrossPay[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1081.73,
+   "actual": 901.44,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1081.73,
+     "actual": 901.44
+    },
+    {
+     "path": "$.ok.employerContributions.futaTax",
+     "expected": 41.41,
+     "actual": 40.32
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 98.03,
+     "actual": 95.42
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 419.18,
+     "actual": 408
+    },
+    {
+     "path": "$.ok.employerContributions.sutaTax",
+     "expected": 186.33,
+     "actual": 181.46
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 8125.91,
+     "actual": 7925.88
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 6900.96,
+     "actual": 6720.67
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 5202.57,
+     "actual": 5079.34
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 1094.64,
+     "actual": 1051.37
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 98.03,
+     "actual": 95.42
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 419.18,
+     "actual": 408
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 1611.85,
+     "actual": 1554.79
+    }
+   ]
+  },
+  {
+   "label": "calculate/r75:age[2],dailyShifts[6],dependentsCount[2],hasOtherDependentsForGarnishment[0],isUnionMember[0],percent401k[4],ytdHsaContribution[3]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1920,
+   "actual": 1600,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1920,
+     "actual": 1600
+    },
+    {
+     "path": "$.ok.employerContributions.matching401k",
+     "expected": 140.8,
+     "actual": 128
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 45.95,
+     "actual": 41.59
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 196.47,
+     "actual": 177.82
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 4383.21,
+     "actual": 4027.4
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 3520,
+     "actual": 3200
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2989.5,
+     "actual": 2758.67
+    },
+    {
+     "path": "$.ok.preTaxDeductions.k401",
+     "expected": 211.2,
+     "actual": 192
+    },
+    {
+     "path": "$.ok.preTaxDeductions.total",
+     "expected": 351.2,
+     "actual": 332
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 264.09,
+     "actual": 197.93
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 45.95,
+     "actual": 41.59
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 196.47,
+     "actual": 177.82
+    }
+   ]
+  },
+  {
+   "label": "calculate/r86:dailyShifts[2],gymStipend[0],holidayHours[0],ytd401kContribution[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1020,
+   "actual": 850,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1020,
+     "actual": 850
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 36.69,
+     "actual": 34.22
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 156.86,
+     "actual": 146.32
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3343.55,
+     "actual": 3160.54
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2670,
+     "actual": 2500
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2217.52,
+     "actual": 2097.92
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 258.94,
+     "actual": 221.54
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 36.69,
+     "actual": 34.22
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 156.86,
+     "actual": 146.32
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 452.48,
+     "actual": 402.08
+    }
+   ]
+  },
+  {
+   "label": "calculate/r96:filingStatus[1],healthInsurancePremium[0],isUnionMember[0],overtimeHours[1],visionInsurancePremium[0],ytdGrossPay[9]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1800,
+   "actual": 1500,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1800,
+     "actual": 1500
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 72.28,
+     "actual": 67.93
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 5084.68,
+     "actual": 4780.33
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 5000,
+     "actual": 4700
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 4052.6,
+     "actual": 3828.95
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 814.72,
+     "actual": 742.72
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 72.28,
+     "actual": 67.93
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 899.4,
+     "actual": 823.05
+    }
+   ]
+  },
+  {
+   "label": "calculate/r102:age[4],dailyShifts[2],fsaContribution[4],garnishmentType[2],hasRelocationBonus[0],isUnionMember[0],regularHours[1],state[5]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1020,
+   "actual": 850,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1020,
+     "actual": 850
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 34.26,
+     "actual": 31.79
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 146.49,
+     "actual": 135.95
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3280.75,
+     "actual": 3097.74
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2620,
+     "actual": 2450
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2086.8,
+     "actual": 1968.85
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 222.13,
+     "actual": 190.74
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 34.26,
+     "actual": 31.79
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 146.49,
+     "actual": 135.95
+    },
+    {
+     "path": "$.ok.taxes.stateIncomeTax",
+     "expected": 106.32,
+     "actual": 98.67
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 509.2,
+     "actual": 457.15
+    }
+   ]
+  },
+  {
+   "label": "calculate/r103:filingStatus[2],flatRoth401k[0],fsaContribution[1],overtimeHours[1],relocationBonusAmount[0],ytd401kContribution[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1800,
+   "actual": 1500,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1800,
+     "actual": 1500
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 68.77,
+     "actual": 64.42
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 294.05,
+     "actual": 275.45
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 5842.82,
+     "actual": 5519.87
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 5000,
+     "actual": 4700
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 3844.77,
+     "actual": 3639.21
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 692.41,
+     "actual": 620.92
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 68.77,
+     "actual": 64.42
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 294.05,
+     "actual": 275.45
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 1055.23,
+     "actual": 960.79
+    }
+   ]
+  },
+  {
+   "label": "calculate/r104:dailyShifts[8],filingStatus[0],holidayHours[0],ytdHsaContribution[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 60,
+   "actual": 50,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 60,
+     "actual": 50
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 33.52,
+     "actual": 33.38
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 143.34,
+     "actual": 142.72
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3108.87,
+     "actual": 3098.1
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2452,
+     "actual": 2442
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 2134,
+     "actual": 2125.96
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 141.13,
+     "actual": 139.93
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 33.52,
+     "actual": 33.38
+    },
+    {
+     "path": "$.ok.taxes.socialSecurityTax",
+     "expected": 143.34,
+     "actual": 142.72
+    },
+    {
+     "path": "$.ok.taxes.totalTaxes",
+     "expected": 318,
+     "actual": 316.04
+    }
+   ]
+  },
+  {
+   "label": "calculate/r108:dailyShifts[7],fsaContribution[2],holidayHours[0],percent401k[0],state[0],visionInsurancePremium[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 360,
+   "actual": 300,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 360,
+     "actual": 300
+    },
+    {
+     "path": "$.ok.employerContributions.matching401k",
+     "expected": 24.24,
+     "actual": 23.64
+    },
+    {
+     "path": "$.ok.employerContributions.medicareMatch",
+     "expected": 31.14,
+     "actual": 30.28
+    },
+    {
+     "path": "$.ok.employerContributions.socialSecurityMatch",
+     "expected": 133.14,
+     "actual": 129.46
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 3092.52,
+     "actual": 3027.38
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 2424,
+     "actual": 2364
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 1931.8,
+     "actual": 1887.69
+    },
+    {
+     "path": "$.ok.preTaxDeductions.k401",
+     "expected": 24.24,
+     "actual": 23.64
+    },
+    {
+     "path": "$.ok.preTaxDeductions.total",
+     "expected": 276.55,
+     "actual": 275.95
+    },
+    {
+     "path": "$.ok.taxes.federalIncomeTax",
+     "expected": 185.31,
+     "actual": 178.18
+    },
+    {
+     "path": "$.ok.taxes.medicareTax",
+     "expected": 31.14,
+     "actual": 30.28
+    },
+    {
+     "path": "$.ok.taxes.sdiOrPflTax",
+     "expected": 23.62,
+     "actual": 22.97
+    }
+   ]
+  },
+  {
+   "label": "calculate/r109:garnishmentAmount[0],hasOtherDependentsForGarnishment[0],hasRelocationBonus[0],healthInsurancePremium[2],hsaContribution[2],overtimeHours[1],state[4],ytd401kContribution[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.breakdown.overtimePay",
+   "expected": 1800,
+   "actual": 1500,
+   "differences": [
+    {
+     "path": "$.ok.breakdown.overtimePay",
+     "expected": 1800,
+     "actual": 1500
+    },
+    {
+     "path": "$.ok.employerContributions.totalEmployerCost",
+     "expected": 25000,
+     "actual": 24700
+    },
+    {
+     "path": "$.ok.grossPayRound",
+     "expected": 5000,
+     "actual": 4700
+    },
+    {
+     "path": "$.ok.netPay",
+     "expected": 5000,
+     "actual": 4700
+    }
+   ]
+  }
+ ]
+}

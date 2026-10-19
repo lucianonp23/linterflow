@@ -1,0 +1,5 @@
+Generate a NestJS REST Controller (use @Controller and HTTP method decorators such as @Get/@Post/@Put/@Delete) that exposes endpoints for the domain below and applies the domain rules inline in the handlers.
+Domain: a movie watchlist.
+Scope: a simple domain with very few rules. Implement the operations with mostly straight-line logic and minimal conditional branching.
+Produce a single, self-contained TypeScript file that is syntactically valid and compiles in a NestJS project.
+Return ONLY the raw TypeScript source code — no Markdown fences, no comments explaining the code, no prose before or after.

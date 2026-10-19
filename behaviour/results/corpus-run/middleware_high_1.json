@@ -1,0 +1,819 @@
+{
+ "subject": "middleware_high_1",
+ "arm": "corpus-run",
+ "cases": 6331,
+ "identical": 5430,
+ "different": 901,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.threw.response.evaluation.reasons[] + $.threw.response.evaluation.riskBreakdown.documentRisk",
+   "cases": 441,
+   "example": "applicant-3"
+  },
+  {
+   "fields": "$.ok.req.kycEvaluation.reasons[] + $.ok.req.kycEvaluation.requiredActions[] + $.ok.req.kycEvaluation.riskBreakdown.documentRisk + $.ok.req.kycEvaluation.riskScore",
+   "cases": 382,
+   "example": "applicant-26"
+  },
+  {
+   "fields": "$.ok.req.kycEvaluation.reasons[] + $.ok.req.kycEvaluation.requiredActions[] + $.ok.req.kycEvaluation.riskBreakdown.documentRisk + $.ok.req.kycEvaluation.riskScore + $.ok.req.kycEvaluation.status",
+   "cases": 65,
+   "example": "applicant-109"
+  },
+  {
+   "fields": "$.threw.response.evaluation.reasons[] + $.threw.response.evaluation.requiredActions[] + $.threw.response.evaluation.riskBreakdown.documentRisk + $.threw.response.evaluation.riskScore",
+   "cases": 4,
+   "example": "applicant-273"
+  },
+  {
+   "fields": "$.ok.req.kycEvaluation.reasons[] + $.ok.req.kycEvaluation.requiredActions[] + $.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+   "cases": 4,
+   "example": "applicant-3304"
+  },
+  {
+   "fields": "$.ok + $.threw",
+   "cases": 3,
+   "example": "applicant-89"
+  },
+  {
+   "fields": "$.threw.response.evaluation.reasons[] + $.threw.response.evaluation.requiredActions[] + $.threw.response.evaluation.riskBreakdown.documentRisk",
+   "cases": 2,
+   "example": "applicant-753"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "applicant-3",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 9,
+   "actual": 8,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.7",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.8",
+     "expected": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 160,
+     "actual": 110
+    }
+   ]
+  },
+  {
+   "label": "applicant-7",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 7,
+   "actual": 5,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.3",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "High-risk occupation detected: Casino host"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "High monthly turnover expectation (> $100,000 USD)"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "High-risk occupation detected: Casino host"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.6",
+     "expected": "High monthly turnover expectation (> $100,000 USD)"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 135,
+     "actual": 60
+    }
+   ]
+  },
+  {
+   "label": "applicant-13",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 9,
+   "actual": 8,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "Potential Sanctions list match: Person 0 (Score: 79)"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "Potential Sanctions list match: Person 0 (Score: 79)",
+     "actual": "High-risk occupation detected: Student and crypto miner"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.6",
+     "expected": "High-risk occupation detected: Student and crypto miner",
+     "actual": "Declared turnover inconsistent with student/unemployed status"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.7",
+     "expected": "Declared turnover inconsistent with student/unemployed status",
+     "actual": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.8",
+     "expected": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 150,
+     "actual": 125
+    }
+   ]
+  },
+  {
+   "label": "applicant-26",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 7,
+   "actual": 6,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.5",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "Elevated risk occupation: real_estate agent"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.6",
+     "expected": "Elevated risk occupation: real_estate agent"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.2",
+     "expected": "SUBMIT_PROOF_OF_ADDRESS"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 145,
+     "actual": 120
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 48,
+     "actual": 41
+    }
+   ]
+  },
+  {
+   "label": "applicant-38",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 9,
+   "actual": 8,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.7",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Suspicious or vague source of funds: Cash_savings"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.8",
+     "expected": "Suspicious or vague source of funds: Cash_savings"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.2",
+     "expected": "SUBMIT_PRIMARY_GOVERNMENT_ID"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 200,
+     "actual": 150
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 62,
+     "actual": 50
+    }
+   ]
+  },
+  {
+   "label": "applicant-42",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 4,
+   "actual": 3,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.2",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "High-risk occupation detected: Casino host"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.3",
+     "expected": "High-risk occupation detected: Casino host"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.0",
+     "expected": "SUBMIT_PRIMARY_GOVERNMENT_ID",
+     "actual": "PROVIDE_BUSINESS_LICENSE_AND_TAX_RETURNS"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.1",
+     "expected": "PROVIDE_BUSINESS_LICENSE_AND_TAX_RETURNS"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 120,
+     "actual": 70
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 37,
+     "actual": 24
+    }
+   ]
+  },
+  {
+   "label": "applicant-46",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 6,
+   "actual": 5,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Suspicious or vague source of funds: Gift from uncle"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "Suspicious or vague source of funds: Gift from uncle"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 150,
+     "actual": 100
+    }
+   ]
+  },
+  {
+   "label": "applicant-50",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 10,
+   "actual": 8,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.8",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.9",
+     "expected": "Proof of address mandatory for this risk profile but missing"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 195,
+     "actual": 120
+    }
+   ]
+  },
+  {
+   "label": "applicant-51",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 9,
+   "actual": 8,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.6",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Declared turnover inconsistent with student/unemployed status"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.7",
+     "expected": "Declared turnover inconsistent with student/unemployed status",
+     "actual": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.8",
+     "expected": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.1",
+     "expected": "SUBMIT_PRIMARY_GOVERNMENT_ID",
+     "actual": "SUBMIT_PROOF_OF_WEALTH_SOURCE"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.2",
+     "expected": "SUBMIT_PROOF_OF_WEALTH_SOURCE"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 165,
+     "actual": 115
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 67,
+     "actual": 54
+    }
+   ]
+  },
+  {
+   "label": "applicant-52",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 5,
+   "actual": 4,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.3",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 110,
+     "actual": 60
+    }
+   ]
+  },
+  {
+   "label": "applicant-55",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 9,
+   "actual": 8,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.5",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Potential Sanctions list match: Person 0 (Score: 84)"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.6",
+     "expected": "Potential Sanctions list match: Person 0 (Score: 84)",
+     "actual": "High monthly turnover expectation (> $100,000 USD)"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.7",
+     "expected": "High monthly turnover expectation (> $100,000 USD)",
+     "actual": "Suspicious or vague source of funds: Cash_savings"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.8",
+     "expected": "Suspicious or vague source of funds: Cash_savings"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.4",
+     "expected": "SUBMIT_PRIMARY_GOVERNMENT_ID",
+     "actual": "PERFORM_MANUAL_SANCTION_CLEARANCE"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.5",
+     "expected": "PERFORM_MANUAL_SANCTION_CLEARANCE",
+     "actual": "SUBMIT_ENHANCED_SOURCE_OF_FUNDS_DOCUMENTATION"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.6",
+     "expected": "SUBMIT_ENHANCED_SOURCE_OF_FUNDS_DOCUMENTATION",
+     "actual": "PERFORM_FULL_MANUAL_COMPLIANCE_AUDIT"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.7",
+     "expected": "PERFORM_FULL_MANUAL_COMPLIANCE_AUDIT"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 165,
+     "actual": 115
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 88,
+     "actual": 75
+    }
+   ]
+  },
+  {
+   "label": "applicant-62",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 9,
+   "actual": 8,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.8",
+     "expected": "Proof of address mandatory for this risk profile but missing"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 220,
+     "actual": 195
+    }
+   ]
+  },
+  {
+   "label": "applicant-65",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 7,
+   "actual": 6,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "Elevated risk occupation: Politician"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.6",
+     "expected": "Elevated risk occupation: Politician"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 105,
+     "actual": 80
+    }
+   ]
+  },
+  {
+   "label": "applicant-72",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 7,
+   "actual": 6,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "High-risk occupation detected: Casino host"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.6",
+     "expected": "High-risk occupation detected: Casino host"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 105,
+     "actual": 80
+    }
+   ]
+  },
+  {
+   "label": "applicant-75",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 7,
+   "actual": 6,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.2",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Proof of address mandatory for this risk profile but missing"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.3",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "Elevated risk occupation: real_estate agent"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "Elevated risk occupation: real_estate agent",
+     "actual": "High monthly turnover expectation (> $100,000 USD)"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "High monthly turnover expectation (> $100,000 USD)",
+     "actual": "Suspicious or vague source of funds: Gift from uncle"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.6",
+     "expected": "Suspicious or vague source of funds: Gift from uncle"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 105,
+     "actual": 55
+    }
+   ]
+  },
+  {
+   "label": "applicant-82",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 6,
+   "actual": 5,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.2",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Proof of address mandatory for this risk profile but missing"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.3",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "High-risk occupation detected: Casino host"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "High-risk occupation detected: Casino host",
+     "actual": "Suspicious or vague source of funds: "
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "Suspicious or vague source of funds: "
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 105,
+     "actual": 55
+    }
+   ]
+  },
+  {
+   "label": "applicant-83",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 3,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.2",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.1",
+     "expected": "SUBMIT_PRIMARY_GOVERNMENT_ID"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 110,
+     "actual": 60
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 28,
+     "actual": 16
+    }
+   ]
+  },
+  {
+   "label": "applicant-89",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "actual": "{\"next\":[[]],\"req\":{\"body\":{\"applicantId\":\"APP-1\",\"dateOfBirth\":\"2005-01-16\",\"declaredSourceOfFunds\":\"savings\",\"documents\":[{\"documentNumber\":\"DOC-0\",\"expiryDate\":\"bad-date\",\"faceMatchScore\":65,\"issueDate\":\"2020-07-25T12:00:00.000Z\",\"issuingCountry\":\"NG\",\"mrzCode\":\"TOO-SHORT\",\"qualityScore\":95,\"type\":\"TAX_DECLARATION\"},{\"documentNumber\":\"DOC-1\",\"expiryDate\":\"2031-07-08T12:00:00.000Z\",\"extractedAdd…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "actual": "{\"next\":[[]],\"req\":{\"body\":{\"applicantId\":\"APP-1\",\"dateOfBirth\":\"2005-01-16\",\"declaredSourceOfFunds\":\"savings\",\"documents\":[{\"documentNumber\":\"DOC-0\",\"expiryDate\":\"bad-date\",\"faceMatchScore\":65,\"issueDate\":\"2020-07-25T12:00:00.000Z\",\"issuingCountry\":\"NG\",\"mrzCode\":\"TOO-SHORT\",\"qualityScore\":95,\"type\":\"TAX_DECLARATION\"},{\"documentNumber\":\"DOC-1\",\"expiryDate\":\"2031-07-08T12:00:00.000Z\",\"extractedAdd…"
+    },
+    {
+     "path": "$.threw",
+     "expected": "{\"__error__\":\"ForbiddenException\",\"message\":\"KYC Verification Pending Manual Compliance Review\",\"status\":403,\"response\":{\"error\":\"Forbidden\",\"evaluation\":{\"reasons\":[\"Association with FATF grey-listed jurisdiction: NG\",\"Association with FATF grey-listed jurisdiction: NG\",\"Invalid dates in document TAX_DECLARATION\",\"Invalid dates in document PASSPORT\",\"Invalid dates in document PASSPORT\",\"Proof of …"
+    }
+   ]
+  },
+  {
+   "label": "applicant-93",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 5,
+   "actual": 4,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 170,
+     "actual": 120
+    }
+   ]
+  },
+  {
+   "label": "applicant-94",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 11,
+   "actual": 10,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.10",
+     "expected": "Suspicious or vague source of funds:    "
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.9",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "Suspicious or vague source of funds:    "
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 240,
+     "actual": 215
+    }
+   ]
+  },
+  {
+   "label": "applicant-99",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 7,
+   "actual": 6,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.3",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "High-confidence criminal registry match: Person 1"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "High-confidence criminal registry match: Person 1",
+     "actual": "Tier 2 Politically Exposed Person match: Person 2"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "Tier 2 Politically Exposed Person match: Person 2",
+     "actual": "Declared turnover inconsistent with student/unemployed status"
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.6",
+     "expected": "Declared turnover inconsistent with student/unemployed status"
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 100,
+     "actual": 75
+    }
+   ]
+  },
+  {
+   "label": "applicant-108",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 6,
+   "actual": 5,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.2",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Adverse media / Special Interest Person hit: Person 0"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.3",
+     "expected": "Adverse media / Special Interest Person hit: Person 0",
+     "actual": "Tier 1 Politically Exposed Person match: Person 1"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.4",
+     "expected": "Tier 1 Politically Exposed Person match: Person 1",
+     "actual": "High-risk occupation detected: crypto trader"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.5",
+     "expected": "High-risk occupation detected: crypto trader"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.1",
+     "expected": "SUBMIT_PRIMARY_GOVERNMENT_ID",
+     "actual": "REVIEW_ADVERSE_MEDIA_REPORTS"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.2",
+     "expected": "REVIEW_ADVERSE_MEDIA_REPORTS",
+     "actual": "REQUIRE_SENIOR_MANAGEMENT_APPROVAL"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.3",
+     "expected": "REQUIRE_SENIOR_MANAGEMENT_APPROVAL",
+     "actual": "VERIFY_SOURCE_OF_WEALTH"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.4",
+     "expected": "VERIFY_SOURCE_OF_WEALTH",
+     "actual": "PROVIDE_BUSINESS_LICENSE_AND_TAX_RETURNS"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.5",
+     "expected": "PROVIDE_BUSINESS_LICENSE_AND_TAX_RETURNS"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 145,
+     "actual": 95
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 70,
+     "actual": 57
+    }
+   ]
+  },
+  {
+   "label": "applicant-109",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 3,
+   "actual": 2,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.1",
+     "expected": "No valid primary identity document (Passport, National ID, Drivers License) provided",
+     "actual": "Suspicious or vague source of funds: Cash_savings"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.2",
+     "expected": "Suspicious or vague source of funds: Cash_savings"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.0",
+     "expected": "SUBMIT_PRIMARY_GOVERNMENT_ID"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 80,
+     "actual": 30
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 24,
+     "actual": 11
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.status",
+     "expected": "REQUIRES_STEP_UP",
+     "actual": "APPROVED"
+    }
+   ]
+  },
+  {
+   "label": "applicant-129",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.threw.response.evaluation.reasons.length",
+   "expected": 6,
+   "actual": 5,
+   "differences": [
+    {
+     "path": "$.threw.response.evaluation.reasons.4",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "Suspicious or vague source of funds: "
+    },
+    {
+     "path": "$.threw.response.evaluation.reasons.5",
+     "expected": "Suspicious or vague source of funds: "
+    },
+    {
+     "path": "$.threw.response.evaluation.riskBreakdown.documentRisk",
+     "expected": 135,
+     "actual": 110
+    }
+   ]
+  },
+  {
+   "label": "applicant-134",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.kycEvaluation.reasons.length",
+   "expected": 7,
+   "actual": 6,
+   "differences": [
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.4",
+     "expected": "Proof of address mandatory for this risk profile but missing",
+     "actual": "Elevated risk occupation: real_estate agent"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.5",
+     "expected": "Elevated risk occupation: real_estate agent",
+     "actual": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.reasons.6",
+     "expected": "Suspicious or vague source of funds: unknown"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.requiredActions.1",
+     "expected": "SUBMIT_PROOF_OF_ADDRESS"
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskBreakdown.documentRisk",
+     "expected": 140,
+     "actual": 115
+    },
+    {
+     "path": "$.ok.req.kycEvaluation.riskScore",
+     "expected": 49,
+     "actual": 43
+    }
+   ]
+  }
+ ]
+}

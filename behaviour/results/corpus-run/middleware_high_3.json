@@ -1,0 +1,1838 @@
+{
+ "subject": "middleware_high_3",
+ "arm": "corpus-run",
+ "cases": 2213,
+ "identical": 2064,
+ "different": 149,
+ "differentByFloatNoiseOnly": 0,
+ "differenceSignatures": [
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.rejectedItems[] + $.ok.req.reorderPlanContext.totalOrderValue",
+   "cases": 74,
+   "example": "r68:item[0],item.backorders[0]"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity + $.ok.req.reorderPlanContext.processedItems[].status + $.ok.req.reorderPlanContext.processedItems[].totalCost",
+   "cases": 22,
+   "example": "r72:supplier[0],item.avgDailyDemand[3],item.category[2],params.targetDate[2],supplier.minOrderValue[1],supplier.tier[1]"
+  },
+  {
+   "fields": "$.ok + $.threw",
+   "cases": 18,
+   "example": "r52:item[0],item.unitCost[1],params.allowPartialOrders[0],params.emergencyProcurementMode[0],warehouse.zoneCapacities.AMBIENT.maxCBM[0]"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity + $.ok.req.reorderPlanContext.processedItems[].status",
+   "cases": 16,
+   "example": "multi-58"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.rejectedItems[] + $.ok.req.reorderPlanContext.totalOrderValue + $.ok.req.reorderPlanContext.totalVolumeCBM",
+   "cases": 6,
+   "example": "r123:supplier[0],item.allocatedStock[0],item.demandStdDev[0],params.budgetLimit[1],supplier.leadTimeVarianceDays[1],warehouse.zoneCapacities.AMBIENT.currentCBM[2]"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.globalWarnings[] + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity + $.ok.req.reorderPlanContext.processedItems[].status",
+   "cases": 2,
+   "example": "r185:supplier[0],supplier.minOrderValue[2]"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].adjustedDailyDemand + $.ok.req.reorderPlanContext.processedItems[].allocatedZone",
+   "cases": 2,
+   "example": "multi-18"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.globalWarnings[] + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity",
+   "cases": 2,
+   "example": "multi-428"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.totalOrderValue + $.ok.req.reorderPlanContext.totalVolumeCBM",
+   "cases": 1,
+   "example": "r579:seasonalityRules[4],supplier[0],item.currentStock[0],item.packSize[2],supplier.tier[0],warehouse.maxVolumeCBM[1],warehouse.zoneCapacities.AMBIENT.maxCBM[1]"
+  },
+  {
+   "fields": "$.ok.req.reorderPlanContext.globalWarnings[] + $.ok.req.reorderPlanContext.processedItems[]",
+   "cases": 1,
+   "example": "r1038:method[0],item.moq[0],item.packSize[1],item.storageZone[2],params.emergencyProcurementMode[0],supplier.reliabilityScore[1]"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].allocatedZone + $.ok.req.reorderPlanContext.processedItems[].category",
+   "cases": 1,
+   "example": "multi-148"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity + $.ok.req.reorderPlanContext.processedItems[].status + $.ok.req.reorderPlanContext.processedItems[].totalCost",
+   "cases": 1,
+   "example": "multi-235"
+  },
+  {
+   "fields": "$.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].adjustedDailyDemand + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity + $.ok.req.reorderPlanContext.processedItems[].leadTimeDemand + $.ok.req.reorderPlanContext.processedItems[].netRequirement + $.ok.req.reorderPlanContext.processedItems[].reorderPoint",
+   "cases": 1,
+   "example": "multi-478"
+  },
+  {
+   "fields": "$.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].allocatedZone + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity + $.ok.req.reorderPlanContext.processedItems[].netRequirement + $.ok.req.reorderPlanContext.processedItems[].reorderPoint + $.ok.req.reorderPlanContext.processedItems[].safetyStock",
+   "cases": 1,
+   "example": "multi-568"
+  },
+  {
+   "fields": "$.ok.req.headers.x-reorder-total-value + $.ok.req.reorderPlanContext.budgetUtilizationPct + $.ok.req.reorderPlanContext.capacityUtilizationPct + $.ok.req.reorderPlanContext.processedItems[] + $.ok.req.reorderPlanContext.processedItems[].allocatedZone + $.ok.req.reorderPlanContext.processedItems[].finalOrderQuantity",
+   "cases": 1,
+   "example": "multi-694"
+  }
+ ],
+ "mismatches": [
+  {
+   "label": "r52:item[0],item.unitCost[1],params.allowPartialOrders[0],params.emergencyProcurementMode[0],warehouse.zoneCapacities.AMBIENT.maxCBM[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"next\":[[]],\"req\":{\"body\":{\"items\":[{\"unitCost\":75}],\"params\":{\"allowPartialOrders\":false,\"budgetLimit\":100000,\"emergencyProcurementMode\":true,\"planningHorizonDays\":30,\"targetDate\":\"2026-01-15T12:00:00.000Z\"},\"seasonalityRules\":[],\"supplier\":{\"baseLeadTimeDays\":7,\"blackoutDates\":[],\"id\":\"sup-1\",\"leadTimeVarianceDays\":2,\"minOrderValue\":100,\"name\":\"Acme Supply\",\"operationalDaysMask\":[1,2,3,4,5],\"re…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"next\":[[]],\"req\":{\"body\":{\"items\":[{\"unitCost\":75}],\"params\":{\"allowPartialOrders\":false,\"budgetLimit\":100000,\"emergencyProcurementMode\":true,\"planningHorizonDays\":30,\"targetDate\":\"2026-01-15T12:00:00.000Z\"},\"seasonalityRules\":[],\"supplier\":{\"baseLeadTimeDays\":7,\"blackoutDates\":[],\"id\":\"sup-1\",\"leadTimeVarianceDays\":2,\"minOrderValue\":100,\"name\":\"Acme Supply\",\"operationalDaysMask\":[1,2,3,4,5],\"re…"
+    },
+    {
+     "path": "$.threw",
+     "actual": "{\"__error__\":\"HttpException\",\"message\":\"Reorder planning failed due to unresolvable supply chain constraints\",\"status\":422,\"response\":{\"context\":{\"budgetUtilizationPct\":0,\"capacityUtilizationPct\":0,\"globalWarnings\":[],\"planningTimestamp\":\"2026-01-15T12:00:00.000Z\",\"processedItems\":[],\"rejectedItems\":[{\"adjustedDailyDemand\":0,\"calculatedLeadTime\":0,\"finalOrderQuantity\":0,\"leadTimeDemand\":0,\"netRequ…"
+    }
+   ]
+  },
+  {
+   "label": "r68:item[0],item.backorders[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r70:item[0],item.demandStdDev[2],item.expiryDate[1],item.targetServiceLevel[2],item.unitWeightKG[0],params.targetDate[2],supplier.baseLeadTimeDays[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 31,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 2.05
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r72:supplier[0],item.avgDailyDemand[3],item.category[2],params.targetDate[2],supplier.minOrderValue[1],supplier.tier[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "80000.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "80000.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 80
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 40
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.finalOrderQuantity",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.status",
+     "expected": "OPTIMAL",
+     "actual": "CAPACITY_SCALED"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalCost",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.0",
+     "actual": "Order scaled down to 10000 due to budget limits"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.1",
+     "actual": "Scaled down to 8000 due to AMBIENT zone volume limit"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    }
+   ]
+  },
+  {
+   "label": "r97:seasonalityRules[2],supplier[0],item.allocatedStock[0],item.maxOq[2],params.targetDate[1],supplier.reliabilityScore[0],warehouse.maxVolumeCBM[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "80000.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "80000.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 80
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 40000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.finalOrderQuantity",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.status",
+     "expected": "OPTIMAL",
+     "actual": "CAPACITY_SCALED"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalCost",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.0",
+     "actual": "Order scaled down to 10000 due to budget limits"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.1",
+     "actual": "Scaled down to 8000 due to AMBIENT zone volume limit"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    }
+   ]
+  },
+  {
+   "label": "r100:item[0],item.expiryDate[3],item.moq[3],item.targetServiceLevel[3],item.unitWeightKG[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 1.28
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r101:item[0],path[2],seasonalityRules[3],item.allocatedStock[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r106:item[0],seasonalityRules[1],item.demandStdDev[2],item.unitCost[0],params.targetDate[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [
+       "Peak event active: New Year"
+      ],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r123:supplier[0],item.allocatedStock[0],item.demandStdDev[0],params.budgetLimit[1],supplier.leadTimeVarianceDays[1],warehouse.zoneCapacities.AMBIENT.currentCBM[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": 10,
+      "allocatedZone": "AMBIENT",
+      "calculatedLeadTime": "__NaN__",
+      "category": "STANDARD",
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "sku": "SKU-1",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 1.65
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "allocatedZone": "AMBIENT",
+      "calculatedLeadTime": 0,
+      "category": "STANDARD",
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "sku": "SKU-1",
+      "status": "CAPACITY_SCALED",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "AMBIENT storage zone capacity exceeded"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r126:item[0],item.allocatedStock[1],item.backorders[1],item.targetServiceLevel[0],item.unitCost[1],params.targetDate[1],supplier.leadTimeVarianceDays[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 7,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 3.09
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r173:item[0],method[0],item.currentStock[3],item.expiryDate[1],item.shelfLifeDays[3],params.emergencyProcurementMode[0],params.targetDate[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r185:supplier[0],supplier.minOrderValue[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "80000.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "80000.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 80
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 40
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.globalWarnings.0",
+     "actual": "Total order value $80000.00 is below supplier Minimum Order Value $1000000"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.finalOrderQuantity",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.status",
+     "expected": "OPTIMAL",
+     "actual": "CAPACITY_SCALED"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalCost",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.0",
+     "actual": "Order scaled down to 10000 due to budget limits"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.1",
+     "actual": "Scaled down to 8000 due to AMBIENT zone volume limit"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.2",
+     "actual": "Supplier minimum order value breach - order subject to hold"
+    }
+   ]
+  },
+  {
+   "label": "r197:item[0],seasonalityRules[3],item.expiryDate[4],params.emergencyProcurementMode[0],supplier.baseLeadTimeDays[1],supplier.reliabilityScore[3],supplier.tier[2]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 14,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [
+       "Lead time padded to 13 days due to low supplier score (0)"
+      ],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r199:item[0],item.allocatedStock[0],item.demandStdDev[0],item.targetServiceLevel[0],supplier.tier[0],warehouse.maxVolumeCBM[1],warehouse.zoneCapacities.AMBIENT.maxCBM[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 3.09
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r206:item[0],item.storageZone[2],item.unitVolumeCBM[2],warehouse.zoneCapacities.AMBIENT.maxCBM[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "allocatedZone": "HAZARDOUS",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "allocatedZone": "HAZARDOUS",
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r214:supplier[0],supplier.leadTimeVarianceDays[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "80000.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "80000.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 80
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 40
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.finalOrderQuantity",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.status",
+     "expected": "OPTIMAL",
+     "actual": "CAPACITY_SCALED"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalCost",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.0",
+     "actual": "Order scaled down to 10000 due to budget limits"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.1",
+     "actual": "Scaled down to 8000 due to AMBIENT zone volume limit"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    }
+   ]
+  },
+  {
+   "label": "r250:supplier[0],item.currentStock[1],item.demandStdDev[1],item.unitVolumeCBM[0],item.unitWeightKG[1],supplier.tier[1],warehouse.maxVolumeCBM[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "100000.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "100000.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 100
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 200
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.finalOrderQuantity",
+     "expected": "__NaN__",
+     "actual": 10000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.status",
+     "expected": "OPTIMAL",
+     "actual": "BUDGET_CAP"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalCost",
+     "expected": "__NaN__",
+     "actual": 100000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 10
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 300000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.0",
+     "actual": "Order scaled down to 10000 due to budget limits"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 100000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 10
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 300000
+    }
+   ]
+  },
+  {
+   "label": "r259:item[0],params[0],item.storageZone[1],params.budgetLimit[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok",
+   "expected": "{\"next\":[[]],\"req\":{\"body\":{\"items\":[{\"storageZone\":\"FROZEN\"}],\"params\":{\"budgetLimit\":0},\"seasonalityRules\":[],\"supplier\":{\"baseLeadTimeDays\":7,\"blackoutDates\":[],\"id\":\"sup-1\",\"leadTimeVarianceDays\":2,\"minOrderValue\":100,\"name\":\"Acme Supply\",\"operationalDaysMask\":[1,2,3,4,5],\"reliabilityScore\":90,\"tier\":\"PREFERRED\"},\"warehouse\":{\"availableVolumeCBM\":600,\"availableWeightKG\":30000,\"id\":\"wh-1\",\"maxV…",
+   "differences": [
+    {
+     "path": "$.ok",
+     "expected": "{\"next\":[[]],\"req\":{\"body\":{\"items\":[{\"storageZone\":\"FROZEN\"}],\"params\":{\"budgetLimit\":0},\"seasonalityRules\":[],\"supplier\":{\"baseLeadTimeDays\":7,\"blackoutDates\":[],\"id\":\"sup-1\",\"leadTimeVarianceDays\":2,\"minOrderValue\":100,\"name\":\"Acme Supply\",\"operationalDaysMask\":[1,2,3,4,5],\"reliabilityScore\":90,\"tier\":\"PREFERRED\"},\"warehouse\":{\"availableVolumeCBM\":600,\"availableWeightKG\":30000,\"id\":\"wh-1\",\"maxV…"
+    },
+    {
+     "path": "$.threw",
+     "actual": "{\"__error__\":\"HttpException\",\"message\":\"Reorder planning failed due to unresolvable supply chain constraints\",\"status\":422,\"response\":{\"context\":{\"budgetUtilizationPct\":0,\"capacityUtilizationPct\":0,\"globalWarnings\":[],\"planningTimestamp\":\"2026-01-15T12:00:00.000Z\",\"processedItems\":[],\"rejectedItems\":[{\"adjustedDailyDemand\":0,\"allocatedZone\":\"FROZEN\",\"calculatedLeadTime\":0,\"finalOrderQuantity\":0,\"l…"
+    }
+   ]
+  },
+  {
+   "label": "r285:item[0],path[2],item.category[2],item.maxOq[0],params.budgetLimit[1],warehouse.maxVolumeCBM[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "category": "BULK",
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "category": "BULK",
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r286:item[0],item.demandStdDev[1],item.storageZone[2],supplier.leadTimeVarianceDays[1],supplier.minOrderValue[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "allocatedZone": "HAZARDOUS",
+      "calculatedLeadTime": 9.5,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "allocatedZone": "HAZARDOUS",
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r296:item[0],item.category[3],item.maxOq[0],params.targetDate[0],supplier.minOrderValue[1],warehouse.maxVolumeCBM[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "category": "COLD_STORAGE",
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "category": "COLD_STORAGE",
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r306:supplier[0],item.avgDailyDemand[2],params.targetDate[1],supplier.baseLeadTimeDays[2],warehouse.maxVolumeCBM[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "80000.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "80000.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 80
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.finalOrderQuantity",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.status",
+     "expected": "OPTIMAL",
+     "actual": "CAPACITY_SCALED"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalCost",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 8000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.0",
+     "actual": "Order scaled down to 10000 due to budget limits"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0.warnings.1",
+     "actual": "Scaled down to 8000 due to AMBIENT zone volume limit"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 80000
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 400
+    }
+   ]
+  },
+  {
+   "label": "r317:item[0],supplier[0],item.allocatedStock[0],item.avgDailyDemand[3],item.expiryDate[1],supplier.minOrderValue[2],warehouse.maxVolumeCBM[1]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": 250,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r320:item[0],item.onOrderStock[1],item.unitVolumeCBM[2],params.targetDate[0],supplier.leadTimeVarianceDays[1],warehouse.maxVolumeCBM[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 9.5,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  },
+  {
+   "label": "r324:item[0],item.demandStdDev[2],item.packSize[0]",
+   "floatNoiseOnly": false,
+   "firstDifferenceAt": "$.ok.req.headers.x-reorder-total-value",
+   "expected": "NaN",
+   "actual": "0.00",
+   "differences": [
+    {
+     "path": "$.ok.req.headers.x-reorder-total-value",
+     "expected": "NaN",
+     "actual": "0.00"
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.budgetUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.capacityUtilizationPct",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.processedItems.0",
+     "expected": {
+      "adjustedDailyDemand": "__NaN__",
+      "calculatedLeadTime": 8,
+      "finalOrderQuantity": "__NaN__",
+      "leadTimeDemand": "__NaN__",
+      "netRequirement": "__NaN__",
+      "reorderPoint": "__NaN__",
+      "safetyStock": "__NaN__",
+      "status": "OPTIMAL",
+      "totalCost": "__NaN__",
+      "totalVolumeCBM": "__NaN__",
+      "totalWeightKG": "__NaN__",
+      "warnings": [
+       "Rounded up to pack size multiple of 6"
+      ],
+      "zScore": 0.52
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.rejectedItems.0",
+     "actual": {
+      "adjustedDailyDemand": 0,
+      "calculatedLeadTime": 0,
+      "finalOrderQuantity": 0,
+      "leadTimeDemand": 0,
+      "netRequirement": 0,
+      "reorderPoint": 0,
+      "safetyStock": 0,
+      "status": "BUDGET_CAP",
+      "totalCost": 0,
+      "totalVolumeCBM": 0,
+      "totalWeightKG": 0,
+      "warnings": [
+       "Insufficient budget to meet MOQ"
+      ],
+      "zScore": 0
+     }
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalOrderValue",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalVolumeCBM",
+     "expected": "__NaN__",
+     "actual": 0
+    },
+    {
+     "path": "$.ok.req.reorderPlanContext.totalWeightKG",
+     "expected": "__NaN__",
+     "actual": 0
+    }
+   ]
+  }
+ ]
+}

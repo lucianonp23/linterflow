@@ -1,0 +1,94 @@
+========================================================================
+LinterFlow — guided arm vs naive control arm
+========================================================================
+  paired files            60
+  breached the gate       27
+  already passed the gate 33
+
+------------------------------------------------------------------------
+1. FILES THAT BREACHED THE GATE — did the arm fix them?
+------------------------------------------------------------------------
+  guided (up to 5 iterations)   27/27  100%
+  naive  (one pass)             6/27  22%
+
+  MATCHED EFFORT — one pass each:
+    guided converged on pass 1  17/27  63%
+    naive  single pass          6/27  22%
+
+  The guided arm iterates and the naive arm cannot, having nothing to
+  stop on. The matched-effort row is the closer analogue; the row above
+  it compares the pipeline as built with prompting as practised.
+
+------------------------------------------------------------------------
+2. FILES THAT ALREADY PASSED — did refactoring them anyway cost anything?
+------------------------------------------------------------------------
+  the guided arm did not touch these at all (33 API calls saved)
+  the naive arm refactored all 33; still passing: 33/33
+
+  None were broken. The gate's value here is the calls it avoids, not
+  damage it prevents — report it that way.
+
+------------------------------------------------------------------------
+3. PAIRED COMPARISON ON THE BREACHED FILES (guided Δ vs naive Δ)
+------------------------------------------------------------------------
+  Same file, two treatments. Negative Δ-of-Δ favours the guided arm on
+  "lower is better" metrics, positive favours it on the MI row.
+
+  === CC violations (lower is better) ===
+    mean Δ guided -2.926
+    mean Δ naive  +0.259
+    Wilcoxon W = 0.0  n(non-zero) = 21
+    p = 0.00006  (SIGNIFICANT at 0.05)
+    Cliff's d = +0.798 (large)
+    => guided arm better
+
+  === Max CC per function (lower is better) ===
+    mean Δ guided -38.333
+    mean Δ naive  -30.185
+    Wilcoxon W = 10.0  n(non-zero) = 26
+    p = 0.00003  (SIGNIFICANT at 0.05)
+    Cliff's d = +0.151 (small)
+    => guided arm better
+
+  === Total CC (lower is better — read with the next row) ===
+    mean Δ guided +5.185
+    mean Δ naive  -0.296
+    Wilcoxon W = 89.5  n(non-zero) = 25
+    p = 0.04951  (SIGNIFICANT at 0.05)
+    Cliff's d = -0.274 (small)
+    => naive arm better
+
+  === Decision points = total CC - functions (lower is better) ===
+    mean Δ guided -17.481
+    mean Δ naive  -9.370
+    Wilcoxon W = 40.5  n(non-zero) = 22
+    p = 0.00524  (SIGNIFICANT at 0.05)
+    Cliff's d = +0.294 (small)
+    => guided arm better
+
+  === Function count (context for the two rows above) ===
+    mean Δ guided +22.667
+    mean Δ naive  +9.074
+    Wilcoxon W = 22.0  n(non-zero) = 27
+    p = 0.00006  (SIGNIFICANT at 0.05)
+    Cliff's d = -0.617 (large)
+    => naive arm better
+
+  === Maintainability Index (higher is better) ===
+    mean Δ guided +17.958
+    mean Δ naive  +11.950
+    Wilcoxon W = 20.0  n(non-zero) = 27
+    p = 0.00005  (SIGNIFICANT at 0.05)
+    Cliff's d = -0.380 (medium)
+    => guided arm better
+
+  === Duplication rate % (lower is better) ===
+    mean Δ guided -0.680
+    mean Δ naive  -0.645
+    Wilcoxon W = 3.0  n(non-zero) = 3
+    p = 1.00000  (not significant at 0.05)
+    Cliff's d = +0.000 (negligible)
+    => no significant difference
+
+========================================================================
+Done.
